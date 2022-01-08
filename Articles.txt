@@ -1,0 +1,11 @@
+https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/fayaz (https://www.usenix.org/conference/nsdi20/presentation/yuan very similar papers)
+https://dl.acm.org/doi/pdf/10.1145/2620728.2620751
+https://www.usenix.org/conference/nsdi19/presentation/moon (this sounds cool)
+https://ieeexplore.ieee.org/abstract/document/4510736
+https://www.hindawi.com/journals/misy/2021/1257046/ (explains nicely how p4 works
+
+https://www.quora.com/What-are-the-Network-L2-L3-testing-tools
+https://qr.ae/pG6bM8 
+
+https://www.scribbr.com/dissertation/abstract/ - How to write an abstract
+https://dl.acm.org/doi/pdf/10.1145/3230718.3232104 - Towards a Highly Scalable Network Tester
