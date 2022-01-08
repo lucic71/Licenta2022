@@ -11,3 +11,6 @@ https://www.scribbr.com/dissertation/abstract/ - How to write an abstract
 https://dl.acm.org/doi/pdf/10.1145/3230718.3232104 - Towards a Highly Scalable Network Tester
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8533489 - FlueNT10G: A Programmable FPGA-based
 Network Tester for Multi-10-Gigabit Ethernet
+https://link.springer.com/content/pdf/10.1007%2F978-3-642-28534-9_17.pdf - Flexible High Performance Traffic Generation
+on Commodity Multi–core Platforms
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8961913&casa_token=hKhO7a-rnBEAAAAA:XCI9wAYigwOh0c7FjqFp1eNkA7msRa4QaBEhJCZOGSEwLQSo6ElYBQmeCqhMRQdRFVonlJfP8wDK&tag=1 - Toward Comprehensive Network Verification: Practices, Challenges and Beyond
