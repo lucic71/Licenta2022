@@ -9,3 +9,5 @@ https://qr.ae/pG6bM8
 
 https://www.scribbr.com/dissertation/abstract/ - How to write an abstract
 https://dl.acm.org/doi/pdf/10.1145/3230718.3232104 - Towards a Highly Scalable Network Tester
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8533489 - FlueNT10G: A Programmable FPGA-based
+Network Tester for Multi-10-Gigabit Ethernet
