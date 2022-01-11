@@ -1,0 +1,27 @@
+Network testers currently face a significant drop of flexibility and portability
+when it comes to the evolution of protocol testing in context of new and
+ever-changing technologies and use-cases. Traditionally, network testers were
+aimed to solve ISP (Internet Service Provider) testing criterias such as
+ethernet and L3 latency, throughput, etc. Later, new use cases emerged and so
+new protocols needed to be tested, i.e FCoE for data centers. The requirements
+of a network tester are much more complex with the emergence of automotive,
+medical or IoT industries. Instead of reinventing the wheel for each of these
+industries, we should pay more attention to a network tester that can easily
+incorporate new protocols and use cases. This study aims to explore the control
+plane testing on Linux-based infrastructures using existing Ixia architecture.
+Specifically, we adapt the Ixia control plane testing backend to new platforms,
+thereby illustrating its testing flexibility. In this context, the control plane is
+defined as the part of the network tester which controls how data packets are
+forwarded.
+
+To test our solution of porting the Ixia control plane to new platforms, we carefully
+put together different components of IxOS that were later run on ARM64 devices
+such as Raspberry Pi 4. As a result of that we created a hybrid testing
+ecosystem which included Ixia's old architecture and our new control plane
+solution. The performance was analyzed using metrics such as memory consumption,
+cpu consumption and io workload. The results showed *hopefully good bla bla bla*.
+
+These results suggest that a portable and flexible testing infrastructure using
+Ixia existing architecture is possible and can lay the groundwork for creating
+a flexible network tester that can be adapted to different networking scenarios
+containing various protocols.
