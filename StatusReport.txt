@@ -1,0 +1,8 @@
+13.01:
+  the scientific problem of software portability can be summarized in the following sentence:
+  "we don't know exactly how to achieve a high degree of portability but here is our experience
+  on how to do it for our specific project. we also try to formalize the process but there
+  is still much work to do"
+  it seems to me that this is a very hard problem and the situation may be that we cannot even
+  achieve a solution. when i say solution i have in mind an algorithmic approach to the problem,
+  a cookbook step-by-step solution.
