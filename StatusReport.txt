@@ -6,3 +6,38 @@
   it seems to me that this is a very hard problem and the situation may be that we cannot even
   achieve a solution. when i say solution i have in mind an algorithmic approach to the problem,
   a cookbook step-by-step solution.
+17.01:
+  it seems that software portability is not a concern for companies that have monopoly over the
+  computer market. it makes no sense for microsoft or apple to make efforts to run their software
+  on unix platforms for example because they will lose a lot of money.
+  however, the fact that intel kept backwards compatibility helped developers to write more portable
+  code that could run on different intel-based processors. this strategy helped the company to
+  take considerable advantage and lead the market today.
+  but the end users does not care about marketing strategies at all, they want a software that
+  can run on the hardware devices they have, regardless of the architecture. out of the top of my head,
+  some technologies that can be used to enhance portability are: containers, virtual machines, web
+  technologies and interpreted languages. this sounds great and it seems that portability is not
+  a concern anymore, but what are the tradeoffs regarding performance, code complexity or reliability?
+  
+  portability is categorized into three subcharacteristics:
+    - adaptability
+    - installability
+    - replaceability
+  these three realms of the problems make it more granular, allowing us to have more concise answers
+  regarding questions about software portability.
+  let's think about adaptability first. humans are great adaptable creatures, if not the best. they
+  learn and immitate patterns of behavoiur when put in a new environment in order to fit and survive
+  in it. it might take a few seconds or a few weeks, depending on the difficulty of the environment.
+  software on the other side does not have the ability to learn patterns of behaviour that can help it
+  survive in the new environment we put it in. it is our responsability to prepare the ground for it,
+  and does not come cheap.
+  on an abstract level, we "learn" the software to behave correctly in the intended environment, namely
+  we encode patterns of behavoiur in its structure. that's great because it serves it purpose, but what
+  if a new environment emerges, what happens then? the software must learn meta-patterns, that is
+  interfaces as we understand them from object oriented programming. these interfaces can emerge not
+  only in OOP, there is a common practice in C for example to have a meta-function that calls other
+  functions based on the underlying operating system. however to achieve full performance either as a
+  human or as a software, the existance of meta-patterns or interface is not the only requirement, we also
+  need highly optimised patterns of behaviour or interface implementations. is this the right solution?
+  i would say yes but i'm afraid i might be wrong because hard problems almost never have such simple
+  solutions.
