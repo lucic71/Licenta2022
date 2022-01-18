@@ -5,3 +5,9 @@ CPlaneTester
 MediaLayerTester - because the lowest 3 layers in OSI stack are called Media Layer
 
 For a proper name read the abstract and summarize it in a sentence.
+
+Porting IxOS (legacy?) testing infrastructure on ARM devices
+Bringing portability to IxOS testing infrastructure (this sounds like a proper name for stock kernel)
+System portability on Ixia infrastructure: a case study from ??? to ARM hardware (this title suggests we discuss the scientific problem of software portability using a technical study of porting Ixia software)
+Experience with porting Ixia's testing infrastructure on ARM devices (not bad, not good)
+An overview of software portability: porting IxOS testing infrastructure on ARM devices (a bit too much?)
