@@ -1,3 +1,9 @@
+At the moment the abstract focuses on network testing. Its format is good but
+we need to focus on software portability, not on protocol and network testing
+portability.
+
+--------------------------------------------------------------------------------
+
 Network testers currently face a significant drop of flexibility and portability
 when it comes to the evolution of protocol testing in context of new and
 ever-changing technologies and use-cases. Traditionally, network testers were
