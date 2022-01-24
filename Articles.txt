@@ -18,4 +18,6 @@ https://d1wqtxts1xzle7.cloudfront.net/30773221/20491A-with-cover-page-v2.pdf?Exp
 https://www.researchgate.net/publication/340271565_A_Systematic_Literature_Review_for_Software_Portability_Measurement_Preliminary_Results - A Systematic Literature Review for Software Portability Measurement: Preliminary Results (great summary for software portability from the past decades)
 https://www.proquest.com/openview/01663420235e02163609ca21fae1930c/1?pq-origsite=gscholar&cbl=41798 - nice insight for software portability
 https://arxiv.org/pdf/2201.07845.pdf - How ISO C became unusable for operating systems development
+https://begriffs.com/posts/2018-11-15-c-portability.html - C Portability Lessons from Weird Machines
+(maybe the above article teaches us the importance of following a standard in order to achieve a high degree of portability)
 
