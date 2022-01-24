@@ -20,4 +20,5 @@ https://www.proquest.com/openview/01663420235e02163609ca21fae1930c/1?pq-origsite
 https://arxiv.org/pdf/2201.07845.pdf - How ISO C became unusable for operating systems development
 https://begriffs.com/posts/2018-11-15-c-portability.html - C Portability Lessons from Weird Machines
 (maybe the above article teaches us the importance of following a standard in order to achieve a high degree of portability)
+http://evan.nemerson.com/2021/05/04/portability-is-reliability/ - technical advices for achieving portability
 
