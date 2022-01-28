@@ -41,3 +41,8 @@
   need highly optimised patterns of behaviour or interface implementations. is this the right solution?
   i would say yes but i'm afraid i might be wrong because hard problems almost never have such simple
   solutions.
+  
+"Second, successful software also survives beyond the normal life of the machine vehicle for
+which it is first written. If not new computers, then at least new disks, new displays, new
+printers come along; and the software must be conformed to its new vehicles of opportunity"
+(http://www.cs.unc.edu/techreports/86-020.pdf)
