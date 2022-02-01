@@ -21,3 +21,11 @@
   - Tanenbaum's paper is a good starting point
   - Deliverable: a set of papers discussing the problems
   - Can we find a better (??) description of the problem domain?
+
+# 2022 February 1st, Diploma meeting #11
+
+- LucianP in exam session
+- LucianP will start writing intro or background/related work
+- Looked over portability literature from Lucian
+  - We have a starting point for background and related work
+  - There is little academic work on this, but plenty of web articles
