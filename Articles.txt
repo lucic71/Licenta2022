@@ -26,7 +26,9 @@ https://begriffs.com/posts/2018-11-15-c-portability.html - C Portability Lessons
 http://evan.nemerson.com/2021/05/04/portability-is-reliability/ - technical advices for achieving portability
 http://statspotting.com/the-death-of-portability/
 https://cr.yp.to/docs/unixport.html - UNIX portability notes (does our porting work on all unixes?)
-https://drewdevault.com/2017/11/13/Portability-matters.html
+https://drewdevault.com/2017/11/13/Portability-matters.html\
+https://beeware.org/
+https://flutter.dev/
 
 # Software engineerig
 https://github.com/papers-we-love/papers-we-love/blob/master/design/out-of-the-tar-pit.pdf (nice paper talking about software complexity, does it help us get out of the tar pit ;) )
