@@ -33,6 +33,7 @@ https://flutter.dev/
 # Software engineerig
 https://github.com/papers-we-love/papers-we-love/blob/master/design/out-of-the-tar-pit.pdf (nice paper talking about software complexity, does it help us get out of the tar pit ;) )
 http://www.cs.unc.edu/techreports/86-020.pdf (this paper takes a philosophical take on software, discussing the difference between essence and accidents)
+https://cs.rochester.edu/u/jzhou41/papers/freebsd_checkedc.pdf - i like the layout of this paper
 
 # Porting
 https://news.ycombinator.com/item?id=6110398 - Porting dl.google.com from C++ to Go
