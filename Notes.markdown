@@ -29,3 +29,19 @@
 - Looked over portability literature from Lucian
   - We have a starting point for background and related work
   - There is little academic work on this, but plenty of web articles
+
+# 2022 February 15, Diploma meeting #12
+
+- LucianP in exam session until end of week
+- Semester 2 starts on Feb 28
+- 3 July - diploma project must be ready
+  + Estimated finish time, June 27
+  + 15 weeks of work
+- Discussion on paper/thesis structure
+- Discussion on why portability is important; and problems related to
+  portability
+- RD Timeline
+  + 28 Feb - start work
+  + March 31 - report 1 (document + slides)
+  + May 5 - report 2 (document + slides)
+  + May 30 - final draft
