@@ -47,3 +47,21 @@
   + May 30 - final draft
 
 # 2022 February 28, Diploma meeting #13
+
+- LucianP started working on structure, abstract rework
+- LucianM needs to set milestones, no update here
+- First order of business: abstract
+- Good idea to go through re-review all the articles on next session
+- Code work
+  + One idea: porting the project to Cosmin's repository
+	+ Recompile mini-IM on ARM64
+	+ Deploy mini-IM to ARM64
+	+ Would be nice to get an opinion/estimate from them regarding effort to port protocols to new IM
+	+ Would decouple IM from IxOS
+  + The other idea: reusing the code from internship to evaluate (performance, mostly)
+	+ Redeploy
+	+ Fixing boot issues/bugs (if there are any left)
+  + Start with "the other idea" first, since it's code we own
+  + Diff with Perforce code?
+- Software engineering -- what is the process?
+  + "Development" -- writing a new component, integration, porting, documentation, ???
