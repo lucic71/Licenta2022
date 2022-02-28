@@ -11,6 +11,9 @@
 - Implementation
   + how did we port the IM? (the methodology)
   + what problems occured because the system was to complex?
+- Experimental Evaluation [WIP]
+  + how "easy" (??) was the porting process
+  + comparative performance evaluation of the "before" and "after"?
 - Discussion
   + what role does the documentation play in the porting process?
   + what role does the familiarity of the person working with the system play in the porting process?
