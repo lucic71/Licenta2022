@@ -7,7 +7,7 @@ https://www.hindawi.com/journals/misy/2021/1257046/ (explains nicely how p4 work
 
 # Network testing
 https://www.quora.com/What-are-the-Network-L2-L3-testing-tools
-https://qr.ae/pG6bM8 
+https://qr.ae/pG6bM8
 https://www.scribbr.com/dissertation/abstract/ - How to write an abstract
 https://dl.acm.org/doi/pdf/10.1145/3230718.3232104 - Towards a Highly Scalable Network Tester
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8533489 - FlueNT10G: A Programmable FPGA-based
@@ -29,6 +29,7 @@ https://cr.yp.to/docs/unixport.html - UNIX portability notes (does our porting w
 https://drewdevault.com/2017/11/13/Portability-matters.html\
 https://beeware.org/
 https://flutter.dev/
+[Fork portability problems](https://dl.acm.org/doi/pdf/10.1145/3317550.3321435?casa_token=1Z83R2CbLScAAAAA:HqiJhm1vZYLrqFIrnJ7qhh-GZ8JWoauuA8cdX7zYv43O1vL34OeWut6VtP-1JYUOqqOc7NdcYqoQ)
 
 # Software engineerig
 https://github.com/papers-we-love/papers-we-love/blob/master/design/out-of-the-tar-pit.pdf (nice paper talking about software complexity, does it help us get out of the tar pit ;) )
