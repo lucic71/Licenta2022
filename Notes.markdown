@@ -5,10 +5,11 @@
   + software portability
   + abstract decomposition
   + the domain is not well explored (not in an academic way, the internet is full of people sharing porting experiences)
+  + the first part must introduce the reader into the subject, the second will explain the structure of the article, another part will need to provide our contributions
 - Background
   + quantitative portability paper
   + portability layers (hw, system, application)
-- Implementation
+- Implementation (give this chapter a more specific name: porting IM on RPi)
   + how did we port the IM? (the methodology)
   + what problems occured because the system was to complex?
 - Experimental Evaluation [WIP]
