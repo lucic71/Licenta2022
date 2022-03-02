@@ -40,8 +40,6 @@
 \lhead{}\chead{}\rhead{}
 \lfoot{}\cfoot{\thepage}\rfoot{}
 
-
-
 \newcommand{\HeaderLineSpace}{-0.25cm}
 \newcommand{\UniTextRO}{UNIVERSITATEA POLITEHNICA DIN BUCUREȘTI \\[\HeaderLineSpace]
 FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE \\[\HeaderLineSpace]
@@ -150,11 +148,39 @@ COMPUTER SCIENCE AND ENGINEERING DEPARTMENT\\}
 %%
 %%   Campurile aferente rezumatului
 %%
-\newcommand{\AbstractRO}{Sinopsisul proiectului are rol de introducere, conținând atât o descriere pe scurt a problemei abordate cât și o enumerare sumară a rezultatelor și a concluziilor. Se recomandă ca sinopsisul să fie redactat într-un limbaj accesibil unei persoane nefamiliarizate cu domeniul, dar în același timp destul de specific pentru a oferi rapid o vedere de ansamblu asupra proiectului prezentat.
-Sinopsisul proiectului va fi redactat atât în română cât și în engleză. Ca dimensiunea recomandată aceasta secțiune va avea maxim 200 de cuvinte pentru fiecare variantă. Împreună, ambele variante se vor încadra într-o singură pagină.}
+\newcommand{\AbstractRO}{
+Procesul de portare a sistemelor e un subiect putin explorat in literatura academica si nontrivial in ecosistemul de
+dezvoltare software. Pana in prezent portarea se bazeaza pe metode aleatorii care au la baza factori ca experienta
+persoanei care face portarea sau claritatea sistemului care se vrea portat. Acest studiu ofera o prezentare a
+problemei portarii si portabilitatii software bazandu-ne pe experienta practica de a porta arhitectura de testare Ixia
+plecand de la dispozitivele pentru care a fost initial proiectata (x86, PowerPC, Octeon) pe o arhitectura noua (ARM)
+care prinde din ce in ce mai multa popularitate in ultima vreme mai ales in zone ca Mobile, IoT sau Automotive. In
+acest context, prin proces de portare ne referim la incercarea de a modifica cod sursa, sisteme de build si toolchain-uri
+de compilare si de a scrie documentatie, totul pentru a face sistemul sa ruleze in parametrii optimi pe noua arhitectura.
 
-\newcommand{\AbstractEN}{The abstract has an introductory role and should engulf both a brief description of the issue at hand, as well as an overview of the obtained results and conclusions. The abstract should be formulated such that even somebody that is unfamiliar with the projects’ domain can grasp the objectives of the thesis while, at the same time, retaining a specificity level offering a bird’s eye view of the project.
-The projects’ abstract will be elaborated in both Romanian and English. The recommended size for this section is limited to 200 words for each version. Together, both versions will fit in one page.}
+Pentru a oferi o metodologie de portare software, am pornit ed la sistemul de testare Ixia bazat pe kernelul IxOS.
+Scopul proiectarii sale a fost acela de a oferi trafic de retea de inalta viteza si calitate pentru dispozitivele pe
+care le testeaza, printre acestea se numara routere, switch-uri si alte dispozitive de retea. In contextul dezvoltarii
+rapide a noilor domenii ca IoT sau Automotive, am decis sa inecrcam portarea pe dispozitive RaspberyPi4, care ruleaza
+ARM, in ideea in care putem sa oferim o solutie mai accesibila pentru noile medii de testare. Pentru acomodarea pe
+noua platforma am facut schimbari la modul in care aplicatia interfateaza cu sistemul de operare, am modificat
+toolchain-ul de compilare deoarece nu reusea sa compileze cod pentru noua platforma si in plus am modificat cod
+sursa pentru a putea comunica corect cu celelalte componente ale sistemului.
+
+Testarea s-a desfasurat in mai multe etape. In prima etapa am verificat functionarea corecta a aplicatiei pe noua
+arhitectura folosind teste gandite si scrise de noi, in a doua etapa am evaluat performanta pe noua arhitectura, iar
+in a treia etapa am evaluat portabilitatea aplicatiei folosind cateva tehnici prezentate de Hamza et al
+\cite{ghandorh2020systematic}. Rezultatele arata ca TBD.
+
+Aceste rezutlate sugereaza portarea cu succes (nu stim inca) a aplicatiei pe noul sistem, ajutandu-ne sa formalizam cateva
+tehnici de portare explicate pe larg de-a lungul lucrarii, cum ar fi impartirea si decuplarea unitatilor sistemului
+sau izolarea bucatilor dependente de arhitectura.
+}
+
+\newcommand{\AbstractEN}{
+	bla bla
+}
+
 
 %%
 %%   Campurile aferente paginii de multumiri
