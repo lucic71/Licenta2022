@@ -18,3 +18,29 @@
 - Discussion
   + what role does the documentation play in the porting process?
   + what role does the familiarity of the person working with the system play in the porting process?
+
+# Project Milestones
+
+- 28 Feb - start work
+- March 31 - report 1 (document + slides)
+  - should have draft for intro + background by now
+- April 15 - architecture/implementation draft
+- May 5 - report 2 (document + slides)
+  - some preliminary evaluation work should be done
+  - tight loops for eval + planning here
+- May 30 - final draft
+  - discussion draft should be done by here
+- June 15
+  - what Lucian calls "final draft": thesis should be mostly ready to
+    be delivered at this point
+  - leftover evaluation/implementation tasks
+
+# Evaluation ToDos
+
+- Determine a set of relevant metrics for porting evaluation
+- Determine a set of relevant metrics for experimental evaluation
+- Evaluation testbed
+  - Redeploy old experiment
+  - Fix any remaining bugs (this is a *risk* factor)
+  - Bring-up many test interfaces etc., measure convergence time
+	- IxOS protocols: IPv4, IPv6, DHCP
