@@ -65,3 +65,13 @@
   + Diff with Perforce code?
 - Software engineering -- what is the process?
   + "Development" -- writing a new component, integration, porting, documentation, ???
+
+# 2022 March 7, Diploma meeting #14
+
+- Status
+  + Have an abstract
+  + Intro taking long
+- Planning
+  + Continue writing
+  + Look at Eftime et al., https://www.scientificbulletin.upb.ro/rev_docs_arhiva/full7b9_553681.pdf and other papers on porting
+- LucianM: read papers, subscribe to commits in repo
