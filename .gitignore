@@ -2,3 +2,9 @@
 *~
 *.swp
 src/*.pdf
+src/*.aux
+src/*.bbl
+src/*.blg
+src/*.log
+src/*.out
+src/*.toc

@@ -150,7 +150,7 @@ COMPUTER SCIENCE AND ENGINEERING DEPARTMENT\\}
 %%
 \newcommand{\AbstractRO}{
 Procesul de portare a sistemelor e un subiect putin explorat in literatura academica si nontrivial in ecosistemul de
-dezvoltare software. Pana in prezent portarea se bazeaza pe metode aleatorii care au la baza factori ca experienta
+dezvoltare software. Pana in prezent portarea se bazeaza pe metode ad-hoc \cite{ghandorh2020systematic} care au la baza factori ca experienta
 persoanei care face portarea sau claritatea sistemului care se vrea portat. Acest studiu ofera o prezentare a
 problemei portarii si portabilitatii software bazandu-ne pe experienta practica de a porta arhitectura de testare Ixia
 plecand de la dispozitivele pentru care a fost initial proiectata (x86, PowerPC, Octeon) pe o arhitectura noua (ARM)
@@ -175,6 +175,8 @@ in a treia etapa am evaluat portabilitatea aplicatiei folosind cateva tehnici pr
 Aceste rezutlate sugereaza portarea cu succes (nu stim inca) a aplicatiei pe noul sistem, ajutandu-ne sa formalizam cateva
 tehnici de portare explicate pe larg de-a lungul lucrarii, cum ar fi impartirea si decuplarea unitatilor sistemului
 sau izolarea bucatilor dependente de arhitectura.
+
+Ce ar fi sa adaugam pe langa studiul nostru de IxOS si un studiu al portabilitatii Linux?
 }
 
 \newcommand{\AbstractEN}{
@@ -230,10 +232,16 @@ Parametrii de formatare recomandați pentru lucrare:
  \item Heading3: 12.
  \item Font size pentru formule: 12.
 \end{itemize}
-În cadrul introducerii, este necesară abordarea următoarelor puncte care reprezintă de fapt familiarizarea cititorului (comisia, alți colegi sau experți în domeniu) cu tema proiectului, soluția propusa și cuprinsul/structura lucrării. Deși introducerea poate conține și unele elemente mai generale, se recomandă păstrarea unui limbaj tehnic, specific audienței care va citi lucrarea.
+Porting represents the effort made by software engineers for moving a program from its natural environment to
+another environment. During this article, we will call the former environment "host" and the latter will be
+called "target". If the effort to move the program is lesser than the effort to implement it for the new
+environment then we can state that the program is portable and the porting process is feasible.
 
-În cadrul capitolelor următoare, veți regăsi o serie notații de forma \dezvoltare, \cercetare. Acest tip de formatare este utilizat exclusiv în acest template pentru a marca sfaturi și cerințe specifice pentru lucrări de diploma cu specific diferit. În pregătirea documentului vostru, nu veți utiliza aceste marcaje.
-Elementele pe care trebuie să le abordați în introducere sunt descrise în cadrul subcapitolelor de mai jos.
+The problem of porting applications remains relevant from the beginning of computer engineering. The costs and
+resources invested in writing software for a specific type of hardware make the rewriting impractical for a
+new hardware architecture.
+
+
 \section{Context}
 O scurtă introducere a proiectului, motivație, explicație de ce este relevant domeniul proiectului.
 \section{Problema}
