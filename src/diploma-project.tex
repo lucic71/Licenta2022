@@ -232,15 +232,78 @@ Parametrii de formatare recomandați pentru lucrare:
  \item Heading3: 12.
  \item Font size pentru formule: 12.
 \end{itemize}
-Porting represents the effort made by software engineers for moving a program from its natural environment to
-another environment. During this article, we will call the former environment "host" and the latter will be
-called "target". If the effort to move the program is lesser than the effort to implement it for the new
-environment then we can state that the program is portable and the porting process is feasible.
+There are many reasons why developers port code from one architecture to another. These reasons
+include performance enhancements, deprecation of old hardware or trying to make use of features
+that are available only on a specific architecture. Frakes et al \cite{frakes1995sixteen} discovered
+that the persons involved in the developing process prefer to reuse code instead of build it from
+scratch. This happens because the effort of porting an existing piece of code is often lower than
+the effort of writing it from the ground up. This is true especially in the enterprise environment
+where people try to patch different systems together in order to have a fast deliverable
+\cite{rettig2007trouble}.
 
-The problem of porting applications remains relevant from the beginning of computer engineering. The costs and
-resources invested in writing software for a specific type of hardware make the rewriting impractical for a
-new hardware architecture.
+Software development costs and invested resources are big. We would like to preserve these
+investments when the need for a new architecture arises. To achieve this goal people designed
+programming languages and compilers that increased portability, operating systems that could run
+on multiple hardware platforms \cite{johnson1978unix} and various standards that allowed developers
+to talk to the computer using well defined interfaces \cite{walli1995posix}. However the porting
+process is a non-trivial endeavor up to this day, it is error prone and badly formalized. The
+happens because the initial architecture contains implicit assumptions about the environment as:
+endianess, non-standard compiler behavior or custom changes made in the operating system structure;
+or it may happen because the developers make use of non-portable constructs as ifdefs
+\cite{spencer1992ifdef} or machine dependant code. Moreover these parts of the design and
+environment are recorded in human-readable documents that are hard to preserve over time or the
+information are not recorded at all. Thus forcing the developer to rely on its own experience and
+skills in order to solve the porting problems that will arise.
 
+Ghandorh et al \cite{ghandorh2020systematic} discovered that the porting process relies on ad-hoc
+techniques. Their work presents an unified testing framework for assuring the quality of porting
+a system from one architecture to another. However this does not solve the whole problem as there
+is no standardized process of describing the work of porting per se. Each system has its own
+peculiarities as discussed above, making the standardization process hard to formulate. In this
+paper we try to propose such a standard in order to minimize the efforts and increase the
+productivity of the developers.
+
+To succesfully complete this task, we describe the experience of porting the existing Ixia testing
+infrastructure, IxOS, on ARM devices. Currently it is implemented for x86, MIPS and PowerPC. The
+porting involved multiple stages of planning and execution because the system was heavily rooted
+in its ecosystem, making it hard for us to decouple the desired components. From build system to
+interaction with the other components, IxOS proved itself hard to port because problems and errors
+arose out of nowhere. For example the compilation toolchain had missing macro definition that needed
+to be manually solved, bugs appeared in system libraries because we compiled the code on a new
+hardware architecture and specific zones of logic needed to be hardcoded in order to keep
+compatibility with the ecosystem. However we successfully ported the code on the ARM device of our
+choice, Raspberry Pi 4.
+
+To evaluate our porting results we chose three types of testing:
+\begin{itemize}
+	\item functional testing. We assured using manual testing that the main features of the
+		system were well preserved on the new architecture.
+	\item porting testing. The quality of the porting process was measured using techniques
+		described in Ghandorh et al \cite{ghandorh2020systematic}. Some of these techniques
+		include measurements as environment independecnce, degree of portability or porting
+		costs.
+	\item performance testing. Using this method we tried to understand if the system behaves
+		better or werse than the old architecture in terms of memory consumption, cpu load
+		and total time spend in intensive areas.
+\end{itemize}
+
+In this work we make the following contributions. First, we conduct a comprehensive study on the
+porting process of systems to various architectures, identifying common difficulties,
+inconsistencies and best practices. Second, we expose the experience of porting a large scale
+enterprise project as IxOS on an ARM off-the-shelf board, Raspberry Pi. By doing this we focus on
+the difference between accidental and essential tasks as described by Brooks et al
+\cite{brooks1987no}, i.e. the difference between porting and portability. Third, we propose a
+standardized recipe for porting a system to a new architecture and discuss about the requirements
+for obtaining maximum efficiency for this recipe. The discussion inclueds topics as the
+importance of documentation, efficient methods for documenting ideas and system architecture designs
+that maximize portability.
+
+The rest of this work is organized as follows. Section 2 and 3 discuss the background and related
+work with regards to portability. Section 4 discusses the previous work done inside Keysight that
+facilitated the completion of our porting experiment. Section 5 described the porting of IxOS
+infrastructure on Raspberry Pi. Section 6 explores how the porting process and porting results were
+evaluated. Section 7 gives a retrospective on our work and formalized the porting process. Section
+8 presents a conclusion to this work and enumerates the future work.
 
 \section{Context}
 O scurtă introducere a proiectului, motivație, explicație de ce este relevant domeniul proiectului.
