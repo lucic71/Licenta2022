@@ -149,32 +149,17 @@ COMPUTER SCIENCE AND ENGINEERING DEPARTMENT\\}
 %%   Campurile aferente rezumatului
 %%
 \newcommand{\AbstractRO}{
-Procesul de portare a sistemelor e un subiect putin explorat in literatura academica si nontrivial in ecosistemul de
-dezvoltare software. Pana in prezent portarea se bazeaza pe metode ad-hoc \cite{ghandorh2020systematic} care au la baza factori ca experienta
-persoanei care face portarea sau claritatea sistemului care se vrea portat. Acest studiu ofera o prezentare a
-problemei portarii si portabilitatii software bazandu-ne pe experienta practica de a porta arhitectura de testare Ixia
-plecand de la dispozitivele pentru care a fost initial proiectata (x86, PowerPC, Octeon) pe o arhitectura noua (ARM)
-care prinde din ce in ce mai multa popularitate in ultima vreme mai ales in zone ca Mobile, IoT sau Automotive. In
-acest context, prin proces de portare ne referim la incercarea de a modifica cod sursa, sisteme de build si toolchain-uri
-de compilare si de a scrie documentatie, totul pentru a face sistemul sa ruleze in parametrii optimi pe noua arhitectura.
 
-Pentru a oferi o metodologie de portare software, am pornit ed la sistemul de testare Ixia bazat pe kernelul IxOS.
-Scopul proiectarii sale a fost acela de a oferi trafic de retea de inalta viteza si calitate pentru dispozitivele pe
-care le testeaza, printre acestea se numara routere, switch-uri si alte dispozitive de retea. In contextul dezvoltarii
-rapide a noilor domenii ca IoT sau Automotive, am decis sa inecrcam portarea pe dispozitive RaspberyPi4, care ruleaza
-ARM, in ideea in care putem sa oferim o solutie mai accesibila pentru noile medii de testare. Pentru acomodarea pe
-noua platforma am facut schimbari la modul in care aplicatia interfateaza cu sistemul de operare, am modificat
-toolchain-ul de compilare deoarece nu reusea sa compileze cod pentru noua platforma si in plus am modificat cod
-sursa pentru a putea comunica corect cu celelalte componente ale sistemului.
-
-Testarea s-a desfasurat in mai multe etape. In prima etapa am verificat functionarea corecta a aplicatiei pe noua
-arhitectura folosind teste gandite si scrise de noi, in a doua etapa am evaluat performanta pe noua arhitectura, iar
-in a treia etapa am evaluat portabilitatea aplicatiei folosind cateva tehnici prezentate de Hamza et al
-\cite{ghandorh2020systematic}. Rezultatele arata ca TBD.
-
-Aceste rezutlate sugereaza portarea cu succes (nu stim inca) a aplicatiei pe noul sistem, ajutandu-ne sa formalizam cateva
-tehnici de portare explicate pe larg de-a lungul lucrarii, cum ar fi impartirea si decuplarea unitatilor sistemului
-sau izolarea bucatilor dependente de arhitectura.
+Pana in prezent portarea se bazeaza pe metode ad-hoc care au la baza factori ca experienta
+dezvoltatorului sau claritatea sistemului ce se vrea portat. Acest studiu ofera o prezentare a
+problemei portarii software bazandu-ne pe experienta practica de a porta infrastructura de testare Ixia
+pe arhitectura ARM. Pentru acomodarea pe noua platforma am facut modificari ce tin de interfatarea
+cu sistemul de operare sau de pastrarea compatibilitatii cu celelalte componente ale ecosistemului.
+Testarea s-a desfasurat in mai trei etape: etapa functionala, etapa de performanta si
+evaluarea procesului de portare. Rezultatele arata ca TBD. Aceste rezutlate sugereaza portarea cu
+succes (nu stim inca) a aplicatiei pe noul sistem, ajutandu-ne sa formalizam cateva tehnici de
+portare explicate pe larg de-a lungul lucrarii, cum ar fi impartirea si decuplarea unitatilor
+sistemului sau izolarea bucatilor dependente de arhitectura.
 
 Ce ar fi sa adaugam pe langa studiul nostru de IxOS si un studiu al portabilitatii Linux?
 }
@@ -252,7 +237,7 @@ endianess, non-standard compiler behavior or custom changes made in the operatin
 or it may happen because the developers make use of non-portable constructs as ifdefs
 \cite{spencer1992ifdef} or machine dependant code. Moreover these parts of the design and
 environment are recorded in human-readable documents that are hard to preserve over time or the
-information are not recorded at all. Thus forcing the developer to rely on its own experience and
+information is not recorded at all. Thus forcing the developer to rely on its own experience and
 skills in order to solve the porting problems that will arise.
 
 Ghandorh et al \cite{ghandorh2020systematic} discovered that the porting process relies on ad-hoc
