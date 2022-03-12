@@ -44,3 +44,8 @@
   - Fix any remaining bugs (this is a *risk* factor)
   - Bring-up many test interfaces etc., measure convergence time
 	- IxOS protocols: IPv4, IPv6, DHCP
+
+# Ideas to write about
+
+- how well are defined software processes other than porting? (see Sommerville)
+- what lessons can we learn from Linux as it's the most popular ported software system?
