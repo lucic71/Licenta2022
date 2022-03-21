@@ -84,3 +84,79 @@
 - Planning
   + LucianM to look at background
   + LucianP: think about figures
+
+# 2022 March 21, Diploma meeting #16
+
+- Status
+  - Returning at Uni (almost) fully physical
+  - Writer's block :)
+- Planning
+  - Outline structure for chapters, based on discussion
+  - Ask questions
+  - Restructure, rewrite
+  - Explore?
+- Background/State of The Art
+  - Background: context, terminology (definitions), all the notions that you use to write the paper
+  - State of The Art: what others have done, where they've failed
+  - What is the problem?
+  - What is porting?
+    - What is a (software, hardware) environment?
+    - Multiple things mean "porting"
+    - Porting versus rewriting ---> code reusability
+      - How much do I need to rewrite?
+    - A project is "portable" if most (??) of its code is reusable???
+    - A project might simply *facilitate* portability
+      - C language and compilers, POSIX, emulators
+  - What is portability?
+    - Measure of cost of porting: portability is inversely proportional to cost of porting -- there are papers that attempt (and succeed, to some degree) to evaluate this
+  - Are there "standard" methods of porting software?
+    - The methods are specific to the software and its (source, target) environments
+  - Is portability/porting a solved problem?
+    - Is there a systematic method to optimize the process of porting?
+  - "Portability by design" -- can a project be designed so as it's portable?
+    - We have a few guidelines for this
+      - Use a portable language (C, C++, ...)
+      - Adhere to standards (POSIX) -- many operating systems/compilers/libraries have non-standard features
+      - Problems
+        - Some software is not standardized at all
+        - Some software is not *documented* at all
+        - Some code is badly written (can't grasp its meaning from the content)
+      - See Tanenbaum
+    - How does this apply to our project?
+  - Case study: how to port Linux to a new architecture (LWN article)
+  - Case study: how to target GCC to a new architecture
+  - How does this all relate to my project?
+- "Previous" Ixia stuff
+  - Ixia architecture
+    - Chassis
+    - Card
+      - Traffic engine (HW, SW): for high-speed traffic generation
+      - Ixia Linux environment on HW
+        - Ixia kernel (runs on x86, MIPS, PowerPC)
+        - Ixia user land: one of them is IM
+  - Previous IM + ixstack work
+    - Running IM on a generic Linux kernel
+  - Discussion (do we want to talk about this??)
+    - Cards running with IxOS
+    - Protocols decoupled from IxOS
+    - Perhaps we don't want to talk about this
+- Systematic description of
+  - Project components
+  - Method of porting -- super
+  - Criteria for porting
+  - This chapter is usually called "project architecture"
+  - First thing that could be a part of this chapter
+    - Engineering requirements
+      - Want to be able to run protocols on a Raspberry Pi (or another Linux-based ARM board)
+      - Want to be able to connect with standard Ixia clients (IxExplorer, IxNetwork)
+      - Want to assess performance on new architecture versus old
+    - How do the engineering requirements compare with the existing Ixia solution?
+    - How to port?
+      - Can also mention that this is not a linear process
+      - Challenges of porting
+- Implementation
+  - Experience with porting
+  - Implementation challenges
+- Evaluation
+- ...
+- Conclusions and Future work
