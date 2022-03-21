@@ -75,3 +75,12 @@
   + Continue writing
   + Look at Eftime et al., https://www.scientificbulletin.upb.ro/rev_docs_arhiva/full7b9_553681.pdf and other papers on porting
 - LucianM: read papers, subscribe to commits in repo
+
+# 2022 March 14, Diploma meeting #15
+
+- Status
+  + First draft of intro done
+  + Started writing background
+- Planning
+  + LucianM to look at background
+  + LucianP: think about figures
