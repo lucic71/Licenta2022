@@ -6,5 +6,8 @@ build:
 	pdflatex ${PROJECT}.tex
 	pdflatex ${PROJECT}.tex
 
+show:
+	evince ${PROJECT}.pdf
+
 clean:
 	rm *.aux *.blg *.out *.bbl *.log *.toc *.pdf
