@@ -316,24 +316,32 @@ tools, or by making modifications to the current implementation, for example cho
 software units to make porting more manageable.
 
 Porting is the act of producing an executable version of a software unit or system in a new
-environment based on an existing version \cite{mooney1993issues}. The environment is defined as the
+environment based on an existing version \cite{mooney1993issues}. This is seldom an easy task
+because it involves a good amount of code rafactoring and architectural redesign. It can be
+avoided, however, if the original design has portability incorporated by using constructs as
+multi-platform libraries, modular code or standard compiler behaviors.
+
+Mooney \cite{mooney1993issues} presents two components of the porting process: transporation and
+adaptation. The first is described as the act of moving the system (code or binary executable) to a
+new environment and the latter is described as the act of modifying the system in order to be
+compatible with the new environment. Transportation is facilitated by communication channels
+to the target environment, either online (file sharing systems, remote connections) or physical
+(using data storage devices). If transportation can be neglected, adaptation is more developement
+resources consuming because it implies translating the source code to the new architecture, solving
+possible inconsistencies and making sure that the software system behaves in a well defined manner
+when ran in the new environment.
+
+The environment is defined as the
 set of software and hardware elements that interact with the system. This includes, but it is not
 restricted to: operating system, communication methods, configuration files and system variables,
-hardware architecture or human interaction. Based on the above environment, the software porting
-process can be divided in multiple categories:
-\begin{itemize}
-	\item operating system porting. Given a new hardware, the developer wants to run a piece of
-		code designed for an old hardware on the new hardware.
-	\item system software porting. Given a new operating system, the developer wants to run a
-		piece of code designed for an old operating system on the new operating system.
-	\item application software porting. Given a new set of system software, the developer wants
-		to run a piece of code designed for an old set of system software on the new set of
-		system software.
-\end{itemize}
-The level of porting difficulty grows as the porting process takes place closer to the hardware. This
-holds true because the developer needs to take into account variables that are hidden in the higher
-levels of abstraction, for example: register and memory layout, operating system interfaces or
-inter-process communication.
+hardware architecture or human interaction. Two software environments involved in the porting
+process will never be the same because of the software and hardware inconsistencies. On one hand,
+programs between operating systems will not work, even if the hardware is the same. For example MacOS
+uses MACH for executable files while Linux uses ELF, moreover even if they follow the POSIX
+standard, they may have implementation details that do not align with each other. On the other
+hand, processor architectures vary from one another in the way they understand machine language
+and even if they do not vary, custom hardware attached to these processors makes porting difficult as
+the software must be rewritten in order to accomodate the new periferials.
 
 Portability, on the other hand, referes to the ability of software to be ported to another
 environment. In the real world, a software unit or system can never be fully portable because the
@@ -352,16 +360,6 @@ solution for the zero-cost portability problem but would limit the intrinsic exp
 each standard. Because of these differences between environments, it is more accurate to characterize
 software through a degree of porability, instead of simply saying that a software system is either
 portable or not.
-
-Mooney \cite{mooney1993issues} presents two components of the porting process: transporation and
-adaptation. The first is described as the act of moving the system (code or binary executable) to a
-new environment and the latter is described as the act of modifying the system in order to be
-compatible with the new environment. Transportation is facilitated by communication channels
-to the target environment, either online (file sharing systems, remote connections) or physical
-(using data storage devices). If transportation can be neglected, adaptation is more developement
-resources consuming because it implies translating the source code to the new architecture, solving
-possible inconsistencies and making sure that the software system behaves in a well defined manner
-when ran in the new environment.
 
 \chapter{Studiu de Piață / Metode Existente}
 \dezvoltare Ce soluții similare există pe piață? Care sunt limitările lor / pentru ce cazuri de utilizare sau pentru ce tip de clienți produsele existente pe piață nu răspund cerințelor? Care sunt indicatorii pe baza cărora sunt evaluate aceste produse, de către potențiali clienți, și unde sunt lipsurile/ care este oportunitatea generată de lipsurile acestea?
