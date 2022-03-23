@@ -218,18 +218,17 @@ Parametrii de formatare recomandați pentru lucrare:
 \end{itemize}
 There are many reasons why developers port code from one architecture to another. These reasons
 include performance enhancements, deprecation of old hardware or trying to make use of features
-that are available only on a specific architecture. Frakes et al \cite{frakes1995sixteen} discovered
+that are available only on a specific architecture. Frakes et al~\cite{frakes1995sixteen} discovered
 that the persons involved in the developing process prefer to reuse code instead of build it from
 scratch. This happens because the effort of porting an existing piece of code is often lower than
 the effort of writing it from the ground up. This is true especially in the enterprise environment
-where people try to patch different systems together in order to have a fast deliverable
-\cite{rettig2007trouble}.
+where people try to patch different systems together in order to have a fast deliverable~\cite{rettig2007trouble}.
 
 Software development costs and invested resources are big. We would like to preserve these
 investments when the need for a new architecture arises. To achieve this goal people designed
 programming languages and compilers that increased portability, operating systems that could run
-on multiple hardware platforms \cite{johnson1978unix} and various standards that allowed developers
-to talk to the computer using well defined interfaces \cite{walli1995posix}. However the porting
+on multiple hardware platforms~\cite{johnson1978unix} and various standards that allowed developers
+to talk to the computer using well defined interfaces~\cite{walli1995posix}. However the porting
 process is a non-trivial endeavor up to this day, it is error prone and badly formalized. The
 happens because the initial architecture contains implicit assumptions about the environment as:
 endianess, non-standard compiler behavior or custom changes made in the operating system structure;
@@ -239,7 +238,7 @@ environment are recorded in human-readable documents that are hard to preserve o
 information is not recorded at all. Thus forcing the developer to rely on its own experience and
 skills in order to solve the porting problems that will arise.
 
-Ghandorh et al \cite{ghandorh2020systematic} discovered that the porting process relies on ad-hoc
+Ghandorh et al~\cite{ghandorh2020systematic} discovered that the porting process relies on ad-hoc
 techniques. Their work presents an unified testing framework for assuring the quality of porting
 a system from one architecture to another. However this does not solve the whole problem as there
 is no standardized process of describing the work of porting per se. Each system has its own
@@ -263,7 +262,7 @@ To evaluate our porting results we chose three types of testing:
 	\item functional testing. We assured using manual testing that the main features of the
 		system were well preserved on the new architecture.
 	\item porting testing. The quality of the porting process was measured using techniques
-		described in Ghandorh et al \cite{ghandorh2020systematic}. Some of these techniques
+		described in Ghandorh et al~\cite{ghandorh2020systematic}. Some of these techniques
 		include measurements as environment independecnce, degree of portability or porting
 		costs.
 	\item performance testing. Using this method we tried to understand if the system behaves
@@ -275,8 +274,8 @@ In this work we make the following contributions. First, we conduct a comprehens
 porting process of systems to various architectures, identifying common difficulties,
 inconsistencies and best practices. Second, we expose the experience of porting a large scale
 enterprise project as IxOS on an ARM off-the-shelf board, Raspberry Pi. By doing this we focus on
-the difference between accidental and essential tasks as described by Brooks et al
-\cite{brooks1987no}, i.e. the difference between porting and portability. Third, we propose a
+the difference between accidental and essential tasks as described by Brooks et al~\cite{brooks1987no},
+i.e. the difference between porting and portability. Third, we propose a
 standardized recipe for porting a system to a new architecture and discuss about the requirements
 for obtaining maximum efficiency for this recipe. The discussion inclueds topics as the
 importance of documentation, efficient methods for documenting ideas and system architecture designs
@@ -307,7 +306,7 @@ Un paragraf în care fiecare dintre secțiunile următoare este prezentată în 
 \chapter{Background and Related Work}
 
 A software process is a sequence of activities that lead to the production of a software system
-when executed \cite{humphrey1995discipline}. These processes can be observed in all kinds of
+when executed~\cite{humphrey1995discipline}. These processes can be observed in all kinds of
 software development settings, allowing people who use them to have a well defined set of
 expectations and results after implementing the respective process. Porting can be regarded as a
 software process, making possible for the developers to decide if the practice of porting a software
@@ -316,12 +315,12 @@ tools, or by making modifications to the current implementation, for example cho
 software units to make porting more manageable.
 
 Porting is the act of producing an executable version of a software unit or system in a new
-environment based on an existing version \cite{mooney1993issues}. This is seldom an easy task
+environment based on an existing version~\cite{mooney1993issues}. This is seldom an easy task
 because it involves a good amount of code rafactoring and architectural redesign. It can be
 avoided, however, if the original design has portability incorporated by using constructs as
 multi-platform libraries, modular code or standard compiler behaviors.
 
-Mooney \cite{mooney1993issues} presents two components of the porting process: transporation and
+Mooney~\cite{mooney1993issues} presents two components of the porting process: transporation and
 adaptation. The first is described as the act of moving the system (code or binary executable) to a
 new environment and the latter is described as the act of modifying the system in order to be
 compatible with the new environment. Transportation is facilitated by communication channels
@@ -343,14 +342,14 @@ hand, processor architectures vary from one another in the way they understand m
 and even if they do not vary, custom hardware attached to these processors makes porting difficult as
 the software must be rewritten in order to accomodate the new periferials.
 
-Portability, on the other hand, referes to the ability of software to be ported to another
+Portability referes to the ability of software to be ported to another
 environment. In the real world, a software unit or system can never be fully portable because the
 environments have their own peculiarities. Even though standards help in situations as this one,
 they cannot solve the whole problem of zero-cost portability. This happens because each standard
 focuses on specific requirements that the standardized system must meet. For example POSIX
 (ISO/IEC 9945-1) was designed to ease the task of cross-platform software development by
 establishing a set of guidelines for operating system vendors to follow. On the other hand CTRON
-standard \cite{wasano1989application} was designed for common application to network nodes, whether
+standard~\cite{wasano1989application} was designed for common application to network nodes, whether
 for switching, communications
 processing, or information processing, and is aimed at improved portability through realtime
 performance and fault tolerance. The two standards clearly share a common ground, namely portability,
@@ -360,6 +359,16 @@ solution for the zero-cost portability problem but would limit the intrinsic exp
 each standard. Because of these differences between environments, it is more accurate to characterize
 software through a degree of porability, instead of simply saying that a software system is either
 portable or not.
+
+The degree of portability is directly characterized by the cost of porting (CP) and the cost of
+redevelopment (CD). If CP is greater than CD then porting is more costly and should be avoided,
+otherwise porting is the preferred solution. This metric is mostly useful when the developers are
+given a software unit and a new environment, so that they must decide whether is more favorable
+to port the software unit or to rewrite it for the new environment. However the cost of porting
+and cost of redevelopment are generic notions that must be deeply analyzed in order to achieve
+clear results. This analysis is highly dependent on each software project and must consider
+factors as: experience of developers, quality of code and documentation or software units
+complexity.
 
 \chapter{Studiu de Piață / Metode Existente}
 \dezvoltare Ce soluții similare există pe piață? Care sunt limitările lor / pentru ce cazuri de utilizare sau pentru ce tip de clienți produsele existente pe piață nu răspund cerințelor? Care sunt indicatorii pe baza cărora sunt evaluate aceste produse, de către potențiali clienți, și unde sunt lipsurile/ care este oportunitatea generată de lipsurile acestea?
@@ -392,7 +401,7 @@ Criterii pentru calificativul \textit{Bine}:
 \section{Indicații formatare figuri}
 
 Figurile utilizate în document vor fi centrate și numerotate (de exemplu Figura~\ref{fig:pic1}).
-Orice figură ce nu este realizată de către autorul lucrării va fi în mod obligatoriu citată fie la final (de exemplu Figura ~\ref{fig:pic2} este preluată din documentul \cite{}), fie cel puțin într-o notă de subsol (a se vedea Figura~\ref{fig:pic2}). Orice figură ce depășește ca dimensiune 50\% dintr-o pagină, va fi mutată la anexe. Toate figurile din cadrul tezei vor fi referite în text. Exemplu: Figura~\ref{fig:pic1} prezintă o schemă de principiu pentru un amplificator inversor cu AO.
+Orice figură ce nu este realizată de către autorul lucrării va fi în mod obligatoriu citată fie la final (de exemplu Figura ~\ref{fig:pic2} este preluată din documentul~\cite{}), fie cel puțin într-o notă de subsol (a se vedea Figura~\ref{fig:pic2}). Orice figură ce depășește ca dimensiune 50\% dintr-o pagină, va fi mutată la anexe. Toate figurile din cadrul tezei vor fi referite în text. Exemplu: Figura~\ref{fig:pic1} prezintă o schemă de principiu pentru un amplificator inversor cu AO.
 
 \begin{figure}[th]
 \centering
