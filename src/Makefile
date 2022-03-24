@@ -10,4 +10,4 @@ show:
 	evince ${PROJECT}.pdf
 
 clean:
-	rm *.aux *.blg *.out *.bbl *.log *.toc *.pdf
+	rm -f *.aux *.blg *.out *.bbl *.log *.toc *.pdf
