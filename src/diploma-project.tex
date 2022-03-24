@@ -305,7 +305,13 @@ Un paragraf în care fiecare dintre secțiunile următoare este prezentată în 
 
 \chapter{Background and Related Work}
 
-A software process is a sequence of activities that lead to the production of a software system
+While developing complex software, developers tend to focus on writing code for a given set of
+requirements. These requirements, however, need adaptation as they change throughout the life
+of the software project. Thus, software code must also adapt to the new requirements. When the
+adaptation process consists of a change in the software or hardware environment, it is called
+porting process, from the Latin \textit{portare}. i.e. "to carry"~\cite{etymology}.
+
+In general, a software process is a sequence of activities that lead to the production of a software system
 when executed~\cite{humphrey1995discipline}. These processes can be observed in all kinds of
 software development settings, allowing people who use them to have a well defined set of
 expectations and results after implementing the respective process. Porting can be regarded as a
@@ -314,7 +320,7 @@ system can be improved by investing more resources as human power or automated s
 tools, or by making modifications to the current implementation, for example choosing to refactor
 software units to make porting more manageable.
 
-Porting is the act of producing an executable version of a software unit or system in a new
+In particular, porting is the act of producing an executable version of a software unit or system in a new
 environment based on an existing version~\cite{mooney1993issues}. This is seldom an easy task
 because it involves a good amount of code rafactoring and architectural redesign. It can be
 avoided, however, if the original design has portability incorporated by using constructs as
@@ -369,6 +375,14 @@ and cost of redevelopment are generic notions that must be deeply analyzed in or
 clear results. This analysis is highly dependent on each software project and must consider
 factors as: experience of developers, quality of code and documentation or software units
 complexity.
+
+When introducing portability as a requirement in a software project, one must carefully analyze all
+the aspects of the different environments that will operate with the project. Some of the most
+important aspects are: CPU architectures, operating systems, compilers and build environments.
+The differences underlying the CPU architecture expose themselves in many ways to developers, from
+word size and word order to word alignment. Exotic machines as Unisys 1100/2200 had 9 bit chars
+and 36 bit ints and longs, using ones' complement binary logic, pointers that cannot be treated
+as integers and function pointers that are 8 words long.
 
 \chapter{Studiu de Piață / Metode Existente}
 \dezvoltare Ce soluții similare există pe piață? Care sunt limitările lor / pentru ce cazuri de utilizare sau pentru ce tip de clienți produsele existente pe piață nu răspund cerințelor? Care sunt indicatorii pe baza cărora sunt evaluate aceste produse, de către potențiali clienți, și unde sunt lipsurile/ care este oportunitatea generată de lipsurile acestea?
