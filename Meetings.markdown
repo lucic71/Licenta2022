@@ -160,3 +160,36 @@
 - Evaluation
 - ...
 - Conclusions and Future work
+
+# 2022 March 28, Diploma meeting #17
+
+- Status
+  * This weekend: first diploma report
+    - Motivation and objectives need to be clear
+    - Evaluation, metrics
+    - Insights, lessons learned
+  * First diploma report will be a set of slides
+  * Intro and background drafts are ready
+  * Motivation: how are people going to react to our particular choice
+    of software?
+    - Technical: want to explore existing Ixia software on new architectures
+      - Ixia infrastructure is being used by industry-leading customers
+        (Cisco, Broadcom) for testing
+      - Makes sense to see if it can be used in more flexible
+        environments (embedded etc.)
+    - Academic: can we find something new from our experience? how does
+      it relate to existing work?
+    - How relevant is portability to software engineering?
+      - Cost of porting
+      - How does "portability" influence design/implementation choices
+- Planning
+  * LucianM *must* review LucianP's writing so far
+  * LucianP
+    - Presentation on Sun: 5 min
+      - 1 min context and motivation
+      - 1 min background
+      - 2 min current status of project
+      - 1 min what's next
+    - Related work: small write-ups
+- Discussion
+  * What should the related work section contain?
