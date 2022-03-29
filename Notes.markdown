@@ -49,3 +49,7 @@
 
 - how well are defined software processes other than porting? (see Sommerville)
 - what lessons can we learn from Linux as it's the most popular ported software system?
+
+# Report 1
+
+- [Google Slides link](https://docs.google.com/presentation/d/15sXp6gKmoUbNaJJearsRxT79vbwc3U4E/edit?usp=sharing&ouid=102915141630231344771&rtpof=true&sd=true)
