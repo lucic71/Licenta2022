@@ -193,3 +193,14 @@
     - Related work: small write-ups
 - Discussion
   * What should the related work section contain?
+
+# 2022 April 3, Diploma status report #1
+
+- Slides: https://docs.google.com/presentation/d/15sXp6gKmoUbNaJJearsRxT79vbwc3U4E/edit?usp=sharing&ouid=102915141630231344771&rtpof=true&sd=true
+- Feedback from community: https://drive.google.com/drive/u/0/folders/17IhNXkfz8z5IuufduVopPO3KfqM7TY0Y
+- Feedback from LucianM:
+  * Motivation needs more focus (per feedback from RazvanD)
+  * This should focus architecture as well as implementation (challenges)
+  * Two main workloads (deadline: April 15)
+    - Focus motivation
+    - Work on architecture and implementation
