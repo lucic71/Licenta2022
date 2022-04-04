@@ -204,3 +204,42 @@
   * Two main workloads (deadline: April 15)
     - Focus motivation
     - Work on architecture and implementation
+
+# 2022 April 4, Diploma meeting #18
+
+- Status
+  * Just went through first presentation session
+- First diploma report
+  * Feedback:
+    - Two motivations, but unclear which one is the principal motivation
+    - A feeling of "overpromising, underdelivering" in the presentation
+    - Disconnect between challenges and what was discussed before
+    - Did not understand what was Lucian's contribution
+  * How to address this:
+    1. Use technical motivation as principal one -- and develop it
+       - pitch, in a phrase: we want to have a network testing
+         infrastructure available on as many and as heterogenous
+         environments as possible and our work contributes to this
+    2. Encompass the technical work within a more general framework of
+       software development process of porting
+       - should use as people motivation the fact that porting Costs
+         (software engineering doesn't come for free)
+       - contributions: what are *we* doing?
+       - background/related work: should maybe focus on
+         porting/portability metrics
+       - architecture: "before and after" (existing IxOS architecture,
+         new project architecture -- clarification here, regarding
+         integration between our project and IxOS), and also, an
+         estimation of porting costs
+       - implementation: description of porting process, challenges -->
+         those ate some porting time
+       - evaluation
+         * performance evaluation (not so important)
+         * porting evaluation (!!!)
+       - discussion: limitations, what we can do next
+       - conclusions and future work
+- Keywords: costs, metrics, evaluation, porting, portability
+- Planning
+  * Sit with pen and paper and make a narrative
+  * Should answer the question: what is the next thing to write? And
+    start writing
