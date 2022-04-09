@@ -83,7 +83,11 @@ software development process of porting:
 	- background/related work:
 		- what is porting/portability?
 		- what are the metrics for porting/portability?
-		- i don't know what should related work contain
+		- related work should contain other porting works so that we
+		understand better the anatomy of the porting process. this will
+		help us in the porting evaluation and porting costs estimation
+		chapters where we need to point to specific aspects of the
+		porting process that will be evaluated and estimated.
 	- architecture:
 		- old architecture of IxOS
 		- new architecture with extracted components (IM, IxStack, ..)
