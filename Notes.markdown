@@ -113,6 +113,8 @@ software development process of porting:
 		- limitations of our work (does this mean that we need to
 		specify what was not enough in our approach? technically or
 		academically?)
+		- we need to discuss the relationship between evaluation and
+		results
 		- what do the results mean? what is worth discussing from our
 		approach and results?
 		- what are some aspects from software engineering that relate
@@ -120,6 +122,7 @@ software development process of porting:
 		correlation between porting and other software processes?
 	- conclusions and future work:
 		- atm i don't have a clear idea of what the conclusion should
-		contain
+		contain (maybe because motivation and contributions are not
+		clear yet)
 		- future work should focus mainly on the limitations chapter and
 		the future work described in the TOI
