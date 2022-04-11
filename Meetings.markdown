@@ -243,3 +243,13 @@
   * Sit with pen and paper and make a narrative
   * Should answer the question: what is the next thing to write? And
     start writing
+
+# 2022 April 11, Diploma meeting #19
+
+- Status
+  * Meeting with RD, gave status
+  * Added notes containing motivation and sketch of paper
+- Planning
+  * LucianM to provide feedback
+  * Start working on architecture, evaluation
+  * Go through work this summer, try to extract main nuggets of wisdom
