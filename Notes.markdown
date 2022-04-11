@@ -126,3 +126,52 @@ software development process of porting:
     clear yet)
     - future work should focus mainly on the limitations chapter and
     the future work described in the TOI
+# 2022 April 11, Post-meeting notes
+
+Adding these here, since it seems to be useful to write down ideas that
+haven't made it to the meeting.
+
+We currently have some issues motivating our paper: we need to identify
+the core claim(s) regarding our paper. So far we are left with some
+ideas from last week and a few keywords: costs, metrics, evaluation,
+porting, portability. We're not sure these are what we want to cover.
+
+Some questions related to porting, which might help drive the discussion
+forward:
+
+- How can we evaluate the costs?
+  * Is the evaluation specific to our project? or can it be applied to
+    any porting process?
+- How do we measure costs? is time (measured in man-hours) the only
+  relevant metric?
+  * Where did the bulk of porting time go?
+  * Can porting time be optimized?
+- How can we estimate porting costs beforehand?
+  * Can we do this without knowing the system?
+  * Can we do this without knowing the exact requirements?
+- What is the plus-value of our port? which parts of our system did
+  we port more exactly, and what are the particularities of the
+  new environment versus the old one?
+- Is porting challenging/difficult/costly (which one of these?!) due to
+  system complexity? or due to lack of comprehension of the system? or
+  due to both? or due to some other cause?
+- What is the measure of our success? where did we succeed? where did we
+  fail?
+  * is our implementation 100% conformant to our design?
+  * is there anything lacking in our implementation?
+  * if yes, what would be the effort required to reach a full
+    implementation?
+  * is this effort just engineering? are we still lacking knowledge?
+- How does this particular porting experience compare/relate to other
+  porting projects?
+- Is the software we approached "portable"? according to the definition
+  of portability given in Ghandorh et al., 2020.
+  * What percentage of code had to be adapted to the new environment?
+  * What components had to be adapted? what components had to be
+    eliminated?
+
+Some questions are worth answering more than others and some can be
+answered more realistically than others. What's the best that we can do
+here?
+
+Are there any questions that we are missing?
