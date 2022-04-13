@@ -26,5 +26,55 @@
   components and the various config modes)
   * the toolchain had missing definitions, we needed to solve them in order to
   continue
+  * unexpected costs: had to port some more plugins and libraries that were
+  not estimated
   * qemu did not come cheap. it was more accessible than the rpi hardware but
   it was dead slow
+2. Emulate vCard on RPi
+  * we had to prepare the prepare the environment for IM to work (create pipes
+  and config files)
+  * before putting the RPi in the lab we had to work with a clumsy
+  configuration (vChassis in VBox, RPi connected to the computer running the
+  vChassis => problems with connectivity and license server)
+  * unexpected costs: dmidecode did not work on RPi => hardcoded vCard UUID
+  * had to patch sstream for our usage
+  * if i remember correctly there was an issue with system libraries, python
+  system libraries for ARM more exactly. i had to download deb packages
+  manually and patch them into the system so that IM would work correctly
+3. Bring up ports on vChassis
+  * the vCard was not visible from IxE => we had to investigate and modify the
+  code in IxServer
+  * the problem was hard to debug, we tried to investigate some paths that led
+  to nowhere (ixStatDaemon)
+  * the code was hard to debug (coding style was great, but it was huge)
+  * we did not have time to patch the vCard to solve the problem
+
+## Metacosts
+
+* there is no easy way to understand the system => complicated architecture
+diagrams, huge code base, unfamiliar versioning system
+* not understanding the system costs. it costs time to ramp-up. that time can
+be well spent in porting the system
+* tools. using outdated tools and systems means that one must spend additional
+time in order to figure out things that may otherwise be already solved by
+someone (assuming there is a community around an up-to-date tool or system)
+* documentation. lacking written information about how the system works means
+that one either must figure out the system by oneself or must communicate with
+others in order to gather info about the system, which, of course, costs time
+* changing the environment. extracting a component from the environment it was
+designed for, putting it in a new environment and expecting it to work is not
+a good tactic (btw this is the reason why porting costs). we had a lot of
+networking problems when we deployed IxServer in VBox and IM in qemu
+* unexpected costs. these are the most unpleasant because they corrupt all the
+previous evaluations about the porting costs. see boost bug, dmidecode and dod
+problem in IxServer for example
+* performance costs. we did not have problems with this one but it is worth
+noting as this can be a difficult problem to solve
+* solving incosistencies between environments
+* trying to understand the culture around the project. this is a
+meta-meta-cost :). i guess it is important to have an answer for questions
+as: what was the reasoning behind this component?, is there a reason for
+choosing this programming language? it's not clear yet what are the advantages
+of answering these questions, but having answers for them would surley help
+the person trying to port the system to familiarize and understand better the
+system
