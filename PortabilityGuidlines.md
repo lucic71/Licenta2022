@@ -31,6 +31,12 @@ IM et al.:
   * avoid using unportable code, eg boost problem (portability)
   * avoid using code that just works™, eg ifdefs with code that doesnt compile on else branch (portability)
   * don't create hard dependencies on one environment, eg proc entries from ixia kernel (portability)
+
+Maybe these steps will become self evident 45 years in the future. That makes me think about the fact that
+porting/portability did not even reach their adolescence. We don't have anything that resembles a mathematical
+model of porting, the only way of doing porting is based on the experience of others and about our experience
+on working with software. I don't even know if other software processes have a mathematical model or what this
+mathematical model should look like. I'm just guessing and writing my random thoughts.
  
 At the end of the day, the IM et al. code was very portable. We modified code only in the areas where
 functional inconsistencies appeared (not communicating correctly with IxServer) or where we needed to
