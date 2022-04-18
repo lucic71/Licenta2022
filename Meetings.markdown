@@ -253,3 +253,11 @@
   * LucianM to provide feedback
   * Start working on architecture, evaluation
   * Go through work this summer, try to extract main nuggets of wisdom
+
+
+# 2022 April 18, Diploma meeting #20
+
+Proposed papers to discuss:
+  * [Approaches to Making Software Porting More Productive](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=494744&casa_token=W9d8-DhVhIQAAAAA:ks2rWWN4e-w2VWneShS2YLaqZQfCOc0JiWRvK1Sh30jdvM8kptP91oxqi9--jN5YkKQwo_4Tz-02&tag=1)
+  * [Case Study on Installing a Porting Process for Embedded Operating System in a Small Team](https://sci-hub.hkvisa.net/10.1109/ssiri-c.2011.14)
+  * [A Study of Software Portability Evaluation](https://sci-hub.hkvisa.net/10.1016/s0164-1212(96)00118-5)
