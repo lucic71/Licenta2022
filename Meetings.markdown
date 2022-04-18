@@ -254,10 +254,19 @@
   * Start working on architecture, evaluation
   * Go through work this summer, try to extract main nuggets of wisdom
 
-
 # 2022 April 18, Diploma meeting #20
 
-Proposed papers to discuss:
+- Proposed papers to discuss:
   * [Approaches to Making Software Porting More Productive](https://sci-hub.hkvisa.net/10.1109/tron.1995.494744)
   * [Case Study on Installing a Porting Process for Embedded Operating System in a Small Team](https://sci-hub.hkvisa.net/10.1109/ssiri-c.2011.14)
   * [A Study of Software Portability Evaluation](https://sci-hub.hkvisa.net/10.1016/s0164-1212(96)00118-5)
+- Status
+  * Wrote Costs Markdown
+  * Sent a paper regarding portability guidelines
+  * Wrote Portability Guidelines Markdown
+- Planning
+  * Log porting work
+    - Sysyphus work
+  * Write porting subprocesses and costs (man-hours)
+    - Use existing documentation and tracking, papers
+    - Until next week
