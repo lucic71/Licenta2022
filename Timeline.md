@@ -166,7 +166,7 @@ Future work
   * rpi fault tolerance scripts
   * load protocol layers
 
-# Project milestones
+# Project milestones {#proj-milestones-anchor}
 
 * separating IM from IxOS in new git repository
 * running IM in QEMU
@@ -277,3 +277,58 @@ would be to further sort the above tasks based on their difficulty:
 To be honest, installing the binaries on the remote env was not such a big deal,
 we had to issue scp(1) that lasted at most 5 minutes, depending on the network
 speed.
+
+### Critique to Tanaka's porting model
+
+Why is there a need to include "initial source code modifications" in Advance
+preparations stage? I would expect this to be the first phase of the porting
+process where the team tries to understand the requirements and the
+peculiarities of the parts involved in porting: dev env, OS, program, target
+env, documentation and versioning system. After the team discusses and has an
+understanding of how the porting process should look like, they can create
+a roadmap of the porting process. It's foolish to assume that they can make
+modifications right from the beginning. Now that I mentioned the word "roadmap",
+I think this should be a sub-task in Advance preparations too. Me and LucianM
+(mostly LucianM) did this in [Project milestiones](#proj-milestones-anchor).
+
+Workstation testing should follow the same sub-task as target testing, the
+only difference being that the "linked test on target" should be changed to
+"linked test on WS". For this to happen I propose to change this structure:
+  * Workstation testing (this seems to be what we did in qemu)
+    * Standalone testing on WS (tesing per modules/units)
+    * Linked testing on WS (testing the program as a whole)
+  * Target testing (this does not take into account cross-compiling)
+    * File-making
+    * File system creation (is this still relevant?)
+    * Installation on target
+    * Test program creation
+    * Linked test on target
+to the following structure:
+  * Building for remote system (this is not the best title)
+    * File-making (this includes modification to build system)
+    * Installation on remote env (WS or target)
+    * Reviewing inconsistencies between source and remote envs
+    * Solve problems with external dependencies (libraries mostly)
+    * Test program creation (this should be renamed to: create testing
+    infrastructure)
+  * Workstation testing
+    * Standalone testing on WS
+    * Linked testing on WS
+  * Target testing
+    * Standalone testing on target
+    * Linked test on target
+
+Is it relevant to mention that we also test our to-be-ported program in a WS
+(which is a terrible name btw) environment? I would say yes because working
+with simulators and emulators is critical when you don't have available
+hardware or when the costs of testing on hardware are too high. On the other
+hand for a to-be-ported application there should be no difference between
+a simulated/emulated environment and a "real" environment.
+
+My last point in this critique is the following: I is it relevant to mention
+file system creation? Shouldn't the OS handle this task or do I miss something
+essential about systems programming from the 90's? I would say it's the second
+point, the authors should have a strong reason for separating "file system
+creation" from "adjusting target environment". Some other valid option would
+be that I don't understand what "file system" means in this context and I should
+read more carefully the paper.
