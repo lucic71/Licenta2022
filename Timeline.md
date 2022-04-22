@@ -132,7 +132,7 @@ Status
 Planning
   * continue to write documentation
 
-# 30.08 - 03.09
+# 06.09 - 10.09
 
 Status
   * make Rustic setup
@@ -173,3 +173,81 @@ Future work
 * running IM in lab setup
 * build protocols for ARM64
 * performance testing
+
+# Porting tasks by Tanaka et al.
+
+* Advance preparations
+  * Surveying development environment
+  * Surveying OS
+  * Surveying program for porting
+  * Adjusting WS development environment
+  * Adjusting target environment
+  * Initial source code modifications (i don't know what to say about this..)
+* Workstation testing (this seems to be what we did in qemu)
+  * Standalone testing on WS (tesing per modules/units)
+  * Linked testing on WS (testing the program as a whole)
+* Target testing (this does not take into account cross-compiling)
+  * File-making
+  * File system creation (is this still relevant?)
+  * Installation on target
+  * Test program creation
+  * Linked test on target
+* General duties
+  * Documentation
+    * changes made to source code
+    * porting impediments that are "hacked" must be revised
+  * Progress tracking
+  * Discussions
+
+## Our specific case: porting IxOS
+
+* Advance preparations
+  * Surveying development environment
+    * 05.07 - 09.07
+  * Surveying OS
+  * Surveying program for porting
+    * 05.07 - 09.07 (surveyed the dependencies)
+  * Survey documentation
+    * 30.08 - 10.09 (get a reference for correct IM initialization)
+  * Adjust versioning system
+    * 19.07 - 23.07
+  * Adjusting WS development environment
+    * 05.07 - 09.07
+  * Adjusting target environment
+    * 02.08 - 06.08
+  * Initial source code modifications
+* Building for target system
+  * File-making (this includes modification to build system)
+    * 05.07 - 06.08
+    * 17.08 - 27.08
+  * Installation on remote env (WS or target)
+    * 05.07 - 20.08
+    * 30.08 - 03.09
+  * Reviewing inconsistencies between source and remote envs
+    * 05.07 - 20.08
+    * 30.08 - 17.09
+  * Solve problems with external libraries
+    * 23.08 - 27.08
+  * Test program creation (deploying vCard+vChassis+IxE)
+    * 02.08 - 06.08
+    * 10.08 - 13.08 (solve problems with deployment: license, vChassis rebuild)
+    * 20.09 - 23.09 (solve problems with deployment: dod in vChassis)
+* Workstation testing
+  * Standalone testing on WS
+  * Linked testing on WS
+    * 05.07 - 30.07
+* Target testing
+  * Standalone testing on target
+  * Linked test on target
+    * 02.08 - 20.08
+    * 30.08 - 03.09
+    * 20.09 - 23.09
+* General duties
+  * Documentation
+    * 30.08 - 03.09
+    * 13.09 - 23.09
+  * Progress tracking
+  * Discussions
+
+Note: I use the term "remote" to describe the system on which the ported program
+will run, the term "target" is already taken in this context.
