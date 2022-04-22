@@ -205,6 +205,7 @@ Future work
   * Surveying development environment
     * 05.07 - 09.07
   * Surveying OS
+    * 02.08 - 06.08 (when ran into /dev/kmem issues)
   * Surveying program for porting
     * 05.07 - 09.07 (surveyed the dependencies)
   * Survey documentation
@@ -247,7 +248,12 @@ Future work
     * 30.08 - 03.09
     * 13.09 - 23.09
   * Progress tracking
+    * each week
   * Discussions
+    * each week
 
 Note: I use the term "remote" to describe the system on which the ported program
 will run, the term "target" is already taken in this context.
+Note:
+  * standalone testing - unit/module testing
+  * linked testing     - whole program testing
