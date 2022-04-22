@@ -257,3 +257,23 @@ will run, the term "target" is already taken in this context.
 Note:
   * standalone testing - unit/module testing
   * linked testing     - whole program testing
+
+### Most time consuming porting tasks
+
+Based on the number of weeks these are the most time consuming porting tasks:
+  * Reviewing inconsistencies - 10 weeks
+  * Linked testing (WS + target) - 9 weeks
+  * Installation on remote env - 8 weeks
+  * File making - 7 weeks
+
+We did not reserve a whole week for a single task. During a week we did a total
+ammount of 4-5 porting tasks (this is a rough esitmation). So a better approach
+would be to further sort the above tasks based on their difficulty:
+  * Reviewing inconsistencies - 10 weeks
+  * Linked testing (WS + target) - 9 weeks
+  * File making - 7 weeks
+  * Installation on remote env - 8 weeks
+
+To be honest, installing the binaries on the remote env was not such a big deal,
+we had to issue scp(1) that lasted at most 5 minutes, depending on the network
+speed.
