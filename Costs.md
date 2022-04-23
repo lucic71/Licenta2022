@@ -78,3 +78,70 @@ choosing this programming language? it's not clear yet what are the advantages
 of answering these questions, but having answers for them would surley help
 the person trying to port the system to familiarize and understand better the
 system
+
+# A study of Software Portability Evaluation
+
+This paper proposes a model for estimating software porting cost based on
+program characteristics and the factors hindering a program from being ported.
+
+Software porting usually consists of the following processes:
+  * investigation
+    * destination system (hardware and OS)
+    * program to be ported
+    * development environment
+    * testing environment
+  * source program modification
+  * file making
+  * unit test
+  * system test
+  * documentation
+  * misc
+
+While porting cost (man-hours) is chiefly determined by PTBP size, PTBP
+contents, and porting impediment factors, the porting environment is also
+important.
+
+Porting impediment factors:
+  * system environment disparity
+  * program factors (These factors depend on the extent to which portability
+  was taken into account when the PTBP was written.)
+
+Porting cost factors
+  * human factors (experience of the programmer)
+    * knowledge of
+      * ptbp functions and structures
+      * hardware and OS of target
+      * porting process
+      * language of ptbp
+      * usge of tools in dev and test envs
+  * environmental factors (tools and test programs)
+    * development environment
+    * unit test environment (NA)
+    * system test environment
+
+Porting impediment factors:
+  * differences in processor architecture (not really a problem for us)
+  * OS disparity (problems: /dev/kmem, proc entries)
+  * differences in language processor
+    * toolchain (needed to be a little bit modified)
+    * library support (hard problem to solve: boost)
+
+Portability impediment index: sum of each impediment multiplied by the degree
+of portability.
+
+Human factors & environmental factors index: sum of human and environmental
+impediments.
+
+There is a regression equation for evaluating the cost required for porting
+(shame on me that I don't fully understand terms as "multiple correlation
+factor", "variance ratio" or "analysis of variance").
+
+There is a porting productivity index that will be useful for us, I think.
+(still, too complicated to understand it easily)
+
+Finally, there is an equation for estimating porting costs.
+
+"Software conversion is generally viewed in the Federal ADP
+community as a traumatic and disruptive experience, to be avoided as
+long as possible, endured when necessary, and forgotten as quickly as
+possible." [https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication500-105.pdf](Guide to software conversion management)

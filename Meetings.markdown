@@ -260,6 +260,7 @@
   * [Approaches to Making Software Porting More Productive](https://sci-hub.hkvisa.net/10.1109/tron.1995.494744)
   * [Case Study on Installing a Porting Process for Embedded Operating System in a Small Team](https://sci-hub.hkvisa.net/10.1109/ssiri-c.2011.14)
   * [A Study of Software Portability Evaluation](https://sci-hub.hkvisa.net/10.1016/s0164-1212(96)00118-5)
+  * [https://sci-hub.hkvisa.net/10.1109/cmpsac.1992.217602](A Cost Model for Software Conversion Based on Program Characteristics and a Converter Effect) This is a paper added later
 - Status
   * Wrote Costs Markdown
   * Sent a paper regarding portability guidelines
