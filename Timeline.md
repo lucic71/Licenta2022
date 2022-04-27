@@ -291,6 +291,13 @@ modifications right from the beginning. Now that I mentioned the word "roadmap",
 I think this should be a sub-task in Advance preparations too. Me and LucianM
 (mostly LucianM) did this in [Project milestiones](#proj-milestones-anchor).
 
+Note on the above paragraph: After reading this article [I ported the new Hare compiler to OpenBSD](https://briancallahan.net/blog/20220427.html)
+it seems that the "initial source code modifications" stage really makes sense.
+In the "Getting started" section Brian explains that he had to do some
+modifications in order to match the errno and syscall conventions from OpenBSD.
+After that he explains in "The first build errors" the "Building for remote
+system" stage described below.
+
 Workstation testing should follow the same sub-task as target testing, the
 only difference being that the "linked test on target" should be changed to
 "linked test on WS". For this to happen I propose to change this structure:
