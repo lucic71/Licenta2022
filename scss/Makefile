@@ -2,9 +2,6 @@ PROJECT=scss-diploma-project
 
 build:
 	pdflatex ${PROJECT}.tex
-	bibtex ${PROJECT}
-	pdflatex ${PROJECT}.tex
-	pdflatex ${PROJECT}.tex
 
 show:
 	evince ${PROJECT}.pdf
