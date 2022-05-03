@@ -24,18 +24,18 @@ described in the previous section. First we divide our work in tasks that can
 be individually evaluated and later we discuss the factors that affected our
 cost evaluation.
 
-\subsection{Man-hours costs}
+\subsection{Man-days costs}
 
 In order to have an accurate cost evaluation of the porting process, we divided
 our process into multiple subprocesses that can easily be evaluated using the
-porting tracking created during the porting. We use man-hours to evaluate the
-cost for each subprocess because it helps us understand the importance and
-difficulty of the porting tasks.
+tracking created during the porting. We use man-days to evaluate the
+cost for each subprocess because the tracking was done each week rather than
+each day.
 
 The anatomy of the porting process, as described in Tanaka et al. (citation
 needed here) and Hakuta et al. (citation needed, there are only two authors,
 should I name both instead saying "et al."?) with modification as per our
-project has the following structure:
+project needs has the following structure:
 \begin{itemize}
     \item Advance preparations
         \begin{itemize}
@@ -68,36 +68,46 @@ project has the following structure:
         \end{itemize}
 \end{itemize}
 
+This structure assumes that porting is a linear process, which is not the case.
+Many tasks are repetitive between different stages of the project. For example
+file-making occurs before and after testing in target environment takes place,
+making it hard to accurately track each subtask. For this reason table
+~\ref{tab:manHoursEvaluation} does not track the exact hours or days spent
+on a specific subtask. It rather presents in how many days a specific subtask
+was finished, even if that subtask took one or two hours of that day. Finally,
+the last column of the table presents the number of days to finish a subtask
+relative to the total number of days.
+
 \begin{table*}
 \centering
 \begin{tabular}{ |c|c|c|c|c| }
 \hline
-Porting task & Subtasks & Man-hours & Relative time \\
+Porting task & Subtasks & Days & Relative days \\
 \hline
-\multirow{7}{5em}{Advance preparations} & Surveying development environment & cell3  & cell\\
-& Surveying target OS & cell6 & cell \\
-& Surveying program for porting & cell9 & cell \\
-& Surveying documentation & cell9 & cell \\
-& Adjusting development environment & cell9 & cell \\
-& Adjusting target environment & cell9 & cell \\
-& Initial source code modifications & cell9 & cell \\
+\multirow{7}{5em}{Advance preparations} & Surveying development environment & 5 & 8.33\\
+& Surveying target OS & 5 & 8.33 \\
+& Surveying program for porting & 5 & 8.33 \\
+& Surveying documentation & 10 & 16.66 \\
+& Adjusting development environment & 10 & 16.66 \\
+& Adjusting target environment & 5 & 8.33 \\
+& Initial source code modifications & 0 & 0 \\
 \hline
-\multirow{5}{5em}{Building for target environment} & File-making & cell3  & cell\\
-& Installation on remote environment & cell6 & cell \\
-& Reviewing inconsistencies between source and remote environments & cell9 & cell \\
-& Solving problems with external dependencies & cell9 & cell \\
-& Create testing infrastructure & cell9 & cell \\
+\multirow{5}{5em}{Building for target environment} & File-making & 35  & 58.33\\
+& Installation on remote environment & 40 & 66.66 \\
+& Reviewing inconsistencies between source and remote environments & 50 & 79.63 \\
+& Solving problems with external dependencies & 5 & 8.33 \\
+& Create testing infrastructure & 15 & 25.00 \\
 \hline
-\multirow{2}{5em}{Testing} & Testing in simulated environment & cell3  & cell\\
-& Testing in target environment & cell6 & cell \\
+\multirow{2}{5em}{Testing} & Testing in simulated environment & 20  & 33.33\\
+& Testing in target environment & 25 & 41.66 \\
 \hline
-\multirow{3}{5em}{General duties} & Documentation & cell3  & cell\\
-& Progress tracking & cell6 & cell \\
-& Discussions & cell6 & cell \\
+\multirow{3}{5em}{General duties} & Documentation & 15  & 25.00 \\
+& Progress tracking & 12 & 20.00 \\
+& Discussions & 60 & 100.00 \\
 \hline
 \end{tabular}
-\caption{Man-hours evaluation for porting tasks}
+\caption{Man-days evaluation for porting tasks}
+\label{tab:manHoursEvaluation}
 \end{table*}
-
 
 \subsection{Factors of porting costs}
