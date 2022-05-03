@@ -8,3 +8,10 @@ src/*.blg
 src/*.log
 src/*.out
 src/*.toc
+scss/*.pdf
+scss/*.aux
+scss/*.bbl
+scss/*.blg
+scss/*.log
+scss/*.out
+scss/*.toc
