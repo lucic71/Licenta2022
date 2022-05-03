@@ -68,6 +68,8 @@ project needs has the following structure:
         \end{itemize}
 \end{itemize}
 
+Here we need a paragraph that clarifies some of the porting subprocesses.
+
 This structure assumes that porting is a linear process, which is not the case.
 Many tasks are repetitive between different stages of the project. For example
 file-making occurs before and after testing in target environment takes place,
@@ -110,4 +112,57 @@ Porting task & Subtasks & Days & Relative days \\
 \label{tab:manHoursEvaluation}
 \end{table*}
 
+As seen from the table the most time consuming subtask are the following:
+discussions, incosistencies reviewing, installation on remote environment and
+file-making. The amount of time spent on these tasks is different. While
+discussions and inconsistencies reviewing were planned during the day, taking
+a predefined amount of time, installation on remote environment and file-making
+were repetitive and sporadic tasks. However this does not decrease the
+importance of the later tasks, they were time consuming because they helped us
+to achieve other tasks, mainly testing tasks.
+
+Another thing that stands out is that we spent zero days on initial source code
+modifications. This happened because the code base was too unfamiliar in order
+to make source code modifications from the start. The first source code
+modifications were present in the reviewing inconsistencies stage because the
+toolchain helped us to discover the code zones to be changed.
+
 \subsection{Factors of porting costs}
+
+While porting costs, in our case man-days, are determined dirctly by program size and
+content, other factors and impediments as human experience and environment
+disparities must be taken into consideration.
+
+To determine the impact some of these factors had on our porting process, we
+use the indices described in Hakuta and Ohminami (citation needed) that give
+a quantitative influence of porting factors and impediments.
+
+The first index that we compute is the portability impediment index, this will
+show us how portable was the porgram we ported and how many difficulties did
+we meet in our porting process. The index is computed using the following
+formula: $\alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i$, where $\eta$ is a
+portability design index, $\omega_i$ is the weight assigned to each factor and
+$S_i$ is 1 when the impediment $i$ exists, otherwise is 0. In our case $eta$
+has a value of 2, meaning that "the non-portable parts of the program are not
+localized, but the correspondence of program codes to their functions is
+clarified". For simplicity we will assume that $\omega_i$ is 0 if the impediment
+was insignificant, 0.5 if the impediment had a normal difficulty and 1 if the
+impediment was hard to solve. In our porting we discovered the following
+portability impediments:
+\begin{itemize}
+    \item Difference in compiler specification (S8)
+    \item Scope of library support (S9)
+    \item Implementation-dependent libraries (S10)
+    \item Difference in operating system interface (S12)
+\end{itemize}
+
+It can be noted that we added an additional impediment inexistent in Hakuta and
+Ohminami's list, namely S12, which can be placed in the "OS disparity" category.
+
+Given these impediments the portability impediment index has the following
+value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$. The
+maximum value for $\alpha_p$ is 36. This number is achieved because there were
+no differences between processor architecture (S1~S5), little difference between
+source and target OSes (S6, S7, S12 and a major difference in language processor
+(S8~S11). The application was written in C++ and the port was between two Linux
+versions, which highly decreased the impediments we could have faced.
