@@ -189,6 +189,7 @@ As this was my first interaction with the program to be ported it was hard to
 familiarize with its functions and structures, therefore I had no experience
 whatsoever with the use cases of the program. This resulted in the inability to
 easily solve the porting problems that appeared in our way.
+
 \textit{Knowledge about the hardware and OS of the target system (H2)}
 Hardware disparities were not a big concern in our porting as we used a portable
 operating system and programming language that abstracted out hardware problems.
@@ -198,11 +199,13 @@ did not have to learn the peculiarities of another operating system so that we
 could finish our porting. However there were some problems that we faced
 regarding the target operating system that we solved relatively straight
 forward.
+
 \textit{Knowledge and experience in the area of software porting (H3)}
 As the experience of software porting was lacking there were many situations
 and problems that could have been solved better, for example: doing better
 tracking of the porting process, putting more effort in technical discussions
 in order to better understand the problems, etc.
+
 \textit{Knowledge of and experience with the language and program to be ported
 in use(H4)}
 The experience with the programming language (C++) helped us to grow the
@@ -211,6 +214,7 @@ impediments as endianness or data alignment. However we did have problems with
 the language specification between different compilation toolchains that costed
 us a whole week to solve. Finally, the experience with program to be ported in
 use was lacking.
+
 \textit{Knowledge about the functions and usage of tools used in the development
 and testing environment (H5)}
 While working in the development and testing environments we used a considerable
@@ -222,3 +226,57 @@ we allowed to mention these things, i dont see a problem in that tbh)
 In retrospect, it seems that if the human factor index had a better score, maybe
 the porting process would have lasted less and the problems we faced would not
 even occur.
+
+\subsubsection{Environmental Factors Index}
+
+The index $\alpha_e$ is defined as $\sum_{n=1}^{3} E_i$, where $E_i$ are the
+following environmental factors as presented in~\cite{b2}:
+\begin{itemize}
+    \item Development environment (E1)
+    \item Unit test environment (E2)
+    \item System test environment (E3)
+\end{itemize}
+
+In our porting we did not use any kind of unit testing so we will discard E2
+from our discussion. As for H1~H5, the values for E1~E3 range between -2 and 2,
+-2 being the best score for $E_i$, while 2 being the worst.
+
+In the development environment we had no documentation describing the compiling
+and linking procedures and no documentation regarding the environment dependent
+components that we need to modify in order to move the code to a new
+environment. We modified the code and the build system by trial and error. This
+reduces the score for E1 as this strategy might not always work or it could take
+an unsatisfactory amount of time for large and complicated systems. However
+we managed to understand the peculiarities of the development environment and
+get the first builds available for testing in two or three weeks, that is less
+than 25\% of our porting time, which is an acceptable value.
+
+In the testing environment we had test programs and tools available such as
+simulators and debuggers, furthermore the file transfer and conversion tools
+were available from the start of the project. This facilitated the testing of
+our program to be ported by allowing us to focus on the porting inconsistencies
+rather than on testing infrastructure. Things were not perfect however, we did
+have problems with the testing infrastructure that we solved in a short period
+of time.
+
+That being said, the environmental factors index has the following value in our
+case: $\alpha_e = 0 + NA + -1 = -1$. As seen in Figure~\ref{fig:EFI} we are in the
+satisfactory half of the index, meaning that even if we had some difficulties
+setting and understanding the development and testing environment, we managed
+to work with them in order to achieve our goals.
+
+\begin{figure}
+    \begin{tikzpicture}[
+        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+            thick      
+    ]
+        \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=-6};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=6};
+        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+        \node[dot,label={EFI$=-1$}] at (2,0) {};
+    \end{tikzpicture}
+
+    \caption{Environmental Factors Index}
+    \label{fig:EFI}
+\end{figure}
