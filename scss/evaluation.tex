@@ -13,6 +13,14 @@
 %   - Finally I need to understand the equations for porting costs evaluation
 %   and estimation in order to compare the resluts (and maybe talk about the
 %   porting productivity index)
+%   - I don't know if I should place it here or in implementation chapter but
+%   I would like to have a table with portability impedimets,reason for changes,
+%   details of changes and need for change in future porting. They do so in
+%   Tanaka et al
+%
+% LucianM proposed to talk about some aspects of the program to be ported as:
+%   - size
+%   - content
 %
 % The Tanaka+Hakuta model mapped on our timeline will be presented in a table.
 % The indices from Hakuta([1]) will be presented in different subsection (idk).
@@ -107,7 +115,10 @@ Porting task & Subtasks & Days & Relative days \\
 & Discussions & 60 & 100.00 \\
 \hline
 \end{tabular}
-\caption{Man-days evaluation for porting tasks}
+\caption{Man-days evaluation for porting tasks (TODO: I thought much about this table
+and I think it is not relevant to have the relative procents of work as we do not
+track accurately the man-days. We must either track more accurately the progress
+or change the meaning of this table)}
 \label{tab:manHoursEvaluation}
 \end{table*}
 
@@ -317,3 +328,6 @@ to work with them in order to achieve our goals.
     \caption{Environmental Factors Index}
     \label{fig:EFI}
 \end{figure}
+
+Do we want to measure porting productivity index and porting costs using that
+weird equation?
