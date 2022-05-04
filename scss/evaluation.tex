@@ -158,15 +158,36 @@ portability impediments:
 \end{itemize}
 
 It can be noted that we added an additional impediment inexistent in Hakuta and
-Ohminami's list, namely S12, which can be placed in the "OS disparity" category.
+Ohminami's list~\cite{b2}, namely S12, which can be placed in the "OS disparity"
+category.
 
 Given these impediments the portability impediment index has the following
 value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$. The
-maximum value for $\alpha_p$ is 36. This number is achieved because there were
+maximum value for $\alpha_p$ is 36 as seen in Figure~\ref{fig:PII}. Our PII is
+achieved because there were
 no differences between processor architecture (S1~S5), little difference between
-source and target OSes (S6, S7, S12 and a major difference in language processor
+source and target OSes (S6, S7, S12) and a major difference in language processor
 (S8~S11). The application was written in C++ and the port was between two Linux
-versions, which highly decreased the impediments we could have faced.
+versions, which highly decreased the impediments we could have faced. The
+degree of portability of the program to be ported is highlighted in Figure
+~\ref{fig:PII}, being very close to the optimal value.
+
+\begin{figure}
+    \begin{tikzpicture}[
+        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+            thick      
+    ]
+        \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=0};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=36};
+        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+        \node[dot,label={PII=6}] at (1,0) {};
+    \end{tikzpicture}
+
+    \caption{Portability Impediment Index}
+    \label{fig:PII}
+\end{figure}
+
 
 \subsubsection{Human Factors Index}
 
@@ -179,10 +200,26 @@ the porting process.
 The index $\alpha_h$ is defined as $\sum_{n=1}^{5} H_i$, where $H_i$ are the
 human factors presented in ~\cite{b2}. Their values range from -2 which reflects
 the maximum productivity while 2 reflects the minimum productivity. Therefore
-in our case $\alpha_h = 2 + (-1) + 2 + 1 + 2 = 6$. The best value one could
-achieve with this index is -8, and the worst is 8. Indeed, the human factor
-played a major role in our porting process, let us analyze each factor and see
-what went wrong.
+in our case $\alpha_h = 2 + (-1) + 2 + 1 + 2 = 6$. As seen in Figure
+~\ref{fig:HFI}, the HFI has a score very close to the lowest possible score.
+Indeed, the human factor played a major role in our porting process, let us
+analyze each factor and see what went wrong.
+
+\begin{figure}
+    \begin{tikzpicture}[
+        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+            thick      
+    ]
+        \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=-10};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=10};
+        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+        \node[dot,label={HFI=6}] at (4.8,0) {};
+    \end{tikzpicture}
+
+    \caption{Human Factors Index}
+    \label{fig:HFI}
+\end{figure}
 
 \textit{Knowledge about the program to be ported functions and structures (H1)} 
 As this was my first interaction with the program to be ported it was hard to
@@ -274,7 +311,7 @@ to work with them in order to achieve our goals.
         \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=-6};
         \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=6};
         \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-        \node[dot,label={EFI$=-1$}] at (2,0) {};
+        \node[dot,label={EFI=-1}] at (2,0) {};
     \end{tikzpicture}
 
     \caption{Environmental Factors Index}
