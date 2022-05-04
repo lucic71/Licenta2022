@@ -136,6 +136,8 @@ To determine the impact some of these factors had on our porting process, we
 use the indices described in Hakuta and Ohminami ~\cite{b2} that give
 a quantitative influence of porting factors and impediments.
 
+\subsubsection{Portability Impediment Index}
+
 The first index that we compute is the portability impediment index, this will
 show us how portable was the porgram we ported and how many difficulties did
 we meet in our porting process. The index is computed using the following
@@ -165,3 +167,58 @@ no differences between processor architecture (S1~S5), little difference between
 source and target OSes (S6, S7, S12 and a major difference in language processor
 (S8~S11). The application was written in C++ and the port was between two Linux
 versions, which highly decreased the impediments we could have faced.
+
+\subsubsection{Human Factors Index}
+
+Software programs are byproducts of human
+activities than incorporate our problem-solving capabilities, cognitive aspects
+and social interaction ~\cite{b3}, therefore it is vital to understand what role
+did the human factors play in our porting so that we can assess the quality of
+the porting process. 
+
+The index $\alpha_h$ is defined as $\sum_{n=1}^{5} H_i$, where $H_i$ are the
+human factors presented in ~\cite{b2}. Their values range from -2 which reflects
+the maximum productivity while 2 reflects the minimum productivity. Therefore
+in our case $\alpha_h = 2 + (-1) + 2 + 1 + 2 = 6$. The best value one could
+achieve with this index is -8, and the worst is 8. Indeed, the human factor
+played a major role in our porting process, let us analyze each factor and see
+what went wrong.
+
+\textit{Knowledge about the program to be ported functions and structures (H1)} 
+As this was my first interaction with the program to be ported it was hard to
+familiarize with its functions and structures, therefore I had no experience
+whatsoever with the use cases of the program. This resulted in the inability to
+easily solve the porting problems that appeared in our way.
+\textit{Knowledge about the hardware and OS of the target system (H2)}
+Hardware disparities were not a big concern in our porting as we used a portable
+operating system and programming language that abstracted out hardware problems.
+Therefore the focus was on the target operating system. Our porting moved the
+program from an older version of Linux to a newer one. This helped us as we
+did not have to learn the peculiarities of another operating system so that we
+could finish our porting. However there were some problems that we faced
+regarding the target operating system that we solved relatively straight
+forward.
+\textit{Knowledge and experience in the area of software porting (H3)}
+As the experience of software porting was lacking there were many situations
+and problems that could have been solved better, for example: doing better
+tracking of the porting process, putting more effort in technical discussions
+in order to better understand the problems, etc.
+\textit{Knowledge of and experience with the language and program to be ported
+in use(H4)}
+The experience with the programming language (C++) helped us to grow the
+productivity of the porting process as we did not have to care about low-level
+impediments as endianness or data alignment. However we did have problems with
+the language specification between different compilation toolchains that costed
+us a whole week to solve. Finally, the experience with program to be ported in
+use was lacking.
+\textit{Knowledge about the functions and usage of tools used in the development
+and testing environment (H5)}
+While working in the development and testing environments we used a considerable
+number of technologies, some of them being either new or not trivial to work
+with. Here is a short list of these technologies: QEMU networking, SCons build
+system, Perforce versioning system and internal tools as packaging system. (are
+we allowed to mention these things, i dont see a problem in that tbh)
+
+In retrospect, it seems that if the human factor index had a better score, maybe
+the porting process would have lasted less and the problems we faced would not
+even occur.
