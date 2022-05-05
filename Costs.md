@@ -40,7 +40,9 @@
   * had to patch sstream for our usage
   * if i remember correctly there was an issue with system libraries, python
   system libraries for ARM more exactly. i had to download deb packages
-  manually and patch them into the system so that IM would work correctly
+  manually and patch them into the system so that IM would work correctly.
+  I remember: these packages were needed when building ixvmrxtx or something
+  like this (I think sstream was part of ixvmrxtx)
 3. Bring up ports on vChassis
   * the vCard was not visible from IxE => we had to investigate and modify the
   code in IxServer
