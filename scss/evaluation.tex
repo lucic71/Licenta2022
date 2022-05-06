@@ -56,7 +56,7 @@ per our project needs has the following structure:
         \end{itemize}
     \item Building for target environment
         \begin{itemize}
-            \item File-making
+            \item Build system triggering and modification
             \item Installation on remote environment
             \item Reviewing inconsistencies between source and remote environments
             \item Solving problems with external dependencies
@@ -75,11 +75,11 @@ per our project needs has the following structure:
         \end{itemize}
 \end{itemize}
 
-Here we need a paragraph that clarifies some of the porting subprocesses.
+{\color{red} Here we need a paragraph that clarifies some of the porting subprocesses.}
 
 This structure assumes that porting is a linear process, which is not the case.
 Many tasks are repetitive between different stages of the project. For example
-file-making occurs before and after testing in target environment takes place,
+build system triggering occurs before and after testing in target environment takes place,
 making it hard to accurately track each subtask. For this reason table
 ~\ref{tab:manHoursEvaluation} does not track the exact hours or days spent
 on a specific subtask. It rather presents in how many days a specific subtask
@@ -101,7 +101,7 @@ Porting task & Subtasks & Man-hours & Relative man-hours/subtask (\%) & Relative
 & Adjusting target environment & 13.8 & 3.83 &\\
 & Initial source code modifications & 0 & 0 &\\
 \hline
-\multirow{5}{5em}{Building for target environment} & File-making & 67.56  & 18.76  & \multirow{5}{5em}{32.71} \\
+\multirow{5}{5em}{Building for target environment} & Build system triggering and modifcation & 67.56  & 18.76  & \multirow{5}{5em}{32.71} \\
 & Installation on remote environment & 15.26 & 4.23 &\\
 & Reviewing inconsistencies between source and remote environments & 23.03 & 6.39 &\\
 & Solving problems with external dependencies & 12 & 3.33 &\\
@@ -122,9 +122,9 @@ Porting task & Subtasks & Man-hours & Relative man-hours/subtask (\%) & Relative
 
 As seen from the table the most time consuming subtask are the following:
 discussions, incosistencies reviewing, installation on remote environment and
-file-making. The amount of time spent on these tasks is different. While
+build system triggering and modification. The amount of time spent on these tasks is different. While
 discussions and inconsistencies reviewing were planned during the day, taking
-a predefined amount of time, installation on remote environment and file-making
+a predefined amount of time, installation on remote environment and build system trigerring
 were repetitive and sporadic tasks. However this does not decrease the
 importance of the later tasks, they were time consuming because they helped us
 to achieve other tasks, mainly testing tasks.
