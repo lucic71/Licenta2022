@@ -71,9 +71,9 @@
     \put(0,0){\includegraphics[width=\unitlength,page=4]{fig/ixos_init_arch.pdf}}%
     \put(0.39559014,0.23605707){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}IxServer\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{fig/ixos_init_arch.pdf}}%
-    \put(0.70687419,0.43709468){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Card01\end{tabular}}}}%
+    \put(0.70687419,0.43709468){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Card01 (Ixia Hardware)\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{fig/ixos_init_arch.pdf}}%
-    \put(0.70687419,0.17120623){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Card02\end{tabular}}}}%
+    \put(0.70687419,0.17120623){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Card02 (Ixia Hardware)\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{fig/ixos_init_arch.pdf}}%
     \put(0.6614786,0.29442283){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Port 01\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{fig/ixos_init_arch.pdf}}%
@@ -86,15 +86,15 @@
     \put(0.92088197,0.23605707){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Device Under Test\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{fig/ixos_init_arch.pdf}}%
     \put(0.70687419,0.39224384){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}
-    IxOS: \\
+    IxOS Linux: \\
     InterfaceManager \\
-    IxServer \\
+    IxStack \\
     \end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{fig/ixos_init_arch.pdf}}%
     \put(0.70687419,0.13284047){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}
-    IxOS: \\
+    IxOS Linux: \\
     InterfaceManager \\
-    IxServer \\
+    IxStack \\
     \end{tabular}}}}%
   \end{picture}%
 \endgroup%
