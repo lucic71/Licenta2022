@@ -10,7 +10,8 @@
     \label{fig:ixos_init_arch}
 \end{figure*}
 
-The architecture we started from consists of four components:
+The architecture we started from consists of four components, presented also in
+Figure~\ref{fig:ixos_init_arch}:
 \begin{itemize}
     \item A client for printing network testing data
     \item A middleware for connecting the client to the machines that run the
@@ -61,6 +62,16 @@ solving unknown inconsistencies.
     \caption{New IxOS architecture}
     \label{fig:ixos_new_arch}
 \end{figure*}
+
+In Figure~\ref{fig:ixos_new_arch} we highlighted the changes we made to the
+initial architecture. First, we changed the hardware a card runs on. From the
+Ixia custom hardware we moved to a Raspberry Pi 4. On top of the Raspberry Pi,
+we put a Raspberry Pi OS Linux instead of IxOS Linux.
+
+These changes required us to port InterfaceManager and IxStack to the new
+Raspberry Pi environment so that we could benefit from the same functionality as in the
+old Ixia custom hardware + IxOS Linux environment. The process of porting the
+two applications is described in the next subsection.
 
 \subsection{The Porting Process}
 
