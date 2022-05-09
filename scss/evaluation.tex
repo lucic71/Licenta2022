@@ -187,8 +187,8 @@ degree of portability of the program to be ported is highlighted in Figure
         every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
             thick      
     ]
-        \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=0};
-        \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=36};
+        \draw (0,0.2) -- + (0,-0.4) node[below] {EASIEST=0};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {HARDEST=36};
         \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
         \node[dot,label={PII=6}] at (1,0) {};
     \end{tikzpicture}
@@ -220,8 +220,8 @@ analyze each factor and see what went wrong.
         every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
             thick      
     ]
-        \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=-10};
-        \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=10};
+        \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-10};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=10};
         \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
         \node[dot,label={HFI=6}] at (4.8,0) {};
     \end{tikzpicture}
@@ -317,8 +317,8 @@ to work with them in order to achieve our goals.
         every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
             thick      
     ]
-        \draw (0,0.2) -- + (0,-0.4) node[below] {HIGH=-6};
-        \draw (6,0.2) -- + (0,-0.4) node[below] {LOW=6};
+        \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
         \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
         \node[dot,label={EFI=-1}] at (2,0) {};
     \end{tikzpicture}
