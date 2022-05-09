@@ -271,3 +271,20 @@
   * Write porting subprocesses and costs (man-hours)
     - Use existing documentation and tracking, papers
     - Until next week
+
+# 2022, May 9, Diploma meeting #21
+
+- Status
+  - In the process of writing for SCSS
+  - Presented second report, got feedback, will apply
+- Planning
+  - Until thursday: finalize SCSS draft
+    - Change template
+    - Write remaining text
+    - Integrate what feedback can be reasonably applied until Thu
+  - Thu, Fri: Presentation
+    - Reuse most material from report
+  - Port paper to thesis LaTeX
+  - Integrate remaining feedback, rediscuss, rework
+  - Evaluation: analysis on program structure
+  - Evaluation: performance evaluation (wishful thinking)
