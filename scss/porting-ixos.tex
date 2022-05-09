@@ -7,7 +7,50 @@
     \def\svgscale{0.95}
     \input{fig/ixos_init_arch.pdf_tex}
     \caption{Initial IxOS architecture}
+    \label{fig:ixos_init_arch}
 \end{figure*}
+
+The architecture we started from consists of four components:
+\begin{itemize}
+    \item A client for printing network testing data
+    \item A middleware for connecting the client to the machines that run the
+    network testing suite
+    \item The actual machines that run the testing
+    \item The device that benefits from network testing
+\end{itemize}
+
+The client (\textbf{IxExplorer}) is a Windows application that allows the user to
+connect to the machines that run the testing, configure and run tests on them,
+and retrieve information about the status of the tests.
+
+To allow IxExplorer to easily connect to multiple machines that run the testing,
+a middleware (\textbf{Chassis}) is used. The most important application that runs on
+the Chassis is IxServer. It creates a communication channel between IxServer and
+the testing machines.
+
+Next, the machines that run the testng (\textbf{Cards}) are the most interesting part
+for our porting. They run on a custom Ixia hardware to achieve the best
+performance for network testing. On top of this hardware is placed IxOS Linux,
+a modified version of Linux with custom device drivers, kernel parameters and
+userspace applications. The two most interesting applications for our porting
+are InterfaceManager and IxStack. Their role in the system is to manage the
+network interfaces, represented by Port01 and Port02 in Figure~\ref{fig:ixos_init_arch},
+and to load the network protocols for the testing suites.
+
+The device that benefits from network testing (\textbf{Device Under Test} - DUT)
+is the consumer
+of the network traffic produced by the cards. Usually it is connected between
+two Ports that will monitor the behaviour of the DUT while receiving traffic.
+
+Before we started the project, there existed an attempt to make Interface Manager
+and other applications independent of IxOS. This helped us during our porting
+because the result of the previous work was a portable application that could
+easily be moved in another Linux environment. Making Interface Manager
+independent of IxOS meant that all the assumptions made by the application
+regarding the operating system interface were removed (e.g., custom device
+drivers and proc entries) and the work of porting it to another environment
+was simply a task of finding the right tools for building the binaries and
+solving unknown inconsistencies.
 
 \subsection{New IxOS Architecture}
 
@@ -16,6 +59,7 @@
     \def\svgscale{0.95}
     \input{fig/ixos_new_arch.pdf_tex}
     \caption{New IxOS architecture}
+    \label{fig:ixos_new_arch}
 \end{figure*}
 
 \subsection{The Porting Process}
