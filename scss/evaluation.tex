@@ -40,43 +40,6 @@ tracking created during the porting. We use man-days to evaluate the
 cost for each subprocess because the tracking was done each week rather than
 each day.
 
-The anatomy of the porting process, as described in Tanaka et al.~\cite{b1}
-Hakuta and Ohminami~\cite{b2} and Kanai et al. ~\cite{b4} with modification as
-per our project needs has the following structure:
-\begin{itemize}
-    \item Advance preparations
-        \begin{itemize}
-            \item Surveying development environment
-            \item Surveying target OS
-            \item Surveying program for porting
-            \item Surveying documentation
-            \item Adjusting development environment
-            \item Adjusting target environment
-            \item Initial source code modifications
-        \end{itemize}
-    \item Building for target environment
-        \begin{itemize}
-            \item Build system triggering and modification
-            \item Installation on remote environment
-            \item Reviewing inconsistencies between source and remote environments
-            \item Solving problems with external dependencies
-            \item Create testing infrastructure
-        \end{itemize}
-    \item Testing
-        \begin{itemize}
-            \item Testing in simulated environment
-            \item Testing in target environment
-        \end{itemize}
-    \item General duties
-        \begin{itemize}
-            \item Documentation
-            \item Progress tracking
-            \item Discussions
-        \end{itemize}
-\end{itemize}
-
-{\color{red} Here we need a paragraph that clarifies some of the porting subprocesses.}
-
 This structure assumes that porting is a linear process, which is not the case.
 Many tasks are repetitive between different stages of the project. For example
 build system triggering occurs before and after testing in target environment takes place,
