@@ -1,5 +1,21 @@
 \section{Introduction}
 
-Porting a software system and evaluating the porting costs is a hard
-problem.~\cite{b1,b2,b4,b5,b9,b10,b11,b12,b13,b14,b15,b16}
+Porting a software system and evaluating the porting costs is a hard problem in
+systems programming.~\cite{b1,b2,b4,b5,b9,b10,b11,b12,b13,b14,b15,b16} The
+reasons for porting software systems are various: the developers want to enhance
+the performance, the hardware environment starts to get deprecated or the system
+wants to take advantage of features unavailable in the current environment.
 
+This paper highlights the porting issues associated with porting the IxOS
+testing infrastructure, regarding both the hardware and software components, to
+ARM off-the-shelf boards, Raspberry Pi 4 in our case. In the \textit{Background}
+section we present different terms associated with porting: what porting is, a
+porting model, porting costs and factors. In the \textit{Porting IxOS on ARM
+boards} we divide our work in multiple steps. For each step we present a
+description, the targets and milestones, and the final results.  After the
+porting process is discussed, we highlight the \textit{Porting Costs Evaluation}
+associated with our work, including an analysis of the factors that influenced
+the presented costs.  Finally, in \textit{Discussions on Porting Costs} we
+conduct a discussion about the porting process and the porting costs where we
+investigate the porting difficulties, observations about the porting tasks and
+ways to improve the porting process. 
