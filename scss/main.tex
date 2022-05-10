@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, left=25mm, right=25mm, top=20mm, bottom=20mm]{geometry}
+\usepackage{newtxtext,newtxmath} % for Times New Roman
+\usepackage{etoolbox}
+\usepackage{setspace}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{authblk}
+\usepackage{xcolor}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{tikz}
+
+
+% for text size requirements
+\makeatletter
+\makeatother
+
+% section size requirements
+\sectionfont{\fontsize{14}{14}\selectfont}
+% title size requirements
+\titleformat{\title}[display]{\fontsize{14pt}{14pt}\bfseries}{}{12pt}{}
+
+% abstract
+\renewenvironment{abstract}{%
+\begin{center}%
+    \small \textbf{\abstractname} \it
+}
+{
+\end{center}%
+\quotation
+}
+
+\newenvironment{keywords}
+{\textbf{Keywords--}}
+
+\title{\textbf{Case Study of Evaluating Porting Costs: Porting IxOS on ARM Boards}}
+\author[1]{Lucian-Ioan Popescu}
+\author[2]{Lucian Mogosanu}
+\author[1]{Razvan Deaconescu\vspace*{-0.4cm}} % last author must be the coordinator
+
+\affil[ ]{\textit{
+    lucian\_ioan.popescu@stud.acs.upb.ro,
+    lucian.mogosanu@keysight.com,
+    razvan.deaconescu@cs.pub.ro}}
+\affil[1]{Faculty of Automatic Control and Computer Science, University Politehnica of Bucharest}
+\affil[2]{Keysight Technologies Romania}
+\date{April 2022}
+
+\singlespacing % single line spacing
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+\input{introduction}
+\input{background}
+\input{porting-ixos}
+\input{evaluation}
+\input{discussions}
+\input{conclusions-and-further-work}
+\input{bibliography}
+
+
+\end{document}
