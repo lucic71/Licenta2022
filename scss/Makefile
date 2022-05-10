@@ -1,11 +1,27 @@
-PROJECT=scss-diploma-project
+BASENAME = main
+PDF = $(addsuffix .pdf, $(BASENAME))
+DVI = $(addsuffix .dvi, $(BASENAME))
+TEX = $(addsuffix .tex, $(BASENAME))
+LATEX = latex
+PDFLATEX = pdflatex
+SHOW=evince
 
-build:
-	pdflatex ${PROJECT}.tex
-	pdflatex ${PROJECT}.tex
+.PHONY: all clean
+
+all: $(PDF)
+
+$(DVI): $(TEX)
+	$(LATEX) $<
+	# Twice, so TOC is also updated
+	$(LATEX) $<
+
+$(PDF): $(TEX)
+	$(PDFLATEX) $<
+	# Twice, so TOC is also updated
+	$(PDFLATEX) $<
 
 show:
-	evince ${PROJECT}.pdf &
+	$(SHOW) $(PDF)
 
 clean:
-	rm -f *.aux *.blg *.out *.bbl *.log *.toc *.pdf
+	-rm -f *~ *.aux *.log *.blg *.bbl *.out *.pdf
