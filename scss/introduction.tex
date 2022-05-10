@@ -6,12 +6,46 @@ reasons for porting software systems are various: the developers want to enhance
 the performance, the hardware environment starts to get deprecated or the system
 wants to take advantage of features unavailable in the current environment.
 
-We make the following contributions in this work: we review the porting models
+Software development costs and invested resources for understanding, maintaining
+and developing new features for a system are big~\cite{b17,b18,b19}. We would
+like to preserve these investments when the need for a new environment arises.
+To achieve this goal people designed programming languages and compilers that
+increased portability, operating systems that could run on multiple hardware
+platforms~\cite{b16} and various standards that allowed developers to talk to
+the computer using well defined interfaces~\cite{b20}.  However the porting
+process is a non-trivial endeavor up to this day, it is error prone and time
+consuming without a proper understanding of the system and of the tasks involved
+in the process. The happens because the initial architecture contains implicit
+assumptions about the environment as: endianess, non-standard compiler behavior
+or custom changes made in the operating system structure; or it may happen
+because the developers make use of non-portable constructs as ifdefs \cite{b21}
+or machine dependant code. Moreover these parts of the design and environment
+are recorded in human-readable documents that are hard to preserve over time or
+the information is not recorded at all. Thus the developer is forced to rely on
+its own experience and skills or on the wise use of discussions to solve the
+porting problems that might arise.
+
+As with other software development processes, porting has its own costs
+associated. It is important to evaluate them and understand their implications
+in the project so that the developer can optimize the process of porting in the
+future and call attention to the weaknesses and strengths of the process. In
+this work we describe the experience of porting the IxOS testing infrastructure,
+used by Ixia for high performance network testing, on ARM off-the-shelf boards.
+We do this for two reasons. Firstly, we are interested in exploring Ixia testing
+infrastructure on newer environments with the hope that we will improve the
+performance of the system. Secondly, we are interested in evaluating porting
+costs related to the project for the reasons listed in the beginning of this
+paragraph. 
+
+We make the following academic contributions in this work: we review the porting models
 described in~\cite{b1,b2,b9} and propose a more general model that can be
 applied to modern software porting, we review the porting costs factors
 described in~\cite{b2} and analyze their relevance in our porting work and we
 provide guidelines and discussions on the topic of improving software porting
-based on the experience of porting IxOS infrastructure.
+based on the experience of porting IxOS infrastructure. On the technical side of
+contributions, we separated the relevant parts for our porting from the
+infrastructure and ported them on ARM architecture. By doing this we allow the
+the developing of further testing tools and systems on ARM boards by Ixia.
 
 This paper highlights the porting issues associated with porting the IxOS
 testing infrastructure, regarding both the hardware and software components, to
