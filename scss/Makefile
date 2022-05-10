@@ -21,7 +21,7 @@ $(PDF): $(TEX)
 	$(PDFLATEX) $<
 
 show:
-	$(SHOW) $(PDF)
+	$(SHOW) $(PDF) &
 
 clean:
 	-rm -f *~ *.aux *.log *.blg *.bbl *.out *.pdf
