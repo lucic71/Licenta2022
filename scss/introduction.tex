@@ -14,7 +14,7 @@ increased portability, operating systems that could run on multiple hardware
 platforms~\cite{b16} and various standards that allowed developers to talk to
 the computer using well defined interfaces~\cite{b20}.  However the porting
 process is a non-trivial endeavor up to this day, it is error prone and time
-consuming without a proper understanding of the system and of the tasks involved
+consuming \todo{this sounds weird} without a proper understanding of the system and of the tasks involved
 in the process. The happens because the initial architecture contains implicit
 assumptions about the environment as: endianess, non-standard compiler behavior
 or custom changes made in the operating system structure; or it may happen
@@ -47,16 +47,17 @@ contributions, we separated the relevant parts for our porting from the
 infrastructure and ported them on ARM architecture. By doing this we allow the
 the developing of further testing tools and systems on ARM boards by Ixia.
 
-This paper highlights the porting issues associated with porting the IxOS
+\todo{I don't like how this sentece is formulated} This paper highlights the porting issues associated with porting the IxOS
 testing infrastructure, regarding both the hardware and software components, to
-ARM off-the-shelf boards, Raspberry Pi 4 in our case. In the \textit{Background}
+ARM off-the-shelf boards, Raspberry Pi 4 in our case. \todo{Use references to
+sections} In the \textit{Background}
 section we present different terms associated with porting: what porting is, a
 porting model, porting costs and factors. In the \textit{Porting IxOS on ARM
 boards} we divide our work in multiple steps. For each step we present a
 description, the targets and milestones, and the final results.  After the
 porting process is discussed, we highlight the \textit{Porting Costs Evaluation}
 associated with our work, including an analysis of the factors that influenced
-the presented costs.  Finally, in \textit{Discussions on Porting Costs} we
+the presented costs.  \todo{This sentence must be more accurate} Finally, in \textit{Discussions on Porting Costs} we
 conduct a discussion about the porting process and the porting costs where we
-investigate the porting difficulties, observations about the porting tasks and
+investigate porting difficulties, observations about the porting tasks and
 ways to improve the porting process. 

@@ -1,47 +1,8 @@
 \section{Porting IxOS on ARM Boards}
 
-\subsection{Initial IxOS Architecture}
+\todo{add intro: present a summary of what will we discuss in this section}
 
-\begin{figure*}
-    \centering
-    \def\svgscale{0.95}
-    \input{fig/ixos_init_arch.pdf_tex}
-    \caption{Initial IxOS architecture}
-    \label{fig:ixos_init_arch}
-\end{figure*}
-
-The architecture we started from consists of four components, presented also in
-Figure~\ref{fig:ixos_init_arch}:
-\begin{itemize}
-    \item A client for printing network testing data
-    \item A middleware for connecting the client to the machines that run the
-    network testing suite
-    \item The actual machines that run the testing
-    \item The device that benefits from network testing
-\end{itemize}
-
-The client (\textbf{IxExplorer}) is a Windows application that allows the user to
-connect to the machines that run the testing, configure and run tests on them,
-and retrieve information about the status of the tests.
-
-To allow IxExplorer to easily connect to multiple machines that run the testing,
-a middleware (\textbf{Chassis}) is used. The most important application that runs on
-the Chassis is IxServer. It creates a communication channel between IxServer and
-the testing machines.
-
-Next, the machines that run the testng (\textbf{Cards}) are the most interesting part
-for our porting. They run on a custom Ixia hardware to achieve the best
-performance for network testing. On top of this hardware is placed IxOS Linux,
-a modified version of Linux with custom device drivers, kernel parameters and
-userspace applications. The two most interesting applications for our porting
-are InterfaceManager and IxStack. Their role in the system is to manage the
-network interfaces, represented by Port01 and Port02 in Figure~\ref{fig:ixos_init_arch},
-and to load the network protocols for the testing suites.
-
-The device that benefits from network testing (\textbf{Device Under Test} - DUT)
-is the consumer
-of the network traffic produced by the cards. Usually it is connected between
-two Ports that will monitor the behaviour of the DUT while receiving traffic.
+\subsection{Previous work in this area}
 
 Before we started the project, there existed an attempt to make Interface Manager
 and other applications independent of IxOS. This helped us during our porting
@@ -52,6 +13,54 @@ regarding the operating system interface were removed (e.g., custom device
 drivers and proc entries) and the work of porting it to another environment
 was simply a task of finding the right tools for building the binaries and
 solving unknown inconsistencies.
+
+\todo{add more info}
+
+
+\subsection{Initial IxOS Architecture}
+
+\begin{figure*}
+    \centering
+    \def\svgscale{0.95}
+    \input{fig/ixos_init_arch.pdf_tex}
+    \caption{Initial IxOS architecture \todo{modify this diagram as discussed}}
+    \label{fig:ixos_init_arch}
+\end{figure*}
+
+The architecture we started from consists of four components, presented also in
+Figure~\ref{fig:ixos_init_arch}:
+\begin{itemize}
+    \item A client for printing network testing data (\textbf{IxExplorer})
+    \item A middleware for connecting the client to the machines that run the
+    network testing suite (\textbf{Chassis})
+    \item The actual machines that run the testing (\textbf{Cards})
+    \item The device that benefits from network testing (\textbf{Device Under Test} - DUT)
+\end{itemize}
+
+IeExplorer is a Windows application that allows the user to connect to the
+machines that run the testing, configure and run tests on them, and retrieve
+information about the status of the tests.
+
+To allow IxExplorer to easily connect to multiple machines that run the testing,
+a Chassis is used. The most important application that runs on the Chassis is
+IxServer. It creates a communication channel between IxServer and the testing
+machines. This application allows the system to easily scale because it can
+create connections to more than one testing hardware.
+
+Next, the cards are the most interesting part for our porting. They run on a
+custom Ixia hardware to achieve the best performance for network testing. On top
+of this hardware is placed IxOS Linux, a modified version of Linux with custom
+device drivers, kernel parameters and userspace applications. The two most
+interesting applications for our porting are InterfaceManager (IM) and IxStack.
+Their role in the system is to manage the network interfaces, represented by
+Port01 and Port02 in Figure~\ref{fig:ixos_init_arch}, and to load the network
+protocols for the testing suites.
+
+The device device under test is the consumer of the network traffic produced by
+the cards. Usually it is connected between two \textbf{Ports} that will monitor the
+behaviour of the DUT while receiving traffic.
+
+\todo{talk about the code structure: written in c++, classes, modularity}
 
 \subsection{New IxOS Architecture}
 
@@ -73,6 +82,10 @@ Raspberry Pi environment so that we could benefit from the same functionality as
 old Ixia custom hardware + IxOS Linux environment. The process of porting the
 two applications is described in the next subsection.
 
+\todo{i might want to elaborate a bit more here. note that in the new
+environment we also had to install tools, create pipes and install needed shared
+libraries for ixstack}
+
 \subsection{The Porting Process}
 
 The porting process consisted in moving the IxOS testing infrastructure from its
@@ -84,6 +97,7 @@ the porting we set the following porting milestones:
     \item Run Interface Manager in QEMU
     \item Run Interface Manager on RaspberryPi hardware
 \end{itemize}
+\todo{should i mention the performance testing? maybe}
 We achieved all our proposed milestones during the twelve weeks of the project.
 At the end of the project we divided the work into three logical stages
 that cover the process of achieving the above milestones.
@@ -91,6 +105,8 @@ that cover the process of achieving the above milestones.
 \subsubsection{Porting Stages}
 
 The logical stages of our porting process are the following:
+\todo{these stages and subtstages need a rename as they are too specific and
+would take too much ot introduce the whole context}
 \begin{itemize}
     \item Build binaries for ARM64
     \begin{itemize}
@@ -120,7 +136,7 @@ between the two substages.
 
 In the first stage, we started the work of porting by trying to separate the
 relevant components from IxOS and build them for ARM64. We started with
-Interface Manager and HostProxy, which were the building block of our porting,
+Interface Manager \todo{Interface Manager or InterfaceManager} and HostProxy, which were the building block of our porting,
 and continued with IxStack and its components. The hardware was not available
 at this time so we tested our builds using an emulator for the target
 architecture (i.e., QEMU).
@@ -129,7 +145,7 @@ Next, when the hardware arrived, we used the RaspberryPi to test our builds.
 This proved to be a great advantage for us because the testing environment
 worked better on hardware than in the emulator. After we built all our
 components, we started to focus on the inconsistencies between the source
-environment and the target environment. For that we had to hack some parts of
+environment and the target environment. \todo{i dont like this sentence} For that we had to hack some parts of
 the program or we had to make portable and consistent changes. However the
 porting did not run as smoothly as we expected. We had to investigate multiples
 paths to understand the problems we faced, namely the problems regarding the
@@ -148,8 +164,6 @@ these issues we were able to fully port Interface Manager on RaspberryPi and
 integrate it with the bigger system consisting of IxServer and IxExplorer.
 
 \subsubsection{Porting Difficulties}
-
-TODO: maybe put the difficulties in a table to be easier to read?
 
 Each stage came with its own difficulties that we needed to solve in order to
 move to the next stages. In this section we will present the most relevant
@@ -195,9 +209,9 @@ When we succedded in putting the RaspberryPi in the same network as IxServer,
 we faced problems with the Linux operating system running on vCard (i.e.,
 Raspberry Pi OS). dmidecode(8) did not work on this system because the operating
 system did not allow us to access /dev/kmem. Another problem we faced featured
-the assumptions Interface Manager made about the environment it run in. In its
+the assumptions Interface Manager made about the environment it ran in. In its
 source environment it relied on many Ixia custom device drivers and ioctl's.
-In the target environment, these interfaces did not exist so we had to somehow
+In the target environment, these interfaces did not exist so we had to
 skip their usage.
 
 After we solved all the problems regarding the interaction of Interface Manager
@@ -227,9 +241,10 @@ only patched the code in IxServer side, without modifying the vCard.
 
 \subsection{General difficulties}
 
+\todo{this might fit better in the discussions chapter}
 After describing the concrete impediments we faced during our porting we decided
 to understand them and create a list with general difficulties that may apply
-to other porting processes. The list is found in Figure~\ref{tab:portImpeds}.
+to other porting processes. The list is found in Table~\ref{tab:portImpeds}.
 
 \begin{table*}
 \centering
@@ -268,6 +283,6 @@ are clearly reflected in the porting costs is at the end of the project where
 a retrospective is led. \\
 \hline
 \end{tabular}
-\caption{General porting difficulties}
+\caption{General porting difficulties \todo{fix this table}}
 \label{tab:portImpeds}
 \end{table*}

@@ -1,5 +1,7 @@
 \section{Background} \label{sec:background}
 
+\todo{add introduction to background: it should be a summary of the introduction}
+
 \subsection{Porting and porting tasks}
 
 Porting is the act of producing an executable version of a software unit or
@@ -37,7 +39,7 @@ environment.
 
 Mooney's model is very simplistic regarding the tasks that can occur during
 a porting process. From his model, and from the work of Hakuta and Ohminami~
-\cite{b2}, and Tanaka et al.~\cite{b1} a better model can be created that
+\cite{b2}, and Tanaka et al.~\cite{b1} a more accureate model can be created that
 reflects better the components invloved in porting an application. We also added
 our input in this model based on the needs of our project. Finally, the
 improvised model of porting has the following structure:
@@ -59,8 +61,6 @@ improvised model of porting has the following structure:
             \item Reviewing inconsistencies between source and remote
             environments
             \item Solving problems with external dependencies
-            \item Create testing infrastructure ({\color{red} why is this not in
-            Testing?})
         \end{itemize}
     \item Testing
         \begin{itemize}
@@ -77,13 +77,13 @@ improvised model of porting has the following structure:
 
 In the first task of \textit{Advance preparations} the developer 
 familiarizes with the tools, environments and the program to be ported, and 
-also adjusts the development and target environment for creating and testing the
-program to be ported. Finally, if this is the case, the developer also makes
+also adjusts the development and target environments for creating and testing the
+program to be ported. Finally, if needed, the developer also makes
 \textit{Initial source code modifications} that reflect the modification of
 the source environment to the new target environment (e.g., while porting an
 application from one operating system to another, the system call numbers or
 error numbers might differ, the modification of these items must be reflected
-in this task).
+in this task~\cite{b22}).
 
 In the second task of \textit{Building for target environment} the developer
 focuses on three issues: compiling the code to generate binaries for the
@@ -91,10 +91,15 @@ target environment, installing the code in the target environment and solving
 the inconsistencies between the source and target environment.
 
 The previous task and \textit{Testing} are the core of the porting process, they
-deliver directly the ported application that operates in the target environment.
+deliver the ported application that operates in the target environment.
 Testing is of two types in this model. The application can either be tested in a
 simulated environment for convenience (e.g., hardware is not available at the
 moment of testing) or can be tested directly in the target environment.
+Furthermore this tasks includes implictly the time allocated for setting up the
+testing environment. \todo{of course it's stupid to say that but otherwise i
+sould reextract the costs for porting because i assumed that setting up the
+testing environment is included in Testing not in adjusting for target
+environment}
 
 The last task, that is \textit{General duties}, encompasses subtask related to
 human interaction activities. In this part of the project the developer focuses
@@ -104,6 +109,9 @@ aspects with regards to difficulties encountered during the process.
 
 \subsection{Porting costs}
 
+Now that we have defined what tha porting process is and what are the relevant
+porting tasks, let us describe the porting costs associated with the process.
+
 Porting costs are measured in man-hours~\cite{b1, b2}. Man-hour represent the
 amount of effective work done by one man during one hour. While the costs are
 determined by program size and contents~\cite{b2}, other factors as portability
@@ -112,25 +120,40 @@ considerable role. To understand the factors that influence the porting costs,
 these factors are quantified in indices that describe how much of an influence
 they have.
 
-In our work we will use three indices ({\color{red} or four, plus the index of
-program size and content}) of this type as follows: portability impediments
-index, human factors index and environmental factors index.
+In our work we will use three indices of this type as follows: portability
+impediments index, human factors index and environmental factors index.
 
 The first index, portability impediments, answers the following question: how
 portable was the program to be ported and how many difficulties did the
 developer meet in the porting process? The factors that influence this index are
 described in (S1$\sim$S11~\cite{b2}) and the index is computed using the
 following formula: \[ \alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i \]
-{\color{red} Should I explain what each letter means or I can redirect the
-reader to the original paper?}
+
+Here $\eta$ is a portability design index, $\omega_i$ is the weight assigned to
+each factor and $S_i$ is 1 when the impediment factor $i$ exists, otherwise is
+0.
+\todo{explain briefly what each term means}
 
 The second index, human factors, answers the following question: what role did
 the experience and knowledge of the developer play in the porting process? The
 factors that influence this index are described in (H1$\sim$H5~\cite{b2}) and
-the index is computed using the following formula: \[ \sum_{n=1}^{5} H_i \].
+the index is computed using the following formula: \[ \sum_{n=1}^{5} H_i \]
+
+Here $H_i$ are the human factors presented in~\cite{b2}. Their values range
+from -2 which reflects the maximum productivity while 2 reflects the minimum
+productivity.
 
 The third index, environmental factors, answers the following question: how did
 the development and testing environments, and the tools used during the porting
 process affect the porting costs? The factors that influence this index are
 described in (E1$\sim$E3~\cite{b2}) and the index is computed using the
-following formula: \[ \sum_{n=1}^{3} E_i \].
+following formula: \[ \sum_{n=1}^{3} E_i \]
+
+Here $E_i$ are the following environmental factors as presented in~\cite{b2}:
+\begin{itemize}
+    \item Development environment (E1)
+    \item Unit test environment (E2)
+    \item System test environment (E3)
+\end{itemize}
+As for H1~H5, the values for E1~E3 range between -2 and 2, -2 being the best
+score for $E_i$, while 2 being the worst.

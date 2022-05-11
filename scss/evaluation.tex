@@ -40,10 +40,11 @@ tracking created during the porting. We use man-days to evaluate the
 cost for each subprocess because the tracking was done each week rather than
 each day.
 
+\todo{this needes massive rewrite}
 This structure assumes that porting is a linear process, which is not the case.
 Many tasks are repetitive between different stages of the project. For example
 build system triggering occurs before and after testing in target environment takes place,
-making it hard to accurately track each subtask. For this reason table
+making it hard to accurately track each subtask. For this reason Table
 ~\ref{tab:manHoursEvaluation} does not track the exact hours or days spent
 on a specific subtask. It rather presents in how many days a specific subtask
 was finished, even if that subtask took one or two hours of that day. Finally,
@@ -83,6 +84,7 @@ Porting task & Subtasks & Man-hours & Subtotals/subtask (\%) & Subtotals/task (\
 \label{tab:manHoursEvaluation}
 \end{table*}
 
+\todo{rewrite}
 As seen from the table the most time consuming subtask are the following:
 discussions, incosistencies reviewing, installation on remote environment and
 build system triggering and modification. The amount of time spent on these tasks is different. While
@@ -100,24 +102,20 @@ toolchain helped us to discover the code zones to be changed.
 
 \subsection{Factors of porting costs}
 
-While porting costs, in our case man-days, are determined dirctly by program size and
-content, other factors and impediments as human experience and environment
-disparities must be taken into consideration.
+While porting costs, in our case man-hours, are determined dirctly by program
+size and content, other factors and impediments as human experience and
+environment disparities must be taken into consideration.
 
 To determine the impact some of these factors had on our porting process, we
-use the indices described in Hakuta and Ohminami ~\cite{b2} that give
+use the indices described in Hakuta and Ohminami~\cite{b2} that give
 a quantitative influence of porting factors and impediments.
 
 \subsubsection{Portability Impediment Index}
 
-The first index that we compute is the portability impediment index, this will
-show us how portable was the porgram we ported and how many difficulties did
-we meet in our porting process. The index is computed using the following
-formula: $\alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i$, where $\eta$ is a
-portability design index, $\omega_i$ is the weight assigned to each factor and
-$S_i$ is 1 when the impediment $i$ exists, otherwise is 0. In our case $eta$
-has a value of 2, meaning that "the non-portable parts of the program are not
-localized, but the correspondence of program codes to their functions is
+\todo{add a little intro here?}
+The first index that we compute is the portability impediment index.  In our
+case $eta$ has a value of 2, meaning that "the non-portable parts of the program
+are not localized, but the correspondence of program codes to their functions is
 clarified". For simplicity we will assume that $\omega_i$ is 0 if the impediment
 was insignificant, 0.5 if the impediment had a normal difficulty and 1 if the
 impediment was hard to solve. In our porting we discovered the following
@@ -131,18 +129,21 @@ portability impediments:
 
 It can be noted that we added an additional impediment inexistent in Hakuta and
 Ohminami's list~\cite{b2}, namely S12, which can be placed in the "OS disparity"
-category.
+category. This impediment is reflected in the usage of dmidecode(8) on Raspberry
+Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
+/dev/kmem which was needed by dmidecode(8), which in turn was needed by
+InterfaceManager.
 
 Given these impediments the portability impediment index has the following
 value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$. The
-maximum value for $\alpha_p$ is 36 as seen in Figure~\ref{fig:PII}. Our PII is
-achieved because there were
-no differences between processor architecture (S1~S5), little difference between
-source and target OSes (S6, S7, S12) and a major difference in language processor
-(S8~S11). The application was written in C++ and the port was between two Linux
-versions, which highly decreased the impediments we could have faced. The
-degree of portability of the program to be ported is highlighted in Figure
-~\ref{fig:PII}, being very close to the optimal value.
+maximum value for $\alpha_p$ is 36 as seen in Figure~\ref{fig:PII}. This PII is
+resulted because there were no differences between processor architecture
+(S1~S5), little difference between source and target OSes (S6, S7, S12) and a
+major difference in language processor (S8~S11). The application was written in
+C++ and the port was between two Linux versions, which highly decreased the
+impediments we could have faced. The degree of portability of the program to be
+ported is highlighted in Figure~\ref{fig:PII}, being very close to the optimal
+value.
 
 \begin{figure}
     \begin{tikzpicture}[
@@ -156,26 +157,24 @@ degree of portability of the program to be ported is highlighted in Figure
         \node[dot,label={PII=6}] at (1,0) {};
     \end{tikzpicture}
 
-    \caption{Portability Impediment Index}
+    \caption{Portability Impediment Index \todo{fixme}}
     \label{fig:PII}
 \end{figure}
 
 
 \subsubsection{Human Factors Index}
 
-Software programs are byproducts of human
-activities than incorporate our problem-solving capabilities, cognitive aspects
-and social interaction ~\cite{b3}, therefore it is vital to understand what role
-did the human factors play in our porting so that we can assess the quality of
-the porting process. 
+Software programs are byproducts of human activities than incorporate our
+problem-solving capabilities, cognitive aspects and social
+interaction~\cite{b3}, therefore it is vital to understand what role did the
+human factors play in our porting so that we can assess the quality of the
+porting process. 
 
-The index $\alpha_h$ is defined as $\sum_{n=1}^{5} H_i$, where $H_i$ are the
-human factors presented in ~\cite{b2}. Their values range from -2 which reflects
-the maximum productivity while 2 reflects the minimum productivity. Therefore
-in our case $\alpha_h = 2 + (-1) + 2 + 1 + 2 = 6$. As seen in Figure
-~\ref{fig:HFI}, the HFI has a score very close to the lowest possible score.
-Indeed, the human factor played a major role in our porting process, let us
-analyze each factor and see what went wrong.
+\todo{what do the numbers mean?}
+In our case $\alpha_h = 2 + (-1) + 2 + 1 + 2 = 6$. As seen in
+Figure~\ref{fig:HFI}, the HFI has a score very close to the lowest possible
+score. Indeed, the human factor played a major role in our porting process, let
+us analyze each factor and see what went wrong.
 
 \begin{figure}
     \begin{tikzpicture}[
@@ -189,11 +188,12 @@ analyze each factor and see what went wrong.
         \node[dot,label={HFI=6}] at (4.8,0) {};
     \end{tikzpicture}
 
-    \caption{Human Factors Index}
+    \caption{Human Factors Index \todo{fixme}}
     \label{fig:HFI}
 \end{figure}
 
 \textit{Knowledge about the program to be ported functions and structures (H1)} 
+\todo{i don't like the "my" part}
 As this was my first interaction with the program to be ported it was hard to
 familiarize with its functions and structures, therefore I had no experience
 whatsoever with the use cases of the program. This resulted in the inability to
@@ -221,34 +221,26 @@ The experience with the programming language (C++) helped us to grow the
 productivity of the porting process as we did not have to care about low-level
 impediments as endianness or data alignment. However we did have problems with
 the language specification between different compilation toolchains that costed
-us a whole week to solve. Finally, the experience with program to be ported in
-use was lacking.
+us a whole week to solve. Finally, the experience with use cases of the program
+to be ported was lacking. \todo{continue the ideas about the last phrase}
 
 \textit{Knowledge about the functions and usage of tools used in the development
 and testing environment (H5)}
 While working in the development and testing environments we used a considerable
 number of technologies, some of them being either new or not trivial to work
 with. Here is a short list of these technologies: QEMU networking, SCons build
-system, Perforce versioning system and internal tools as packaging system. (are
-we allowed to mention these things, i dont see a problem in that tbh)
+system, Perforce versioning system and internal tools as packaging system.
+\todo{continue the ideas about the last phrase}
 
 In retrospect, it seems that if the human factor index had a better score, maybe
 the porting process would have lasted less and the problems we faced would not
-even occur.
+even occur. \todo{fixme}
 
 \subsubsection{Environmental Factors Index}
 
-The index $\alpha_e$ is defined as $\sum_{n=1}^{3} E_i$, where $E_i$ are the
-following environmental factors as presented in~\cite{b2}:
-\begin{itemize}
-    \item Development environment (E1)
-    \item Unit test environment (E2)
-    \item System test environment (E3)
-\end{itemize}
-
+\todo{add intro}
 In our porting we did not use any kind of unit testing so we will discard E2
-from our discussion. As for H1~H5, the values for E1~E3 range between -2 and 2,
--2 being the best score for $E_i$, while 2 being the worst.
+from our discussion.
 
 In the development environment we had no documentation describing the compiling
 and linking procedures and no documentation regarding the environment dependent
@@ -257,19 +249,19 @@ environment. We modified the code and the build system by trial and error. This
 reduces the score for E1 as this strategy might not always work or it could take
 an unsatisfactory amount of time for large and complicated systems. However
 we managed to understand the peculiarities of the development environment and
-get the first builds available for testing in two or three weeks, that is less
-than 25\% of our porting time, which is an acceptable value.
+get the first builds available for testing in two or three weeks, which is less
+than 25\% of our porting time.
 
 In the testing environment we had test programs and tools available such as
-simulators and debuggers, furthermore the file transfer and conversion tools
+emulators and debuggers, furthermore the file transfer and conversion tools
 were available from the start of the project. This facilitated the testing of
 our program to be ported by allowing us to focus on the porting inconsistencies
 rather than on testing infrastructure. Things were not perfect however, we did
 have problems with the testing infrastructure that we solved in a short period
-of time.
+of time (\todo{add reference to porting difficulties} ).
 
 That being said, the environmental factors index has the following value in our
-case: $\alpha_e = 0 + NA + -1 = -1$. As seen in Figure~\ref{fig:EFI} we are in the
+case: \todo{what do these numbers mean?} $\alpha_e = 0 + NA + -1 = -1$. As seen in Figure~\ref{fig:EFI} we are in the
 satisfactory half of the index, meaning that even if we had some difficulties
 setting and understanding the development and testing environment, we managed
 to work with them in order to achieve our goals.
@@ -286,9 +278,8 @@ to work with them in order to achieve our goals.
         \node[dot,label={EFI=-1}] at (2,0) {};
     \end{tikzpicture}
 
-    \caption{Environmental Factors Index}
+    \caption{Environmental Factors Index \todo{fixme}}
     \label{fig:EFI}
 \end{figure}
 
-Do we want to measure porting productivity index and porting costs using that
-weird equation?
+\todo{ending thoughts}
