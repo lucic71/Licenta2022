@@ -53,4 +53,107 @@ per tasks so that we could answer questions as: where did we spend most time and
 why? or what was the relation between development and testing? For this we
 allocated an hour each week for tracking the status of the project, the planned
 objectives for the future and the major difficulties we met in the respective
-week.
+week. It is unclear, however, if more time spent on progress tracking would
+improve the quality of other tasks. We can only guess, but more time spent on
+tracking the working hours would mean that the developer has a better sense of
+the time spent on each task, thus better managing multiple tasks at a time in
+the future.
+
+As discussed above, we had errors while extracting the porting costs for each
+subtask in Table~\ref{tab:manHoursEvaluation}. There are two reasons for this
+issue: the progress tracking format did not help us to extract the costs
+correctly or the model we used for extracting the porting costs was not correct.
+Firstly, the progress tracking format should have an intrinsic expresiveness that would
+make it easy for the user to express the non-linearity of the porting tasks. To
+create this kind of format we need to first find a way to describe the
+non-linearity of the porting process, which is not a trivial task whatsoever.
+Secondly, we expect a conversion error from the classical progress tracking
+format (i.e., list of bullets for current status and planning) to the porting
+model presented in section~\ref{sec:background}. This happens because there is
+no straightforward way of converting a bullet as "IM is booting, having config
+issues" (this example is taken from our progress tracking) into clear and
+independent porting tasks. This is subject to interpretation one might say that
+this bullet might be broken down into the following porting tasks:
+\begin{itemize}
+        \item Reviewing inconsistencies between source and remote environments
+        \item Testing in target environment
+        \item Discussions
+        \item Surveying target OS
+\end{itemize}
+while another would break the bullet down into the following porting tasks:
+\begin{itemize}
+        \item Reviewing inconsistencies between source and remote environments
+        \item Testing in target environment
+\end{itemize}
+It very much depends on the human factors and how the developers decide to work
+with the provided tools and systems. Furthermore, to have a more accurate
+conversion there must be time considerents: how much time did we spent on this
+bullet? and how do we divide this time between porting tasks?
+
+The next discussion point focuses on the porting tasks dependency graph. It
+would be very difficult to sketch a complete graph between all tasks, instead we
+can focus on specific areas of the graph that are somehow easier to understand
+and sketch. The first area is the dependency between \textit{Testing} and all
+subtasks in \textit{Building for target environment}. There is a continous
+feedback between the testing phase and the development phase. While porting we
+built binaries, installed them on target environment, tested them and expected
+to see errors of linking, problems with the installation or actual
+inconsistencies and problems with dependencies that would be solved in a future
+iteration of this process. This iterative process with continous feedback
+between testing and development is a building block of the Agile methodology, if
+we used other software methodology as Waterfall maybe the dependency would be
+completely different. The second area we focus on is the dependency between
+\textit{General duties} and all other subtasks. Documentation is linked to all
+subtasks because we need to include all relevant information in the documents we
+produce, progress tracking must reflect work executed in each subtask and
+discussions are by design focused on trying to understand each part of the
+porting process. That being said, it is hard to imagine how \textit{General
+duties} would not be a substantial port of the porting process. It would be
+interesting too see if a modification in the allocated time for a subtask such
+as \textit{Discussions} would reduce or increase the needed time for other
+subtasks, otherwise if other tasks are not affected by this modification, there
+should be no interest in allocating more time for discussing.
+
+At this moment we discussed the limitations and open problems that appear in the
+model of porting we used. Next, we make a comparison between our results for
+porting costs and the results that appeared in the first paper that presented a
+basis for our porting model~\cite{b1}. The results can be found in Table 6 of
+the paper we referenced. We will compare the subtotals per tasks and discuss the
+reasons of the differences between the two . In terms of \textit{Advance
+preparations} we spend a total of 14.35\% of our total time while Tanaka et al.
+spend 33.4\%.  There are two major reasons for reduced time in our case. First,
+we were interested in delivering builds for the target environment as fast as
+possible, sacrificing the time spent on understanding each part of the system we
+were trying to port. We found no easy way to understand the components of the
+system by surveying the documentation and the program for porting so we decided
+to offload this work on the build system (i.e., when the compiler threw errors
+for a component, we went to that component, understood it and solved the
+problems). Second, we worked with the Agile methodology in mind, combining
+subtasks from different tasks in the same iteration. For this reason we
+losed the focus on the \textit{Advance preparations} because we were also
+interested in subtasks from \textit{Building for target environment}, for
+example. Tanaka et al. seem to work with a Waterfall methodology. This might
+explain the increased time in this initial stage.
+
+Next we compare the \textit{Building for target environment} in our model with
+\textit{Target testing} from Tanaka et al. There are significant differences in
+the subtasks from the two models but we are interested in a comparation of
+development time (i.e., actual work focused on solving errors and
+inconsistencies, building binaries, etc.). It seems that Tanaka et al. put the
+time spent on solving errors and the time spent on testing in the same category.
+This makes the comparison difficult as we do not know how to divide this time.
+However our time spent in this stage is 32.71\% while Tanaka et al. spend
+27.8\%. The most time consmuing task for us was to work with the build system,
+which is not the case for them. This shows the major difference between our
+project and theirs.  While our porting was focused on extracting components from
+a larger ecosystem into a target environment, their project was focused on
+porting a whole application from one environment to another.
+
+For \textit{Testing} we assume that they spent $\textit{Linked test on target} /
+2 + \textit{Workstation testing} =  10.5 + 11.4 = 21.9\%$. We dived the linked
+test on target because we assumed that half of this time was allocated to
+development and half of it was allocated to testing. Their time for
+\textit{General duties} is of 27.4\%. These two times are very similar with our
+project (i.e, 24.53\% and 28.26\%). This might mean that testing and general
+duties represent a major part in each software porting project, thus when
+evaluating the costs in advance, special attention must be payed to these tasks.
