@@ -1,6 +1,8 @@
 \section{Background} \label{sec:background}
 
-\todo{add introduction to background: it should be a summary of the introduction}
+The process of reusing code in a new environment has clear advantages over
+rewriting. However this process does not come cheap, as the task of reusing code
+through porting is time consuming.
 
 \subsection{Porting and porting tasks}
 
@@ -14,24 +16,14 @@ standard compiler behaviors.
 The environment is defined as the set of software and hardware elements that
 interact with the system. This includes, but it is not restricted to: operating
 system, communication methods, configuration files and system variables,
-hardware architecture or human interaction. Two software environments involved
-in the porting process will never be the same because of the software and
-hardware inconsistencies. On one hand, programs between operating systems will
-not work, even if the hardware is the same. For example MacOS uses MACH for
-executable files while Linux uses ELF, moreover even if they follow the POSIX
-standard, they may have implementation details that do not align with each
-other. On the other hand, processor architectures vary from one another in the
-way they understand machine language and even if they do not vary, custom
-hardware attached to these processors makes porting difficult as the software
-must be rewritten in order to accomodate the new periferials.
+hardware architecture or human interaction. 
 
-Mooney~\cite{b7} presents two components of the porting process:
-transporation and adaptation. The first is described as the act of moving the
-system (code or binary executable) to a new environment and the latter is
-described as the act of modifying the system in order to be compatible with the
-new environment. Transportation is facilitated by communication channels to the
-target environment, either online (file sharing systems, remote connections) or
-physical (using data storage devices). Adaptation consumes more development
+Mooney~\cite{b7} presents two components of the porting process: transporation
+and adaptation. The first is described as the act of moving the system (code or
+binary executable) to a new environment and the latter is described as the act
+of modifying the system in order to be compatible with the new environment.
+Transportation is facilitated by communication channels to the target
+environment, both online and physical. Adaptation consumes more development
 resources than transportation because it implies translating the source code to
 the new environment, solving possible inconsistencies and making sure that the
 software system behaves in a well defined manner when ran in the new
@@ -43,6 +35,7 @@ a porting process. From his model, and from the work of Hakuta and Ohminami~
 reflects better the components invloved in porting an application. We also added
 our input in this model based on the needs of our project. Finally, the
 improvised model of porting has the following structure:
+\todo{maybe try a table here as it would consume less paper}
 \begin{itemize}
     \item Advance preparations
         \begin{itemize}
@@ -75,15 +68,13 @@ improvised model of porting has the following structure:
         \end{itemize}
 \end{itemize}
 
-In the first task of \textit{Advance preparations} the developer 
-familiarizes with the tools, environments and the program to be ported, and 
-also adjusts the development and target environments for creating and testing the
-program to be ported. Finally, if needed, the developer also makes
-\textit{Initial source code modifications} that reflect the modification of
-the source environment to the new target environment (e.g., while porting an
-application from one operating system to another, the system call numbers or
-error numbers might differ, the modification of these items must be reflected
-in this task~\cite{b22}).
+In \textit{Advance preparations} the developer familiarizes with the tools,
+environments and the program to be ported, and also adjusts the development and
+target environments for creating and testing the program to be ported. Finally,
+if needed, the developer also makes \textit{Initial source code modifications}
+that reflect the modification of the source environment to the new target
+environment (e.g., modification in system call numbers and error
+numbers~\cite{b22}).
 
 In the second task of \textit{Building for target environment} the developer
 focuses on three issues: compiling the code to generate binaries for the
@@ -96,10 +87,7 @@ Testing is of two types in this model. The application can either be tested in a
 simulated environment for convenience (e.g., hardware is not available at the
 moment of testing) or can be tested directly in the target environment.
 Furthermore this tasks includes implictly the time allocated for setting up the
-testing environment. \todo{of course it's stupid to say that but otherwise i
-sould reextract the costs for porting because i assumed that setting up the
-testing environment is included in Testing not in adjusting for target
-environment}
+testing environment.
 
 The last task, that is \textit{General duties}, encompasses subtask related to
 human interaction activities. In this part of the project the developer focuses
@@ -112,8 +100,7 @@ aspects with regards to difficulties encountered during the process.
 Now that we have defined what tha porting process is and what are the relevant
 porting tasks, let us describe the porting costs associated with the process.
 
-Porting costs are measured in man-hours~\cite{b1, b2}. Man-hour represent the
-amount of effective work done by one man during one hour. While the costs are
+Porting costs are measured in man-hours~\cite{b1, b2}. While the costs are
 determined by program size and contents~\cite{b2}, other factors as portability
 impediments, human factors or environmental factors~\cite{b2} play a
 considerable role. To understand the factors that influence the porting costs,
@@ -132,7 +119,6 @@ following formula: \[ \alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i \]
 Here $\eta$ is a portability design index, $\omega_i$ is the weight assigned to
 each factor and $S_i$ is 1 when the impediment factor $i$ exists, otherwise is
 0.
-\todo{explain briefly what each term means}
 
 The second index, human factors, answers the following question: what role did
 the experience and knowledge of the developer play in the porting process? The
@@ -155,5 +141,6 @@ Here $E_i$ are the following environmental factors as presented in~\cite{b2}:
     \item Unit test environment (E2)
     \item System test environment (E3)
 \end{itemize}
-As for H1~H5, the values for E1~E3 range between -2 and 2, -2 being the best
+
+As for H1$\sim$H5, the values for E1$\sim$E3 range between -2 and 2, -2 being the best
 score for $E_i$, while 2 being the worst.
