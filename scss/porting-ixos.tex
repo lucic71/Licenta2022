@@ -6,18 +6,6 @@ process of porting this system.
 
 \subsection{Porting Architecture}
 
-\begin{figure*}
-    \centering
-    \def\svgscale{0.95}
-    \input{fig/ixos_arch.pdf_tex}
-    \caption{IxOS porting architecture}
-    \label{fig:ixos_arch}
-    \medskip
-    \small
-    The right part of the figure presents the modification of the card
-    environment.
-\end{figure*}
-
 The components of the porting architecture, presented in
 Figure~\ref{fig:ixos_arch}, are:
 \begin{itemize}
@@ -49,6 +37,18 @@ protocols for the testing suites.
 The device device under test is the consumer of the network traffic produced by
 the cards. Usually it is connected between two \textbf{Ports} that will monitor the
 behaviour of the DUT while receiving traffic.
+
+\begin{figure}
+    \centering
+    \def\svgscale{0.95}
+    \input{fig/ixos_arch.pdf_tex}
+    \caption{IxOS porting architecture}
+    \label{fig:ixos_arch}
+    \medskip
+    \small
+    The right part of the figure presents the modification of the card
+    environment.
+\end{figure}
 
 \subsection{New IxOS Architecture}
 
