@@ -40,7 +40,7 @@ To evaluate the costs for porting IxOS infrastructure we divided our work based
 on the model described in Section~\ref{sec:background}. Using the progress
 tracking done during the project, we extracted the time spent on each task. We
 use man-hours to evaluate the cost for each task. The results of this process
-is shown in Table\~ref{tab:manHoursEvaluation}.
+is shown in Table~\ref{tab:manHoursEvaluation}.
 
 \begin{table*}
 \centering
@@ -87,21 +87,23 @@ Porting task & Subtasks & \multirowline{Man\\-hours} & \multirowline{Subtotals\\
 \label{tab:manHoursEvaluation}
 \end{table*}
 
-\todo{rewrite}
-As seen from the table the most time consuming subtask are the following:
-discussions, incosistencies reviewing, installation on remote environment and
-build system triggering and modification. The amount of time spent on these tasks is different. While
-discussions and inconsistencies reviewing were planned during the day, taking
-a predefined amount of time, installation on remote environment and build system trigerring
-were repetitive and sporadic tasks. However this does not decrease the
-importance of the later tasks, they were time consuming because they helped us
-to achieve other tasks, mainly testing tasks.
+The most time consuming task is \textit{Build system triggering and
+modification}. This happened because we spent a lot of time on extracting and
+integrating IxOS components as InterfaceManager, HostProxy and IxServer. There
+was also much repetitive time spent on triggering the compilation pipeline that
+was added in the total of 67 hours.
 
-Another thing that stands out is that we spent zero days on initial source code
-modifications. This happened because the code base was too unfamiliar in order
-to make source code modifications from the start. The first source code
-modifications were present in the reviewing inconsistencies stage because the
-toolchain helped us to discover the code zones to be changed.
+We spent an approximately 2.5x more time on testing than on solving errors and
+inconsistencies. This means that the errors were not difficult to solve, instead
+they were difficult to find. This situation is no surprise for us because we had
+no reference or documentation that would help us in investigating the errors and
+inconsistencies. 
+
+There was no time allocated on making initial source code modifications because
+the system was unfamiliar and hard to understand from the start. Finally, we
+spent more time on \textit{General Duties} than on \textit{Testing}. This shows
+that there was a substantial effort put in trying to make use of discussions
+to clarrify the system.
 
 \subsection{Factors of porting costs}
 
@@ -115,8 +117,7 @@ a quantitative influence of porting factors and impediments.
 
 \subsubsection{Portability Impediment Index}
 
-\todo{add a little intro here?}
-The first index that we compute is the portability impediment index.  In our
+The first index that we compute is the portability impediment index. In our
 case $eta$ has a value of 2, meaning that "the non-portable parts of the program
 are not localized, but the correspondence of program codes to their functions is
 clarified". For simplicity we will assume that $\omega_i$ is 0 if the impediment
@@ -138,31 +139,22 @@ Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
 InterfaceManager.
 
 Given these impediments the portability impediment index has the following
-value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$. The
-maximum value for $\alpha_p$ is 36 as seen in Figure~\ref{fig:PII}. This PII is
-resulted because there were no differences between processor architecture
-(S1~S5), little difference between source and target OSes (S6, S7, S12) and a
-major difference in language processor (S8~S11). The application was written in
-C++ and the port was between two Linux versions, which highly decreased the
-impediments we could have faced. The degree of portability of the program to be
-ported is highlighted in Figure~\ref{fig:PII}, being very close to the optimal
-value.
+value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
+were no differences between processor architecture (S1~S5), little difference
+between source and target OSes (S6, S7, S12) and a major difference in language
+processor (S8~S11). The portability difficulty is thus reflected in the
+following figure:
 
-\begin{figure}
-    \begin{tikzpicture}[
-        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
-        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
-            thick      
-    ]
-        \draw (0,0.2) -- + (0,-0.4) node[below] {EASIEST=0};
-        \draw (6,0.2) -- + (0,-0.4) node[below] {HARDEST=36};
-        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-        \node[dot,label={PII=6}] at (1,0) {};
-    \end{tikzpicture}
-
-    \caption{Portability Impediment Index \todo{fixme}}
-    \label{fig:PII}
-\end{figure}
+\begin{tikzpicture}[
+    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+        thick      
+]
+    \draw (0,0.2) -- + (0,-0.4) node[below] {EASIEST=0};
+    \draw (6,0.2) -- + (0,-0.4) node[below] {HARDEST=36};
+    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+    \node[dot,label={$\alpha_p$=6}] at (1,0) {};
+\end{tikzpicture}
 
 
 \subsubsection{Human Factors Index}
@@ -173,116 +165,53 @@ interaction~\cite{b5}, therefore it is vital to understand what role did the
 human factors play in our porting so that we can assess the quality of the
 porting process. 
 
-\todo{what do the numbers mean?}
-In our case $\alpha_h = 2 + (-1) + 2 + 1 + 2 = 6$. As seen in
-Figure~\ref{fig:HFI}, the HFI has a score very close to the lowest possible
-score. Indeed, the human factor played a major role in our porting process, let
-us analyze each factor and see what went wrong.
+In our case $\alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6$.
+This score is very close the worst possible score:
 
-\begin{figure}
-    \begin{tikzpicture}[
-        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
-        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
-            thick      
-    ]
-        \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-10};
-        \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=10};
-        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-        \node[dot,label={HFI=6}] at (4.8,0) {};
-    \end{tikzpicture}
+\begin{tikzpicture}[
+    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+        thick      
+]
+    \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-10};
+    \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=10};
+    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+    \node[dot,label={$\alpha_h$=6}] at (4.8,0) {};
+\end{tikzpicture}
 
-    \caption{Human Factors Index \todo{fixme}}
-    \label{fig:HFI}
-\end{figure}
-
-\textit{Knowledge about the program to be ported functions and structures (H1)} 
-\todo{i don't like the "my" part}
-As this was my first interaction with the program to be ported it was hard to
-familiarize with its functions and structures, therefore I had no experience
-whatsoever with the use cases of the program. This resulted in the inability to
-easily solve the porting problems that appeared in our way.
-
-\textit{Knowledge about the hardware and OS of the target system (H2)}
-Hardware disparities were not a big concern in our porting as we used a portable
-operating system and programming language that abstracted out hardware problems.
-Therefore the focus was on the target operating system. Our porting moved the
-program from an older version of Linux to a newer one. This helped us as we
-did not have to learn the peculiarities of another operating system so that we
-could finish our porting. However there were some problems that we faced
-regarding the target operating system that we solved relatively straight
-forward.
-
-\textit{Knowledge and experience in the area of software porting (H3)}
-As the experience of software porting was lacking there were many situations
-and problems that could have been solved better, for example: doing better
-tracking of the porting process, putting more effort in technical discussions
-in order to better understand the problems, etc.
-
-\textit{Knowledge of and experience with the language and program to be ported
-in use(H4)}
-The experience with the programming language (C++) helped us to grow the
-productivity of the porting process as we did not have to care about low-level
-impediments as endianness or data alignment. However we did have problems with
-the language specification between different compilation toolchains that costed
-us a whole week to solve. Finally, the experience with use cases of the program
-to be ported was lacking. \todo{continue the ideas about the last phrase}
-
-\textit{Knowledge about the functions and usage of tools used in the development
-and testing environment (H5)}
-While working in the development and testing environments we used a considerable
-number of technologies, some of them being either new or not trivial to work
-with. Here is a short list of these technologies: QEMU networking, SCons build
-system, Perforce versioning system and internal tools as packaging system.
-\todo{continue the ideas about the last phrase}
-
-In retrospect, it seems that if the human factor index had a better score, maybe
-the porting process would have lasted less and the problems we faced would not
-even occur. \todo{fixme}
+Indeed the human factors played an important role in our porting. The knowledge
+about the program to be poerted functions and use cases was low. We had a good
+understanding of the target OS and hardware. The experience in the area os
+software porting tasks and tools was missing up to this project and previous
+experience on working with large scale system was also missing.
 
 \subsubsection{Environmental Factors Index}
 
-\todo{add intro}
-In our porting we did not use any kind of unit testing so we will discard E2
-from our discussion.
+The tools used in the development environment and the testing mechanisms used in
+the testing environment also add their bit in the porting costs.
 
-In the development environment we had no documentation describing the compiling
-and linking procedures and no documentation regarding the environment dependent
-components that we need to modify in order to move the code to a new
-environment. We modified the code and the build system by trial and error. This
-reduces the score for E1 as this strategy might not always work or it could take
-an unsatisfactory amount of time for large and complicated systems. However
-we managed to understand the peculiarities of the development environment and
-get the first builds available for testing in two or three weeks, which is less
-than 25\% of our porting time.
+In the development environment we used our personal experience to work with the
+build system and to explore the code. Because the documentation was missing we
+had to use trial and error strategies to make things work. In the testing
+environment, even if we had problems with setting up the testing infrastructure,
+we managed to focus on testing the system.
 
-In the testing environment we had test programs and tools available such as
-emulators and debuggers, furthermore the file transfer and conversion tools
-were available from the start of the project. This facilitated the testing of
-our program to be ported by allowing us to focus on the porting inconsistencies
-rather than on testing infrastructure. Things were not perfect however, we did
-have problems with the testing infrastructure that we solved in a short period
-of time (\todo{add reference to porting difficulties} ).
+The environmental factors index has the following value in our case: $\alpha_e =
+E1 + E2 + E3 = 0 + NA + -1 = -1$. We are in the satisfactory half of the index,
+meaning that even if we had some difficulties setting and understanding the
+development and testing environment, we managed to work with them in order to
+achieve our goals. The score is also described below:
 
-That being said, the environmental factors index has the following value in our
-case: \todo{what do these numbers mean?} $\alpha_e = 0 + NA + -1 = -1$. As seen in Figure~\ref{fig:EFI} we are in the
-satisfactory half of the index, meaning that even if we had some difficulties
-setting and understanding the development and testing environment, we managed
-to work with them in order to achieve our goals.
+\begin{tikzpicture}[
+    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+        thick      
+]
+    \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
+    \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
+    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+    \node[dot,label={EFI=-1}] at (2,0) {};
+\end{tikzpicture}
 
-\begin{figure}
-    \begin{tikzpicture}[
-        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
-        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
-            thick      
-    ]
-        \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
-        \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
-        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-        \node[dot,label={EFI=-1}] at (2,0) {};
-    \end{tikzpicture}
-
-    \caption{Environmental Factors Index \todo{fixme}}
-    \label{fig:EFI}
-\end{figure}
-
-\todo{ending thoughts}
+After we evaluated the costs and discovered their correlation with the porting
+factors we will conduct a discussion on the results of our evaluation.
