@@ -36,7 +36,7 @@ protocols for the testing suites.
 
 The device device under test is the consumer of the network traffic produced by
 the cards. Usually it is connected between two \textbf{Ports} that will monitor the
-behaviour of the DUT while receiving traffic.
+behavior of the DUT while receiving traffic.
 
 \begin{figure}
     \centering
@@ -81,7 +81,7 @@ environment was simply a task of finding the right tools for building the
 binaries and solving unknown inconsistencies.
 
 InterfaceManager had already a high degree of portability as it was written
-in C++ using an object oriented paradigm. The architecture dependant code was
+in C++ using an object oriented paradigm. The architecture dependent code was
 separated using constructs as ifdefs and the coding style was compiler agnostic,
 meaning that we were able at any time to plug another compiler and generate the
 correct binaries.
@@ -142,7 +142,7 @@ This proved to be a great advantage for us because the testing environment
 worked better on hardware than in the emulator. After we built all our
 components, we started to focus on the inconsistencies between the source
 environment and the target environment. For that we had to modify some parts of
-the program that were source environment dependant. However the porting did not
+the program that were source environment dependent. However the porting did not
 run as smoothly as we expected. We had to investigate multiples paths to
 understand the problems we faced, namely the problems regarding the
 initialization of our Card.
@@ -199,7 +199,7 @@ connected to the computer that ran VirtualBox. To connect the two we had to make
 a bridge between the Virtual Box network and the host network. This did not work
 as expected because this configuration broke the IxServer machine.
 
-When we succedded in putting the Raspberry Pi in the same network as IxServer,
+When we succeeded in putting the Raspberry Pi in the same network as IxServer,
 we faced problems with the Linux operating system running on Card (i.e.,
 Raspberry Pi OS). dmidecode(8) did not work on this system because the operating
 system did not allow us to access /dev/kmem. Another problem we faced featured
@@ -220,15 +220,15 @@ wrong when IxServer was communicating with Card. We had no reference
 communication so we had to rely on trial and error methods to find out what went
 wrong.
 
-Firstly, we tried to investagate if the problem was with Card stats. We assumed
+Firstly, we tried to investigate if the problem was with Card stats. We assumed
 that the Card did not initialize correctly when communicating with IxServer
 because it did not send periodical statistics. However this proved to be false,
-but it came with a rather huge cost. We spent approximatively three days trying
+but it came with a rather huge cost. We spent approximately three days trying
 to see if the problem was the statistics.
 
 Secondly, we focused on the code in IxServer, leaving behind the Card. The code
 is written in C++, using an object oriented paradigm. The coding style helped us
 to surf faster through the code and filter unimportant code zones. However the
 difficulty here was the code size. We had to read multiple thousand-lines files
-in order to find the communication problem. Because of time considerents we only
+in order to find the communication problem. Because of time reasons we only
 patched the code in IxServer side, without modifying the Card.

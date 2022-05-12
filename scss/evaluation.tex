@@ -62,7 +62,7 @@ Porting task & Subtasks & \multirowline{Man\\-hours} & \multirowline{Subtotals\\
                                         \cline{2-4}
                                         & Initial source code modifications                   & 0    & 0    &                         \\
 \hline
-\multirow{5}{5em}{Building for target environment} & \multirowline{Build system triggering and \\ modifcation}                          & 67.56 & 18.76 & \multirow{5}{5em}{32.71} \\
+\multirow{5}{5em}{Building for target environment} & \multirowline{Build system triggering and \\ modification}                          & 67.56 & 18.76 & \multirow{5}{5em}{32.71} \\
                                                    \cline{2-4}
                                                    & \multirowline{Installation on remote \\ environment}                               & 15.26 & 4.23  &                          \\
                                                    \cline{2-4}
@@ -103,11 +103,11 @@ There was no time allocated on making initial source code modifications because
 the system was unfamiliar and hard to understand from the start. Finally, we
 spent more time on \textit{General Duties} than on \textit{Testing}. This shows
 that there was a substantial effort put in trying to make use of discussions
-to clarrify the system.
+to clarify the system.
 
 \subsection{Factors of porting costs}
 
-While porting costs, in our case man-hours, are determined dirctly by program
+While porting costs, in our case man-hours, are determined directly by program
 size and content, other factors and impediments as human experience and
 environment disparities must be taken into consideration.
 
@@ -131,7 +131,7 @@ portability impediments:
     \item Difference in operating system interface (S12)
 \end{itemize}
 
-It can be noted that we added an additional impediment inexistent in Hakuta and
+It can be noted that we added an additional impediment nonexistent in Hakuta and
 Ohminami's list~\cite{b2}, namely S12, which can be placed in the "OS disparity"
 category. This impediment is reflected in the usage of dmidecode(8) on Raspberry
 Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
@@ -180,8 +180,8 @@ This score is very close the worst possible score:
 \end{tikzpicture}
 
 Indeed the human factors played an important role in our porting. The knowledge
-about the program to be poerted functions and use cases was low. We had a good
-understanding of the target OS and hardware. The experience in the area os
+about the program to be ported functions and use cases was low. We had a good
+understanding of the target OS and hardware. The experience in the area of
 software porting tasks and tools was missing up to this project and previous
 experience on working with large scale system was also missing.
 
@@ -210,7 +210,7 @@ achieve our goals. The score is also described below:
     \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
     \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
     \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-    \node[dot,label={EFI=-1}] at (2,0) {};
+    \node[dot,label={$\alpha_e$=-1}] at (2,0) {};
 \end{tikzpicture}
 
 After we evaluated the costs and discovered their correlation with the porting
