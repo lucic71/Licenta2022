@@ -1,7 +1,7 @@
 \section{Introduction}
 
 Porting a software system and evaluating the porting costs is a hard problem in
-systems programming.~\cite{b1,b2,b4,b5,b9,b10,b11,b12,b13,b14,b15,b16} The
+systems programming.~\cite{b1,b2,b3,b4,b9,b10,b11,b12,b13,b14,b15,b16} The
 reasons for porting software systems are various: the developers want to enhance
 the performance, the hardware environment starts to get deprecated or the system
 wants to take advantage of features unavailable in the current environment.
@@ -12,18 +12,9 @@ like to preserve these investments when the need for a new environment arises.
 To achieve this goal people designed programming languages and compilers that
 increased portability, operating systems that could run on multiple hardware
 platforms~\cite{b16} and various standards that allowed developers to talk to
-the computer using well defined interfaces~\cite{b20}.  However the porting
+the computer using well defined interfaces~\cite{b20}. However the porting
 process is a non-trivial endeavor up to this day, it is error prone and time
-consuming \todo{this sounds weird} without a proper understanding of the system and of the tasks involved
-in the process. The happens because the initial architecture contains implicit
-assumptions about the environment as: endianess, non-standard compiler behavior
-or custom changes made in the operating system structure; or it may happen
-because the developers make use of non-portable constructs as ifdefs \cite{b21}
-or machine dependant code. Moreover these parts of the design and environment
-are recorded in human-readable documents that are hard to preserve over time or
-the information is not recorded at all. Thus the developer is forced to rely on
-its own experience and skills or on the wise use of discussions to solve the
-porting problems that might arise.
+consuming.
 
 As with other software development processes, porting has its own costs
 associated. It is important to evaluate them and understand their implications
@@ -37,27 +28,26 @@ performance of the system. Secondly, we are interested in evaluating porting
 costs related to the project for the reasons listed in the beginning of this
 paragraph. 
 
-We make the following academic contributions in this work: we review the porting models
+We make the following contributions in this work: we review the porting models
 described in~\cite{b1,b2,b9} and propose a more general model that can be
 applied to modern software porting, we review the porting costs factors
-described in~\cite{b2} and analyze their relevance in our porting work and we
+described in~\cite{b2} and analyze their relevance in our porting work, and we
 provide guidelines and discussions on the topic of improving software porting
-based on the experience of porting IxOS infrastructure. On the technical side of
-contributions, we separated the relevant parts for our porting from the
-infrastructure and ported them on ARM architecture. By doing this we allow the
-the developing of further testing tools and systems on ARM boards by Ixia.
+based on the experience of porting IxOS infrastructure. Furthermore, we
+separated the relevant parts for our porting from the infrastructure and ported
+them on ARM architecture. By doing this we allow the the developing of further
+testing tools and systems on ARM boards by Ixia.
 
-\todo{I don't like how this sentece is formulated} This paper highlights the porting issues associated with porting the IxOS
-testing infrastructure, regarding both the hardware and software components, to
-ARM off-the-shelf boards, Raspberry Pi 4 in our case. \todo{Use references to
-sections} In the \textit{Background}
-section we present different terms associated with porting: what porting is, a
-porting model, porting costs and factors. In the \textit{Porting IxOS on ARM
-boards} we divide our work in multiple steps. For each step we present a
-description, the targets and milestones, and the final results.  After the
-porting process is discussed, we highlight the \textit{Porting Costs Evaluation}
-associated with our work, including an analysis of the factors that influenced
-the presented costs.  \todo{This sentence must be more accurate} Finally, in \textit{Discussions on Porting Costs} we
-conduct a discussion about the porting process and the porting costs where we
-investigate porting difficulties, observations about the porting tasks and
-ways to improve the porting process. 
+This paper highlights the porting issues associated with porting the IxOS
+network testing infrastructure, both the hardware and software components, to
+ARM off-the-shelf boards, Raspberry Pi 4 in our case. In
+Section~\ref{sec:background} we present different terms associated with porting:
+what porting is, a porting model, porting costs and factors. In
+Section~\ref{sec:portingIxos} we divide our work in multiple steps. For each
+step we present a description, the targets and milestones, and the final
+results. After the porting process is discussed, we highlight in
+Section~\ref{sec:eval} the porting costs associated with our work, including an
+analysis of the factors that influenced the presented costs. Finally, in
+Section~\ref{sec:discussion} we conduct a discussion about the porting process
+and the porting costs where we investigate porting difficulties, observations
+about the porting tasks and ways to improve the porting process. 
