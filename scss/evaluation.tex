@@ -1,3 +1,5 @@
+\newcommand\multirowline[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+
 \section{Porting Costs Evaluation} \label{sec:eval}
 
 % What I want to say in this section:
@@ -28,59 +30,60 @@
 % [1] "A study of Software Portability Evaluation"
 
 In this section we present the costs associated with the porting process
-described in the previous section. First we divide our work in tasks that can
-be individually evaluated and later we discuss the factors that affected our
-cost evaluation.
+described in Section~\ref{sec:portingIxos}. First we divide our work in tasks
+that can be individually evaluated and later we discuss the factors that
+affected our cost evaluation.
 
-\subsection{Man-days costs}
+\subsection{Porting IxOS on ARM Boards Costs}
 
-In order to have an accurate cost evaluation of the porting process, we divided
-our process into multiple subprocesses that can easily be evaluated using the
-tracking created during the porting. We use man-days to evaluate the
-cost for each subprocess because the tracking was done each week rather than
-each day.
-
-\todo{this needes massive rewrite}
-This structure assumes that porting is a linear process, which is not the case.
-Many tasks are repetitive between different stages of the project. For example
-build system triggering occurs before and after testing in target environment takes place,
-making it hard to accurately track each subtask. For this reason Table
-~\ref{tab:manHoursEvaluation} does not track the exact hours or days spent
-on a specific subtask. It rather presents in how many days a specific subtask
-was finished, even if that subtask took one or two hours of that day. Finally,
-the last column of the table presents the number of days to finish a subtask
-relative to the total number of days.
+To evaluate the costs for porting IxOS infrastructure we divided our work based
+on the model described in Section~\ref{sec:background}. Using the progress
+tracking done during the project, we extracted the time spent on each task. We
+use man-hours to evaluate the cost for each task. The results of this process
+is shown in Table\~ref{tab:manHoursEvaluation}.
 
 \begin{table*}
 \centering
 \begin{tabular}{ |l *{5}{|l}| }
 \hline
-Porting task & Subtasks & Man-hours & Subtotals/subtask (\%) & Subtotals/task (\%)\\
+Porting task & Subtasks & \multirowline{Man\\-hours} & \multirowline{Subtotals\\/subtask (\%)} & \multirowline{Subtotals\\/task (\%)} \\
 \hline
-\multirow{7}{5em}{Advance preparations} & Surveying development environment & 15 & 4.16 & \multirow{7}{5em}{14.35}\\
-& Surveying target OS & 5 & 1.38 &\\
-& Surveying program for porting & 3 & 0.83 &\\
-& Surveying documentation & 5 & 1.38 &\\
-& Adjusting development environment & 10 & 2.77 &\\
-& Adjusting target environment & 13.8 & 3.83 &\\
-& Initial source code modifications & 0 & 0 &\\
+\multirow{7}{5em}{Advance preparations} & \multirowline{Surveying development \\ environment} & 15   & 4.16 & \multirow{7}{5em}{14.35}\\
+                                        \cline{2-4}
+                                        & Surveying target OS                                 & 5    & 1.38 &                         \\
+                                        \cline{2-4}
+                                        & Surveying program for porting                       & 3    & 0.83 &                         \\
+                                        \cline{2-4}
+                                        & Surveying documentation                             & 5    & 1.38 &                         \\
+                                        \cline{2-4}
+                                        & \multirowline{Adjusting development \\ environment} & 10   & 2.77 &                         \\
+                                        \cline{2-4}
+                                        & Adjusting target environment                        & 13.8 & 3.83 &                         \\
+                                        \cline{2-4}
+                                        & Initial source code modifications                   & 0    & 0    &                         \\
 \hline
-\multirow{5}{5em}{Building for target environment} & Build system triggering and modifcation & 67.56  & 18.76  & \multirow{5}{5em}{32.71} \\
-& Installation on remote environment & 15.26 & 4.23 &\\
-& Reviewing inconsistencies between source and remote environments & 23.03 & 6.39 &\\
-& Solving problems with external dependencies & 12 & 3.33 &\\
+\multirow{5}{5em}{Building for target environment} & \multirowline{Build system triggering and \\ modifcation}                          & 67.56 & 18.76 & \multirow{5}{5em}{32.71} \\
+                                                   \cline{2-4}
+                                                   & \multirowline{Installation on remote \\ environment}                               & 15.26 & 4.23  &                          \\
+                                                   \cline{2-4}
+                                                   & \multirowline{Reviewing inconsistencies between \\ source and remote environments} & 23.03 & 6.39  &                          \\
+                                                   \cline{2-4}
+                                                   & \multirowline{Solving problems with external \\ dependencies}                      & 12    & 3.33  &                          \\
 \hline
-\multirow{2}{5em}{Testing} & Testing in simulated environment & 33.35  & 9.26 & \multirow{2}{5em}{24.53} \\
-& Testing in target environment & 55 & 15.27 &\\
+\multirow{2}{5em}{Testing} & Testing in simulated environment & 33.35  & 9.26  & \multirow{2}{5em}{24.53} \\
+                           \cline{2-4}
+                           & Testing in target environment    & 55     & 15.27 &                          \\
 \hline
-\multirow{3}{5em}{General duties} & Documentation & 30  & 8.33  & \multirow{3}{5em}{28.26} \\
-& Progress tracking & 12 & 3.33 &\\
-& Discussions & 60 & 16.66 &\\
+\multirow{3}{5em}{General duties} & Documentation     & 30 & 8.33  & \multirow{3}{5em}{28.26} \\
+                                  \cline{2-4}
+                                  & Progress tracking & 12 & 3.33  &                          \\
+                                  \cline{2-4}
+                                  & Discussions       & 60 & 16.66 &                          \\
 \hline
 \multirow{1}{5em}{Total} & & 360  & 100 & \multirow{1}{5em}{100}\\
 \hline
 \end{tabular}
-\caption{Man-days evaluation for porting tasks}
+\caption{Man-hours evaluation for porting tasks}
 \label{tab:manHoursEvaluation}
 \end{table*}
 
