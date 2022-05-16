@@ -272,7 +272,7 @@
     - Use existing documentation and tracking, papers
     - Until next week
 
-# 2022, May 9, Diploma meeting #21
+# 2022 May 9, Diploma meeting #21
 
 - Status
   - In the process of writing for SCSS
@@ -284,6 +284,19 @@
     - Integrate what feedback can be reasonably applied until Thu
   - Thu, Fri: Presentation
     - Reuse most material from report
+  - Port paper to thesis LaTeX
+  - Integrate remaining feedback, rediscuss, rework
+  - Evaluation: analysis on program structure
+  - Evaluation: performance evaluation (wishful thinking)
+
+# 2022 May 16, Diploma meeting #22
+
+- Status
+  - Finished SCSS paper
+  - Held talk at SCSS with mixed results
+    - Need to nuance claims, to clarify that a large-scale study on
+      porting is beyond the scope of the diploma thesis
+- Planning
   - Port paper to thesis LaTeX
   - Integrate remaining feedback, rediscuss, rework
   - Evaluation: analysis on program structure
