@@ -300,4 +300,5 @@
   - Port paper to thesis LaTeX
   - Integrate remaining feedback, rediscuss, rework
   - Evaluation: analysis on program structure
+  - Evaluation: describe the method of extracting porting costs
   - Evaluation: performance evaluation (wishful thinking)
