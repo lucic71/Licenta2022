@@ -1,0 +1,217 @@
+\newcommand\multirowline[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+
+\section{Porting Costs Evaluation} \label{sec:eval}
+
+% What I want to say in this section:
+%   - I want to take the model of Tanaka and map my timeline on it (maybe merge
+%   the model with [1])
+%   - I want to talk about the porting tasks
+%     - which was most time consuming
+%     - which of them were repetitive and added little value
+%     - etc
+%   - I want to talk about the human and development factors as described in [1]
+%   - talk about environment disparity and program factors; and how did this
+%   affect the costs
+%   - Finally I need to understand the equations for porting costs evaluation
+%   and estimation in order to compare the resluts (and maybe talk about the
+%   porting productivity index)
+%   - I don't know if I should place it here or in implementation chapter but
+%   I would like to have a table with portability impedimets,reason for changes,
+%   details of changes and need for change in future porting. They do so in
+%   Tanaka et al
+%
+% LucianM proposed to talk about some aspects of the program to be ported as:
+%   - size
+%   - content
+%
+% The Tanaka+Hakuta model mapped on our timeline will be presented in a table.
+% The indices from Hakuta([1]) will be presented in different subsection (idk).
+%
+% [1] "A study of Software Portability Evaluation"
+
+In this section we present the costs associated with the porting process
+described in Section~\ref{sec:portingIxos}. First we divide our work in tasks
+that can be individually evaluated and later we discuss the factors that
+affected our cost evaluation.
+
+\subsection{Porting IxOS on ARM Boards Costs}
+
+To evaluate the costs for porting IxOS infrastructure we divided our work based
+on the model described in Section~\ref{sec:background}. Using the progress
+tracking done during the project, we extracted the time spent on each task. We
+use man-hours to evaluate the cost for each task. The results of this process
+is shown in Table~\ref{tab:manHoursEvaluation}.
+
+\begin{table*}
+\centering
+\begin{tabular}{ |l *{5}{|l}| }
+\hline
+Porting task & Subtasks & \multirowline{Man\\-hours} & \multirowline{Subtotals\\/subtask (\%)} & \multirowline{Subtotals\\/task (\%)} \\
+\hline
+\multirow{7}{5em}{Advance preparations} & \multirowline{Surveying development \\ environment} & 15   & 4.16 & \multirow{7}{5em}{14.35}\\
+                                        \cline{2-4}
+                                        & Surveying target OS                                 & 5    & 1.38 &                         \\
+                                        \cline{2-4}
+                                        & Surveying program for porting                       & 3    & 0.83 &                         \\
+                                        \cline{2-4}
+                                        & Surveying documentation                             & 5    & 1.38 &                         \\
+                                        \cline{2-4}
+                                        & \multirowline{Adjusting development \\ environment} & 10   & 2.77 &                         \\
+                                        \cline{2-4}
+                                        & Adjusting target environment                        & 13.8 & 3.83 &                         \\
+                                        \cline{2-4}
+                                        & Initial source code modifications                   & 0    & 0    &                         \\
+\hline
+\multirow{5}{5em}{Building for target environment} & \multirowline{Build system triggering and \\ modification}                          & 67.56 & 18.76 & \multirow{5}{5em}{32.71} \\
+                                                   \cline{2-4}
+                                                   & \multirowline{Installation on remote \\ environment}                               & 15.26 & 4.23  &                          \\
+                                                   \cline{2-4}
+                                                   & \multirowline{Reviewing inconsistencies between \\ source and remote environments} & 23.03 & 6.39  &                          \\
+                                                   \cline{2-4}
+                                                   & \multirowline{Solving problems with external \\ dependencies}                      & 12    & 3.33  &                          \\
+\hline
+\multirow{2}{5em}{Testing} & Testing in simulated environment & 33.35  & 9.26  & \multirow{2}{5em}{24.53} \\
+                           \cline{2-4}
+                           & Testing in target environment    & 55     & 15.27 &                          \\
+\hline
+\multirow{3}{5em}{General duties} & Documentation     & 30 & 8.33  & \multirow{3}{5em}{28.26} \\
+                                  \cline{2-4}
+                                  & Progress tracking & 12 & 3.33  &                          \\
+                                  \cline{2-4}
+                                  & Discussions       & 60 & 16.66 &                          \\
+\hline
+\multirow{1}{5em}{Total} & & 360  & 100 & \multirow{1}{5em}{100}\\
+\hline
+\end{tabular}
+\caption{Man-hours evaluation for porting tasks}
+\label{tab:manHoursEvaluation}
+\end{table*}
+
+The most time consuming task is \textit{Build system triggering and
+modification}. This happened because we spent a lot of time on extracting and
+integrating IxOS components as InterfaceManager, HostProxy and IxServer. There
+was also much repetitive time spent on triggering the compilation pipeline that
+was added in the total of 67 hours.
+
+We spent an approximately 2.5x more time on testing than on solving errors and
+inconsistencies. This means that the errors were not difficult to solve, instead
+they were difficult to find. This situation is no surprise for us because we had
+no reference or documentation that would help us in investigating the errors and
+inconsistencies. 
+
+There was no time allocated on making initial source code modifications because
+the system was unfamiliar and hard to understand from the start. Finally, we
+spent more time on \textit{General Duties} than on \textit{Testing}. This shows
+that there was a substantial effort put in trying to make use of discussions
+to clarify the system.
+
+\subsection{Factors of porting costs}
+
+While porting costs, in our case man-hours, are determined directly by program
+size and content, other factors and impediments as human experience and
+environment disparities must be taken into consideration.
+
+To determine the impact some of these factors had on our porting process, we
+use the indices described in Hakuta and Ohminami~\cite{b2} that give
+a quantitative influence of porting factors and impediments.
+
+\subsubsection{Portability Impediment Index}
+
+The first index that we compute is the portability impediment index. In our
+case $eta$ has a value of 2, meaning that "the non-portable parts of the program
+are not localized, but the correspondence of program codes to their functions is
+clarified". For simplicity we will assume that $\omega_i$ is 0 if the impediment
+was insignificant, 0.5 if the impediment had a normal difficulty and 1 if the
+impediment was hard to solve. In our porting we discovered the following
+portability impediments:
+\begin{itemize}
+    \item Difference in compiler specification (S8)
+    \item Scope of library support (S9)
+    \item Implementation-dependent libraries (S10)
+    \item Difference in operating system interface (S12)
+\end{itemize}
+
+It can be noted that we added an additional impediment nonexistent in Hakuta and
+Ohminami's list~\cite{b2}, namely S12, which can be placed in the "OS disparity"
+category. This impediment is reflected in the usage of dmidecode(8) on Raspberry
+Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
+/dev/kmem which was needed by dmidecode(8), which in turn was needed by
+InterfaceManager.
+
+Given these impediments the portability impediment index has the following
+value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
+were no differences between processor architecture (S1~S5), little difference
+between source and target OSes (S6, S7, S12) and a major difference in language
+processor (S8~S11). The portability difficulty is thus reflected in the
+following figure:
+
+\begin{tikzpicture}[
+    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+        thick      
+]
+    \draw (0,0.2) -- + (0,-0.4) node[below] {EASIEST=0};
+    \draw (6,0.2) -- + (0,-0.4) node[below] {HARDEST=36};
+    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+    \node[dot,label={$\alpha_p$=6}] at (1,0) {};
+\end{tikzpicture}
+
+
+\subsubsection{Human Factors Index}
+
+Software programs are byproducts of human activities than incorporate our
+problem-solving capabilities, cognitive aspects and social
+interaction~\cite{b5}, therefore it is vital to understand what role did the
+human factors play in our porting so that we can assess the quality of the
+porting process. 
+
+In our case $\alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6$.
+This score is very close the worst possible score:
+
+\begin{tikzpicture}[
+    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+        thick      
+]
+    \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-10};
+    \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=10};
+    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+    \node[dot,label={$\alpha_h$=6}] at (4.8,0) {};
+\end{tikzpicture}
+
+Indeed the human factors played an important role in our porting. The knowledge
+about the program to be ported functions and use cases was low. We had a good
+understanding of the target OS and hardware. The experience in the area of
+software porting tasks and tools was missing up to this project and previous
+experience on working with large scale system was also missing.
+
+\subsubsection{Environmental Factors Index}
+
+The tools used in the development environment and the testing mechanisms used in
+the testing environment also add their bit in the porting costs.
+
+In the development environment we used our personal experience to work with the
+build system and to explore the code. Because the documentation was missing we
+had to use trial and error strategies to make things work. In the testing
+environment, even if we had problems with setting up the testing infrastructure,
+we managed to focus on testing the system.
+
+The environmental factors index has the following value in our case: $\alpha_e =
+E1 + E2 + E3 = 0 + NA + -1 = -1$. We are in the satisfactory half of the index,
+meaning that even if we had some difficulties setting and understanding the
+development and testing environment, we managed to work with them in order to
+achieve our goals. The score is also described below:
+
+\begin{tikzpicture}[
+    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+        thick      
+]
+    \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
+    \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
+    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+    \node[dot,label={$\alpha_e$=-1}] at (2,0) {};
+\end{tikzpicture}
+
+After we evaluated the costs and discovered their correlation with the porting
+factors we will conduct a discussion on the results of our evaluation.

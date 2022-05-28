@@ -1,0 +1,53 @@
+\chapter{Introduction}\pagestyle{fancy}
+
+Porting a software system and evaluating the porting costs is a hard problem in
+systems programming.~\cite{b1,b2,b3,b4,b9,b10,b11,b12,b13,b14,b15,b16} The
+reasons for porting software systems are various: the developers want to enhance
+the performance, the hardware environment starts to get deprecated or the system
+wants to take advantage of features unavailable in the current environment.
+
+Software development costs and invested resources for understanding, maintaining
+and developing new features for a system are big~\cite{b17,b18,b19}. We would
+like to preserve these investments when the need for a new environment arises.
+To achieve this goal people designed programming languages and compilers that
+increased portability, operating systems that could run on multiple hardware
+platforms~\cite{b16} and various standards that allowed developers to talk to
+the computer using well defined interfaces~\cite{b20}. However the porting
+process is a non-trivial endeavor up to this day, it is error prone and time
+consuming.
+
+As with other software development processes, porting has its own costs
+associated. It is important to evaluate them and understand their implications
+in the project so that the developer can optimize the process of porting in the
+future and call attention to the weaknesses and strengths of the process. In
+this work we describe the experience of porting the IxOS testing infrastructure,
+used by Ixia for high performance network testing, on ARM off-the-shelf boards.
+We do this for two reasons. Firstly, we are interested in exploring Ixia testing
+infrastructure on newer environments with the hope that we will improve the
+performance of the system. Secondly, we are interested in evaluating porting
+costs related to the project for the reasons listed in the beginning of this
+paragraph. 
+
+We make the following contributions in this work: we review the porting models
+described in~\cite{b1,b2,b9} and propose a more general model that can be
+applied to modern software porting, we review the porting costs factors
+described in~\cite{b2} and analyze their relevance in our porting work, and we
+provide guidelines and discussions on the topic of improving software porting
+based on the experience of porting IxOS infrastructure. Furthermore, we
+separated the relevant parts for our porting from the infrastructure and ported
+them on ARM architecture. By doing this we allow the the developing of further
+testing tools and systems on ARM boards by Ixia.
+
+This paper highlights the porting issues associated with porting the IxOS
+network testing infrastructure, both the hardware and software components, to
+ARM off-the-shelf boards, Raspberry Pi 4 in our case. In
+Section~\ref{sec:background} we present different terms associated with porting:
+what porting is, a porting model, porting costs and factors. In
+Section~\ref{sec:portingIxos} we divide our work in multiple steps. For each
+step we present a description, the targets and milestones, and the final
+results. After the porting process is discussed, we highlight in
+Section~\ref{sec:eval} the porting costs associated with our work, including an
+analysis of the factors that influenced the presented costs. Finally, in
+Section~\ref{sec:discussion} we conduct a discussion about the porting process
+and the porting costs where we investigate porting difficulties, observations
+about the porting tasks and ways to improve the porting process. 

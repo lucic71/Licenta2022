@@ -1,0 +1,84 @@
+\section{Discussions on Porting Costs} \label{sec:discussion}
+
+% What I want to say in this section:
+%   - I want to reflect on imporving the porting process we did. Tanaka proposes
+%   the following seven ways of raising porting efficiency:
+%     - porting guidlines
+%     - porting compatibility checking tool
+%     - portability evaluation tool
+%     - tool for generating system calling routines
+%     - program structure viewing tool
+%     - os emulator
+%     - test support tools
+%   - I would like to see how relevant are they for our project. there is no way
+%   at the moment to actually test the ways of improving porting efficiency so
+%   I will keep the statements at the level of discussion, thinking about how
+%   would have the process been different if we used one of the above ways (this
+%   is chapter 3.2 from Tanaka)
+
+% Subjects for discussion:
+%  - the porting tasks affect each other in a non linear fashion
+%  - we had errors in our extraction of costs from tracking
+%  - it would be nice to have a dependency graph for the porting tasks. however
+%  we could try to sketch some dependencies and see if an imporvement on one
+%  side affects the other side
+%  - what where the limitations in implementations and how do the improvements
+%  from Tanaka apply to them
+%  - compare our porting costs with the Table from Tanaka
+%
+%  - what does it mean to have an universal computer interface that would remove
+%  any porting whatsoever (this discussion is in ../src -> background section if
+%  i remember correctly)
+
+In this section we present observations about the porting process and the
+porting costs, focusing on the limitations of the porting model we used and on a
+comparison between our results and the results of Tanaka et al.
+
+Let us start by discussing the limitations of the porting model we proposed in
+section~\ref{sec:background}. The model assumes that the tasks are executed in
+sequential order, which is not true. The tasks are rather executed in a
+non-linear fashion. For example while building for the target environment,
+installing the binaries in this environment and testing the ported application,
+we also had discussions about the difficulties and errors we encountered so that
+we could later come back and solve the inconsistencies. However there was no
+easy way to describe this dynamic so we chose to represent the task as they
+would come one after another. As a result, the non-linearity of this porting
+model might cause problems in area as progress tracking because it is hard to
+map the model of porting on the hours allocated for each task.
+
+Next, we make a comparison between our results for porting costs and the results
+present in the first paper that created a basis for our porting model~\cite{b1}.
+The results can be found in Table 6 of the paper we referenced. We will compare
+the subtotals per tasks and discuss the reasons of the differences between the
+two.
+
+In terms of \textit{Advance preparations} we spend a total of 14.35\% of our
+total time while Tanaka et al. spend 33.4\%. We were more interested in
+delivering ARM builds as fast as possible, losing focus on the \textit{Advance
+preparations} and moving our attention on \textit{Building for target
+environment}. This and the fact that we were working with an agile methodology
+instead of Waterfall, as Tanaka et al. seemed to work with, caused the lesser
+time spent in this first task.
+
+Next we compare the \textit{Building for target environment} in our model with
+\textit{Target testing} from Tanaka et al. There are significant differences in
+the subtasks from the two models but we are interested in a comparison of
+development time (i.e., actual work focused on solving errors and
+inconsistencies, building binaries, etc.). It seems that Tanaka et al. put the
+time spent on solving errors and the time spent on testing in the same category.
+This makes the comparison difficult as we do not know how to divide this time.
+However our time spent in this stage is 32.71\% while Tanaka et al. spend
+27.8\%. The most time consuming task for us was to work with the build system,
+which is not the case for them. This shows the major difference between our
+project and theirs. While our porting was focused on extracting components from
+a larger ecosystem into a target environment, their project was focused on
+porting a whole application from one environment to another.
+
+For \textit{Testing} we assume that they spent $\textit{Linked test on target} /
+2 + \textit{Workstation testing} = 10.5 + 11.4 = 21.9\%$. We dived the linked
+test on target because we assumed that half of this time was allocated to
+development and half of it was allocated to testing. Their time for
+\textit{General duties} is of 27.4\%. These two times are very similar with our
+project (i.e, 24.53\% and 28.26\%). This might mean that testing and general
+duties represent a major part in each software porting project, thus when
+evaluating the costs in advance, special attention must be payed to these tasks.

@@ -1,0 +1,53 @@
+\section{Conclusions and Further Work}
+
+\subsection{Conclusions}
+We succeeded in porting the IxOS infrastructure on ARM boards. We separated the
+relevant components for our porting (i.e., InterfaceManager and IxStack) from
+IxOS so that they run on every ARM-based Linux distribution. At the moment of
+writing the project is in the proof-of-concept stage. If there is interest for
+continuing the project or integrating it in other projects inside the company,
+we provided the necessary environment for deploying it.
+
+We have extracted the porting costs for porting IxOS infrastructure on ARM
+boards. Thus we understood what the weaknesses and the strengths of our project
+were. The lack of understanding of the project structure and project use cases
+proved itself to be an important factor during the process of porting. Because
+of this reason we had to spend additional time on testing the system and
+understanding its components. This time might have been better allocated on
+solving problems and inconsistencies. A strength of our project was the fact
+that the program for porting had a high degree of portability. This helped us to
+shrink the volume of inconsistencies between the source environment and the
+target environment.
+
+We succeeded in creating a better model for software porting starting from the
+model presented in~\cite{b1,b2} and from our project specific needs. We
+contributed to this model by making it more generic and allowing other software
+porting projects to easily map their needs on this model.
+
+Finally, we have provided a discussion on the limitations of the model we
+created and provided a comparison between our porting results and the results
+presented in the first work~\cite{b1} that came up with the model we used as a
+basis for our generic porting model.
+
+\subsection{Further Work}
+
+We plan to test the performance of the system so that we can achieve the other
+goal we proposed in the beginning of this work (i.e., explore Ixia testing
+infrastructure on other architectures so that we can achieve a better
+performance of the system). To achieve this goal we will compare our solution in
+the target environment with the same solution in the source environment. We
+expect to see better results in the new environment for some network testing
+suites than in the old environment. Furthermore, we plan to compare our solution
+with other open-source network testing tools.
+
+To complete the analysis of the factors that affected the porting costs we plan
+to analyze the characteristics of the program to be ported. We want to analyze
+the program size and contents and the content of the changes needed for porting.
+By doing this we hope to find a direct correspondence between the program to be
+ported and specific porting subtasks (e.g., \textit{Solving inconsistencies
+between source and target environment}).
+
+Finally, we want to analyze the porting improvements guidelines presented
+in~\cite{b1} and map them on our porting process. However, we do not plan to
+restart the porting process while mapping these guidelines, instead we want to
+have a discussion and draw conclusions based on them.
