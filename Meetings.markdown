@@ -302,3 +302,26 @@
   - Evaluation: analysis on program structure
   - Evaluation: describe the method of extracting porting costs
   - Evaluation: performance evaluation (wishful thinking)
+
+# 2022 May 30, Diploma meeting #23
+
+- Status
+  - Started porting paper to diploma template
+- Planning
+  - #1 Port paper to thesis LaTeX
+  - #2 Integrate remaining feedback, rediscuss, rework
+  - #3 Evaluation: analysis on program structure
+  - #4 Evaluation: describe the method of extracting porting costs
+  - Evaluation: performance evaluation (wishful thinking)
+  - Practical demo
+    - Bring setup up
+    - Evaluate what works, what doesn't
+    - Think of demo
+- Milestones
+  - June 5 -- complete draft
+  - June 20 -- #2-#4
+  - June 20 -- presentation draft and rehearsal
+  - June 27 -- presentation rehearsal
+  - June 27 -- final version of diploma text
+  - June 30-July 1 -- presentation rehearsal(s)
+  - July 1 -- demo ready
