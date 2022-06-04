@@ -17,14 +17,24 @@ standard compiler behaviors.
 The environment is defined as the set of software and hardware elements that
 interact with the system. This includes, but it is not restricted to: operating
 system, communication methods, configuration files and system variables,
-hardware architecture or human interaction. 
+hardware architecture or human interaction. Two software environments involved
+in the porting process will never be the same because of the software and
+hardware inconsistencies. On one hand, programs between operating systems will
+not work, even if the hardware is the same. For example MacOS uses MACH for
+executable files while Linux uses ELF, moreover even if they follow the POSIX
+standard, they may have implementation details that do not align with each
+other. On the other hand, processor architectures vary from one another in the
+way they understand machine language and even if they do not vary, custom
+hardware attached to these processors makes porting difficult as the software
+must be rewritten in order to accomodate the new periferials.
 
-Mooney~\cite{mooney1990strategies} presents two components of the porting process: transportation
-and adaptation. The first is described as the act of moving the system (code or
-binary executable) to a new environment and the latter is described as the act
-of modifying the system in order to be compatible with the new environment.
-Transportation is facilitated by communication channels to the target
-environment, both online and physical. Adaptation consumes more development
+Mooney~\cite{mooney1990strategies} presents two components of the porting process:
+transporation and adaptation. The first is described as the act of moving the
+system (code or binary executable) to a new environment and the latter is
+described as the act of modifying the system in order to be compatible with the
+new environment. Transportation is facilitated by communication channels to the
+target environment, either online (file sharing systems, remote connections) or
+physical (using data storage devices). Adaptation consumes more development
 resources than transportation because it implies translating the source code to
 the new environment, solving possible inconsistencies and making sure that the
 software system behaves in a well defined manner when ran in the new

@@ -179,11 +179,51 @@ This score is very close the worst possible score:
     \node[dot,label={$\alpha_h$=6}] at (4.8,0) {};
 \end{tikzpicture}
 
-Indeed the human factors played an important role in our porting. The knowledge
-about the program to be ported functions and use cases was low. We had a good
-understanding of the target OS and hardware. The experience in the area of
-software porting tasks and tools was missing up to this project and previous
-experience on working with large scale system was also missing.
+Indeed, the human factor played a major role in our porting process, let
+us analyze each factor and see what went wrong.
+
+\textit{Knowledge about the program to be ported functions and structures (H1)} 
+As this was the first interaction with the program to be ported it was hard to
+familiarize with its functions and structures, therefore I had no experience
+whatsoever with the use cases of the program. This resulted in the inability to
+easily solve the porting problems that appeared in our way.
+
+\textit{Knowledge about the hardware and OS of the target system (H2)}
+Hardware disparities were not a big concern in our porting as we used a portable
+operating system and programming language that abstracted out hardware problems.
+Therefore the focus was on the target operating system. Our porting moved the
+program from an older version of Linux to a newer one. This helped us as we
+did not have to learn the peculiarities of another operating system so that we
+could finish our porting. However there were some problems that we faced
+regarding the target operating system that we solved relatively straight
+forward.
+
+\textit{Knowledge and experience in the area of software porting (H3)}
+As the experience of software porting was lacking there were many situations
+and problems that could have been solved better, for example: doing better
+tracking of the porting process, putting more effort in technical discussions
+in order to better understand the problems, etc.
+
+\textit{Knowledge of and experience with the language and program to be ported
+in use(H4)}
+The experience with the programming language (C++) helped us to grow the
+productivity of the porting process as we did not have to care about low-level
+impediments as endianness or data alignment. However we did have problems with
+the language specification between different compilation toolchains that costed
+us a whole week to solve. Finally, the experience with use cases of the program
+to be ported was lacking. \todo{continue the ideas about the last phrase}
+
+\textit{Knowledge about the functions and usage of tools used in the development
+and testing environment (H5)}
+While working in the development and testing environments we used a considerable
+number of technologies, some of them being either new or not trivial to work
+with. Here is a short list of these technologies: QEMU networking, SCons build
+system, Perforce versioning system and internal tools as packaging system.
+\todo{continue the ideas about the last phrase}
+
+In retrospect, it seems that if the human factor index had a better score, maybe
+the porting process would have lasted less and the problems we faced would not
+even occur. \todo{fixme}
 
 \subsubsection{Environmental Factors Index}
 
