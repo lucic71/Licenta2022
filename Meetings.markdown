@@ -325,3 +325,29 @@
   - June 27 -- final version of diploma text
   - June 30-July 1 -- presentation rehearsal(s)
   - July 1 -- demo ready
+
+# 2022 June 6, Diploma meeting #24
+
+- Status
+  - Paper *almost* ported to diploma template
+- Planning
+  - #1 Port paper to thesis LaTeX
+  - #1 Practical demo
+    - Bring setup up
+    - Evaluate what works, what doesn't
+    - Think of demo
+  - #2 Integrate remaining feedback, rediscuss, rework
+  - #3 Evaluation: describe the method of extracting porting costs
+    - This is missing from related work -- why?
+    - Could make for a good discussion in the evaluation/discussion
+      chapter(s)
+  - #4 Evaluation: analysis on program structure
+  - #5 Evaluation: performance evaluation (wishful thinking)
+- Milestones
+  - June 13 -- complete draft and demo
+  - June 20 -- #2-#4
+  - June 20 -- presentation draft and rehearsal
+  - June 27 -- presentation rehearsal
+  - June 27 -- final version of diploma text
+  - June 30-July 1 -- presentation rehearsal(s)
+  - July 1 -- demo ready
