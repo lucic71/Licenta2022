@@ -1,6 +1,6 @@
 \newcommand\multirowline[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
 
-\section{Porting Costs Evaluation} \label{sec:eval}
+\chapter{Porting Costs Evaluation} \label{sec:eval}
 
 % What I want to say in this section:
 %   - I want to take the model of Tanaka and map my timeline on it (maybe merge
@@ -25,7 +25,7 @@
 %   - content
 %
 % The Tanaka+Hakuta model mapped on our timeline will be presented in a table.
-% The indices from Hakuta([1]) will be presented in different subsection (idk).
+% The indices from Hakuta([1]) will be presented in different section (idk).
 %
 % [1] "A study of Software Portability Evaluation"
 
@@ -34,7 +34,7 @@ described in Section~\ref{sec:portingIxos}. First we divide our work in tasks
 that can be individually evaluated and later we discuss the factors that
 affected our cost evaluation.
 
-\subsection{Porting IxOS on ARM Boards Costs}
+\section{Porting IxOS on ARM Boards Costs}
 
 To evaluate the costs for porting IxOS infrastructure we divided our work based
 on the model described in Section~\ref{sec:background}. Using the progress
@@ -105,7 +105,7 @@ spent more time on \textit{General Duties} than on \textit{Testing}. This shows
 that there was a substantial effort put in trying to make use of discussions
 to clarify the system.
 
-\subsection{Factors of porting costs}
+\section{Factors of porting costs}
 
 While porting costs, in our case man-hours, are determined directly by program
 size and content, other factors and impediments as human experience and
@@ -115,7 +115,7 @@ To determine the impact some of these factors had on our porting process, we
 use the indices described in Hakuta and Ohminami~\cite{hakuta} that give
 a quantitative influence of porting factors and impediments.
 
-\subsubsection{Portability Impediment Index}
+\subsection{Portability Impediment Index}
 
 The first index that we compute is the portability impediment index. In our
 case $eta$ has a value of 2, meaning that "the non-portable parts of the program
@@ -157,7 +157,7 @@ following figure:
 \end{tikzpicture}
 
 
-\subsubsection{Human Factors Index}
+\subsection{Human Factors Index}
 
 Software programs are byproducts of human activities than incorporate our
 problem-solving capabilities, cognitive aspects and social
@@ -225,7 +225,7 @@ In retrospect, it seems that if the human factor index had a better score, maybe
 the porting process would have lasted less and the problems we faced would not
 even occur. \todo{fixme}
 
-\subsubsection{Environmental Factors Index}
+\subsection{Environmental Factors Index}
 
 The tools used in the development environment and the testing mechanisms used in
 the testing environment also add their bit in the porting costs.

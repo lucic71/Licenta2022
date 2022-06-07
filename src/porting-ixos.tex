@@ -1,10 +1,10 @@
-\section{Porting IxOS on ARM Boards} \label{sec:portingIxos}
+\chapter{Porting IxOS on ARM Boards} \label{sec:portingIxos}
 
 To continue our study of evaluating the porting costs, we chose to port a large
 scale system used for network testing. In this section we will present the
 process of porting this system. 
 
-\subsection{Porting Architecture}
+\section{Porting Architecture}
 
 The components of the porting architecture, presented in
 Figure~\ref{fig:ixos_arch}, are:
@@ -50,7 +50,7 @@ behavior of the DUT while receiving traffic.
     environment.
 \end{figure}
 
-\subsection{New IxOS Architecture}
+\section{New IxOS Architecture}
 
 In Figure~\ref{fig:ixos_arch} we highlighted the changes we made to the initial
 architecture. First, we changed the hardware a card runs on. From IxVM we moved
@@ -60,12 +60,12 @@ instead of IxOS Linux.
 These changes required us to port InterfaceManager and IxStack to the new
 Raspberry Pi environment so that we could benefit from the same functionality as in the
 old Ixia custom hardware + IxOS Linux environment. The process of porting the
-two applications is described in the next subsection.
+two applications is described in the next section.
 
 To recreate the required environment for IM and IxServer, we had to install
 custom tools, named pipes and shared libraries in the target environment.
 
-\subsection{Previous work in this area}
+\section{Previous work in this area}
 
 Before we started the project, there existed an attempt to make InterfaceManager
 and other applications independent of IxOS. The previous project focused on
@@ -86,7 +86,7 @@ separated using constructs as ifdefs and the coding style was compiler agnostic,
 meaning that we were able at any time to plug another compiler and generate the
 correct binaries.
 
-\subsection{The Porting Process}
+\section{The Porting Process}
 
 The porting process consisted in moving the IxOS testing infrastructure from its
 source environment to a new target environment consisting of an off-the-shelf
@@ -101,7 +101,7 @@ We achieved all our proposed milestones during the twelve weeks of the project.
 At the end of the project we divided the work into three logical stages
 that cover the process of achieving the above milestones.
 
-\subsubsection{Porting Stages}
+\subsection{Porting Stages}
 
 The logical stages of our porting process are the following:
 \begin{itemize}
@@ -157,7 +157,7 @@ of the protocol loader was causing our start-up issues. After we solved
 these issues we were able to fully port InterfaceManager on Raspberry Pi and
 integrate it with the bigger system consisting of IxServer and IxExplorer.
 
-\subsection{General difficulties}
+\section{General difficulties}
 
 \todo{this might fit better in the discussions chapter}
 After describing the concrete impediments we faced during our porting we decided
