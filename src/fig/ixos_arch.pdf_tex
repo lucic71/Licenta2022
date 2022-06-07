@@ -58,13 +58,13 @@
     \put(0,0){\includegraphics[width=\unitlength,page=2]{fig/ixos_arch.pdf}}%
     \put(0.02065404,0.61979346){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}
     Chassis Chain01 \\
-    ~~- Chassis 01 \\
-    ~~~~- Card01 \\
-    ~~~~~~- Port 01 \\
-    ~~~~~~~~Packet Streams \\
-    ~~~~~~~~Statistic View \\
-    ~~~~~~- Port 02 \\
-    ~~~~- Card02 \\
+    ~- Chassis 01 \\
+    ~~- Card01 \\
+    ~~~- Port 01 \\
+    ~~~~Packet Streams \\
+    ~~~~Statistic View \\
+    ~~~- Port 02 \\
+    ~~- Card02 \\
     \end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{fig/ixos_arch.pdf}}%
     \put(0.4475043,0.70051635){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Chassis\end{tabular}}}}%
@@ -73,7 +73,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=5]{fig/ixos_arch.pdf}}%
     \put(0.82616179,0.0464716){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DUT\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{fig/ixos_arch.pdf}}%
-    \put(0.82616179,0.43373494){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Raspberry Pi - ARM}\end{tabular}}}}%
+    \put(0.82616179,0.43373494){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small \textbf{Raspberry Pi - ARM}}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{fig/ixos_arch.pdf}}%
     \put(0.76592083,0.2444062){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Port 01\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{fig/ixos_arch.pdf}}%
