@@ -1,7 +1,7 @@
 \chapter{Porting IxOS on ARM Boards} \label{sec:portingIxos}
 
 To continue our study of evaluating the porting costs, we chose to port a large
-scale system used for network testing. In this section we will present the
+scale system used for network testing. In this section we present the
 process of porting this system. 
 
 \section{Porting Architecture}
@@ -22,7 +22,7 @@ information about the status of the tests.
 
 To allow IxExplorer to easily connect to multiple machines that run the testing,
 a Chassis is used. The most important application that runs on the Chassis is
-IxServer. It creates a communication channel between IxServer and the testing
+IxServer. It creates a communication channel between IxExplorer and the testing
 machines. 
 
 Next, the cards are the most interesting part for our porting. They run on a
@@ -62,6 +62,7 @@ Raspberry Pi environment so that we could benefit from the same functionality as
 old Ixia custom hardware + IxOS Linux environment. The process of porting the
 two applications is described in the next section.
 
+\todo{why is the following sentence here?}
 To recreate the required environment for IM and IxServer, we had to install
 custom tools, named pipes and shared libraries in the target environment.
 
@@ -73,7 +74,7 @@ compiling the whole IxOS infrastructure for x86 and then extract the binaries
 for InterfaceManager and other relevant applications.
 
 This helped us during our porting because the result of the previous work was a
-portable application that could easily be moved in another Linux environment.
+portable system that could easily be moved in another Linux environment.
 Making InterfaceManager independent of IxOS meant that all the assumptions made
 by the application regarding the operating system interface were removed (e.g.,
 custom device drivers and proc entries) and the work of porting it to another
@@ -116,11 +117,11 @@ The logical stages of our porting process are the following:
     \begin{itemize}
         \item Run setup on RPi hardware
         \item Modify IM to run in the new environment
-        \item Debug IM init time issues
+        \item Debug IM initialization issues
     \end{itemize}
     \item Bring up ports on Chassis
     \begin{itemize}
-        \item Find the cause of the IM init time issues
+        \item Find the cause of the IM initialization issues
         \item Solve the problems regarding the link state of the card
     \end{itemize}
 \end{itemize}
@@ -130,12 +131,14 @@ example we had to test the initial builds in QEMU each time we made a
 modification in the \textit{Integrate IxStack in IM} stage, going back and forth
 between the two substages.
 
+\todo{add code in appendix to make these paragraphs clearer?}
+
 In the first stage, we started the work of porting by trying to separate the
 relevant components from IxOS and build them for ARM64. We started with
-InterfaceManager and HostProxy, which were the building blocks of our porting,
-and continued with IxStack and its components. The hardware was not available
-at this time so we tested our builds using an emulator for the target
-architecture (i.e., QEMU).
+InterfaceManager and HostProxy (proxy for communication with IxServer), which
+were the building blocks of our porting, and continued with IxStack and its
+components. The hardware was not available at this time so we tested our builds
+using an emulator for the target architecture (i.e., QEMU).
 
 Next, when the hardware arrived, we used the Raspberry Pi to test our builds.
 This proved to be a great advantage for us because the testing environment
@@ -156,51 +159,3 @@ trouble. In the end we discovered that a problem regarding the initialization
 of the protocol loader was causing our start-up issues. After we solved
 these issues we were able to fully port InterfaceManager on Raspberry Pi and
 integrate it with the bigger system consisting of IxServer and IxExplorer.
-
-\section{General difficulties}
-
-\todo{this might fit better in the discussions chapter}
-After describing the concrete impediments we faced during our porting we decided
-to understand them and create a list with general difficulties that may apply
-to other porting processes. The list is found in Table~\ref{tab:portImpeds}.
-
-\begin{table*}
-\centering
-\begin{tabular}{|p{4cm}|p{10cm}|}
-\hline
-Difficulty & Details \\
-\hline
-Lacking documentation & Lacking written documentation about how the system works means
-that the developer must either figure out the system alone or must communicate
-with other developers in order to gather information about the system. This adds
-overhead to the porting process as documentation through communication is
-slower than documentation through written text.\\
-\hline
-Inconsistencies between environments & This difficulty corresponds to the
-degree of which the application is portable~\cite{b4}. If the degree of
-portability is too low (this depends entirely on the application) then the
-developer will be faced with many inconsistencies between the source and target
-environments that will be reflected in the cost of porting (i.e., man-hours). \\
-\hline
-Use of tools & Using inadequate development and testing tools introduces additional
-overhead in the porting process. This happens when the used tools are either
-outdated or too hard to use for the purpose of the process. \\
-\hline
-Understanding the system & Software complexity is a multi-dimensional problem,
-it includes: structural, computational, logical, conceptual and textual complexity.
-~\cite{b6} There is no easy way to understand the system, so the developer will
-be faced with the task of understanding the architecture diagrams, huge code
-base, written documents and tutorials either when the porting starts or during
-the porting process. \\
-\hline
-Unexpected difficulties & As with every software process, there are difficulties
-that can not be estimated beforehand. They include unknown parts of the software
-that may cause problems when ported or assumptions about the environment made by
-the system that will not work in the target environment. The only time they
-are clearly reflected in the porting costs is at the end of the project where
-a retrospective is led. \\
-\hline
-\end{tabular}
-\caption{General porting difficulties \todo{fix this table}}
-\label{tab:portImpeds}
-\end{table*}

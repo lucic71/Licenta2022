@@ -30,7 +30,7 @@
 %  any porting whatsoever (this discussion is in ../src -> background section if
 %  i remember correctly)
 
-\todo{split this text into subchapters}
+\section{Discussions}
 
 In this section we present observations about the porting process and the
 porting costs, focusing on the limitations of the porting model we used and on a
@@ -164,4 +164,44 @@ project (i.e, 24.53\% and 28.26\%). This might mean that testing and general
 duties represent a major part in each software porting project, thus when
 evaluating the costs in advance, special attention must be payed to these tasks.
 
-\todo{add some final words for this chapter}
+\section{General difficulties}
+
+After describing the impediments we faced during our porting we decided
+to understand them and create a list with general difficulties along with a
+short description of each difficulty. This list helps the reader understand what
+were the major technical impediments that affected the course of our porting.
+
+\subsection{Lacking documentation}
+Lacking written documentation about how the system works means
+that the developer must either figure out the system alone or must communicate
+with other developers in order to gather information about the system. This adds
+overhead to the porting process as documentation through communication is
+slower than documentation through written text.
+
+\subsection{Inconsistencies between environments}
+This difficulty corresponds to the degree of which the application is
+portable~\cite{mooney2004developing}. If the degree of portability is too low
+(this depends entirely on the application) then the developer will be faced with
+many inconsistencies between the source and target environments that will be
+reflected in the cost of porting (i.e., man-hours).
+
+\subsection{Use of tools}
+Using inadequate development and testing tools introduces additional
+overhead in the porting process. This happens when the used tools are either
+outdated or too hard to use for the purpose of the process.
+
+\subsection{Understanding the system}
+Software complexity is a multi-dimensional problem, it includes: structural,
+computational, logical, conceptual and textual complexity.  ~\cite{ejiogu} There
+is no easy way to understand the system, so the developer will be faced with the
+task of understanding the architecture diagrams, huge code base, written
+documents and tutorials either when the porting starts or during the porting
+process.
+
+\subsection{Unexpected difficulties}
+As with every software process, there are difficulties
+that can not be estimated beforehand. They include unknown parts of the software
+that may cause problems when ported or assumptions about the environment made by
+the system that will not work in the target environment. The only time they
+are clearly reflected in the porting costs is at the end of the project where
+a retrospective is led.
