@@ -1,8 +1,8 @@
 \chapter{Background} \label{sec:background}
 
 The process of reusing code in a new environment has clear advantages over
-rewriting. However this process does not come cheap, as the task of reusing code
-through porting is time consuming.
+rewriting~\cite{frakes1995sixteen}. However this process does not come cheap, as
+the task of reusing code through porting is time consuming.
 
 \section{Porting and porting tasks}
 
@@ -44,8 +44,8 @@ Mooney's model is very simplistic regarding the tasks that can occur during
 a porting process. From his model, and from the work of Hakuta and Ohminami~
 \cite{hakuta}, and Tanaka et al.~\cite{tanaka} a more accurate model can be created that
 reflects better the components involved in porting an application. We also added
-our input in this model based on the needs of our project. Finally, the
-improvised model of porting has the following structure:
+our input in this model based on the needs of our project.\todo{does this fit
+here?} Finally, the improvised model of porting has the following structure:
 \begin{itemize}
     \item Advance preparations
         \begin{itemize}
@@ -154,3 +154,7 @@ Here $E_i$ are the following environmental factors as presented in~\cite{hakuta}
 
 As for H1$\sim$H5, the values for E1$\sim$E3 range between -2 and 2, -2 being the best
 score for $E_i$, while 2 being the worst.
+
+After we described the anatomy of the porting process and presented the porting
+costs associated with this process, we present a practical example of porting a
+software system and evaluating the costs.
