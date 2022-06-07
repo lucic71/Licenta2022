@@ -29,30 +29,32 @@ this work we describe the experience of porting the IxOS testing infrastructure,
 used by Ixia for high performance network testing, on ARM off-the-shelf boards.
 We do this for two reasons. Firstly, we are interested in exploring Ixia testing
 infrastructure on newer environments with the hope that we will improve the
-performance of the system. Secondly, we are interested in evaluating porting
-costs related to the project for the reasons listed in the beginning of this
-paragraph. 
+performance and reduce the costs of delivering the system. Secondly, we are
+interested in evaluating porting costs related to the project for the reasons
+listed in the beginning of this paragraph. 
 
-We make the following contributions in this work: we review the porting models
-described in~\cite{tanaka,hakuta,kanai} and propose a more general model that can be
-applied to modern software porting, we review the porting costs factors
-described in~\cite{hakuta} and analyze their relevance in our porting work, and we
-provide guidelines and discussions on the topic of improving software porting
-based on the experience of porting IxOS infrastructure. Furthermore, we
-separated the relevant parts for our porting from the infrastructure and ported
-them on ARM architecture. By doing this we allow the the developing of further
-testing tools and systems on ARM boards by Ixia.
+On one hand, we make the following contributions in this work: we review the
+porting models described in~\cite{tanaka,hakuta,kanai} and propose a more
+general model that can be applied to modern software porting, we review the
+porting costs factors described in~\cite{hakuta} and analyze their relevance in
+our porting work, and we provide guidelines and discussions on the topic of
+improving software porting based on the experience of porting IxOS
+infrastructure. On the other hand, we ported the testing infrastructure on ARM
+arhitecture. During this process we isolated the relevant parts of our porting
+in a separate repository. As a result, the isolated components can now be used
+independently from IxOS by internal teams interested in further developing of
+testing tools and systems on ARM boards.
 
 This paper highlights the porting issues associated with porting the IxOS
 network testing infrastructure, both the hardware and software components, to
 ARM off-the-shelf boards, Raspberry Pi 4 in our case. In
-Section~\ref{sec:background} we present different terms associated with porting:
-what porting is, a porting model, porting costs and factors. In
-Section~\ref{sec:portingIxos} we divide our work in multiple steps. For each
+Chapter~\ref{sec:background} we present various terms associated with porting:
+what porting is, porting models, porting costs and factors. In
+Chapter~\ref{sec:portingIxos} we divide our work in multiple steps. For each
 step we present a description, the targets and milestones, and the final
 results. After the porting process is discussed, we highlight in
-Section~\ref{sec:eval} the porting costs associated with our work, including an
+Chapter~\ref{sec:eval} the porting costs associated with our work, including an
 analysis of the factors that influenced the presented costs. Finally, in
-Section~\ref{sec:discussion} we conduct a discussion about the porting process
+Chapter~\ref{sec:discussion} we conduct a discussion about the porting process
 and the porting costs where we investigate porting difficulties, observations
 about the porting tasks and ways to improve the porting process. 
