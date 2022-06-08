@@ -34,7 +34,7 @@ described in Section~\ref{sec:portingIxos}. First we divide our work in tasks
 that can be individually evaluated and later we discuss the factors that
 affected our cost evaluation.
 
-\section{Porting IxOS on ARM Boards Costs}
+\section{Costs of Porting IxOS on ARM Boards}
 
 To evaluate the costs for porting IxOS infrastructure we divided our work based
 on the model described in Section~\ref{sec:background}. Using the progress
@@ -107,8 +107,8 @@ to clarify the system.
 
 \section{Factors of porting costs}
 
-While porting costs, in our case man-hours, are determined directly by program
-size and content, other factors and impediments as human experience and
+While the costs of porting, in our case man-hours, are determined directly by
+program size and content, other factors and impediments as human experience and
 environment disparities must be taken into consideration.
 
 To determine the impact some of these factors had on our porting process, we
@@ -140,9 +140,9 @@ InterfaceManager.
 
 Given these impediments the portability impediment index has the following
 value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
-were no differences between processor architecture (S1~S5), little difference
+were no differences between processor architecture (S1$\sim$S5), little difference
 between source and target OSes (S6, S7, S12) and a major difference in language
-processor (S8~S11). The portability difficulty is thus reflected in the
+processor (S8$\sim$S11). The portability difficulty is thus reflected in the
 following figure:
 
 \begin{tikzpicture}[
@@ -210,20 +210,17 @@ The experience with the programming language (C++) helped us to grow the
 productivity of the porting process as we did not have to care about low-level
 impediments as endianness or data alignment. However we did have problems with
 the language specification between different compilation toolchains that costed
-us a whole week to solve. Finally, the experience with use cases of the program
-to be ported was lacking. \todo{continue the ideas about the last phrase}
+us a whole week to solve. Furthermore, the experience with use cases of the program
+to be ported was lacking. 
 
 \textit{Knowledge about the functions and usage of tools used in the development
 and testing environment (H5)}
 While working in the development and testing environments we used a considerable
 number of technologies, some of them being either new or not trivial to work
 with. Here is a short list of these technologies: QEMU networking, SCons build
-system, Perforce versioning system and internal tools as packaging system.
-\todo{continue the ideas about the last phrase}
-
-In retrospect, it seems that if the human factor index had a better score, maybe
-the porting process would have lasted less and the problems we faced would not
-even occur. \todo{fixme}
+system, Perforce versioning system and internal tools as packaging system. This
+meant that we had to allocate additional time to ramp-up with each of this tools
+after continuing with our goal.
 
 \subsection{Environmental Factors Index}
 
@@ -253,5 +250,5 @@ achieve our goals. The score is also described below:
     \node[dot,label={$\alpha_e$=-1}] at (2,0) {};
 \end{tikzpicture}
 
-After we evaluated the costs and discovered their correlation with the porting
+Now that we evaluated the costs and discovered their correlation with the porting
 factors we will conduct a discussion on the results of our evaluation.
