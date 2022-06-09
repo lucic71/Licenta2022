@@ -105,6 +105,118 @@ spent more time on \textit{General Duties} than on \textit{Testing}. This shows
 that there was a substantial effort put in trying to make use of discussions
 to clarify the system.
 
+\section{Methodology of extracting costs of porting}
+
+To extract the costs of porting we used the progress tracking created during the
+12 weeks of porting. Each week we allocated one hour to discuss the current
+status of the project and the items we plan to do in the following week. A
+sample of our tracking looks as following:
+
+\begin{verbatim}
+# 02.08 - 06.08
+
+Status
+  * IM is booting, having config issues
+  * created RPi setup
+  * deployed RPi + vChassis + IxExplorer setup
+    * port is visible from IxE but we have issues with link state
+      * maybe there is a problem with published stats
+  * attempted connections from vChassis to vCard
+  * ran into configuration issues
+  * need to trick the vChassis into beliving that we're on x64
+
+Planning
+  * fix port down/hwfault report from IM
+    * trick the chassis into beliving we're legit IxVM
+    * make HostProxy - chassis connection
+\end{verbatim}
+
+During a week we allocated 30 hours for porting. 5 hours were allocated to daily
+meetings were we discussed the plan for the respective day and 1 hour a week was
+allocated to progress tracking, resulting in 24 hours of work for solving
+technical problems related to porting. To convert the weekly tasks recorded in
+the tracking in the effective man-hours presented
+in Table~\ref{tab:manHoursEvaluation}, we matched each porting task on the
+progress tracking task. At first, the total amount of 24 hours is divided
+equally between the porting tasks, following adjustments based on factors as
+difficulty and frequency.
+
+Let us take the above example to extract the porting tasks from the progress
+tracking tasks.
+
+\begin{itemize}
+\item IM is booting, having config issues :
+    \begin{itemize}
+    \item Build system trigging and modifications
+    \item Installation on remote environment
+    \item Reviewing inconsistencies between source and remote environments
+    \item Testing in simulated environment
+    \end{itemize}
+
+\item created RPi setup
+    \begin{itemize}
+    \item Adjusting target environment
+    \end{itemize}
+
+\item deployed RPi + vChassis + IxExplorer setup, port is visible from IxE but
+we have issues with link state, maybe there is a problem with published stats
+    \begin{itemize}
+    \item Adjusting target environment
+    \item Reviewing inconsistencies between source and remote environments
+    \end{itemize}
+
+\item attempted connections from vChassis to vCard
+    \begin{itemize}
+    \item Testing in target environment
+    \end{itemize}
+
+\item ran into configuration issues
+    \begin{itemize}
+    \item Testing in target environment
+    \item Reviewing inconsistencies between source and remote environments
+    \end{itemize}
+
+\item need to trick the vChassis into beliving that we're on x64
+    \begin{itemize}
+    \item Reviewing inconsistencies between source and remote environments
+    \end{itemize}
+\end{itemize}
+
+We have six different porting tasks that we must allocate time to. Each task has
+4.16 hours initially. However, \textit{Build system triggering and modification}
+did not take this long, neither did \textit{Installatino on remote environment}.
+These are task that will have less time allocated than the initial 4.16 hours.
+We will have 2 hours for Build system triggering and modifications and 1 hour
+for Installation on remote environment. The remaining 4.32 hours will be
+allocated evenly to the remaining four tasks. Finally we have the following
+results for the week:
+\begin{itemize}
+    \item Advance preparations
+        \begin{itemize}
+            \item Adjusting target environment: \textbf{5.24 hours}
+        \end{itemize}
+    \item Building for target environment
+        \begin{itemize}
+            \item Build system triggering and modification: \textbf{2 hours}
+            \item Installation on remote environment: \textbf{1 hour}
+            \item Reviewing inconsistencies between source and remote
+            environments: \textbf{5.24 hours}
+        \end{itemize}
+    \item Testing
+        \begin{itemize}
+            \item Testing in simulated environment: \textbf{5.24 hours}
+            \item Testing in target environment: \textbf{5.24 hours}
+        \end{itemize}
+    \item General duties
+        \begin{itemize}
+            \item Progress tracking: \textbf{1 hour}
+            \item Discussions: \textbf{5 hours}
+        \end{itemize}
+\end{itemize}
+
+After this algorithm is applied on each week we get the results in~Table~\ref{tab:manHoursEvaluation}.
+
+
 \section{Factors of porting costs}
 
 While the costs of porting, in our case man-hours, are determined directly by
