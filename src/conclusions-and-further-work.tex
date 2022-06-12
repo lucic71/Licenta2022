@@ -1,12 +1,15 @@
 \chapter{Conclusions and Further Work}
 
 \section{Conclusions}
+
+\lm{Comment on structure: here, you can eliminate the {\textbackslash}section tag and begin with something along the lines of: ``This thesis presents the following work:'' [...]. You can still leave ``Further work'' in a separate section though.}
+
 We succeeded in porting the IxOS infrastructure on ARM boards. We separated the
 relevant components for our porting (i.e., InterfaceManager and IxStack) from
-IxOS so that they can be run on every ARM-based Linux distribution. At the
+IxOS so that they can be run on every~\lm{on any?} ARM-based Linux distribution. At the
 moment of writing the project is in the proof-of-concept stage. If there is
 interest for continuing the project or integrating it in other projects inside
-the company, we provided the necessary environment for deploying it.
+the company, we provided the necessary environment for deploying it.~\lm{Not sure that the last two sentences are needed at all.}
 
 We have extracted the porting costs for porting IxOS infrastructure on ARM
 boards. Thus we understood what the weaknesses and the strengths of our project
@@ -15,14 +18,14 @@ proved itself to be an important factor during the process of porting. Because
 of this reason we had to spend additional time on testing the system and
 understanding its components. This time might have been better allocated on
 solving problems and inconsistencies. A strength of our project was the fact
-that the program for porting had a high degree of portability. This helped us to
+that the program for porting~\lm{the ported program?} had a high degree of portability. This helped us to
 shrink the volume of inconsistencies between the source environment and the
 target environment.
 
-We succeeded in creating a better model for software porting starting from the
+We succeeded in creating a better~\lm{In what sense is it ``better''? is it more accurate? is it more comprehensive? try to be more specific.} model for software porting starting from the
 model presented in~\cite{hakuta,tanaka} and from our project specific needs. We
 contributed to this model by making it more generic and allowing other software
-porting projects to easily map their needs on this model.
+porting projects to easily map their needs on this model.~\lm{Ah, I see. I think you should just say this, and also briefly say why we needed to extend their model.}
 
 Finally, we have provided a discussion on the limitations of the model we
 created and provided a comparison between our porting results and the results
@@ -32,18 +35,18 @@ basis for our generic porting model.
 \section{Further Work}
 
 We plan to test the performance of the system so that we can achieve the other
-goal we proposed in the beginning of this work (i.e., explore Ixia testing
+goal we proposed in the beginning of this work~\lm{Rather, I would formulate this as such: we want to explore other aspects of our port to ARM.} (i.e., explore Ixia testing
 infrastructure on other architectures so that we can achieve a better
 performance of the system). To achieve this goal we will compare our solution in
 the target environment with the same solution in the source environment. We
 expect to see better results in the new environment for some network testing
 suites than in the old environment. Furthermore, we plan to compare our solution
-with other open-source network testing tools.
+with other open-source network testing tools.~\lm{Ixia is already better than open-source network testing tools, so... I don't know.}
 
 To complete the analysis of the factors that affected the porting costs we plan
 to analyze the characteristics of the program to be ported. We want to analyze
 the program size and contents and the content of the changes needed for porting.
-By doing this we hope to find a direct correspondence between the program to be
+By doing this we hope~\lm{rather, we aim?} to find a direct correspondence between the program to be
 ported and specific porting subtasks (e.g., \textit{Solving inconsistencies
 between source and target environment}).
 
@@ -51,3 +54,5 @@ Finally, we want to analyze the porting improvements guidelines presented
 in~\cite{hakuta} and map them on our porting process. However, we do not plan to
 restart the porting process while mapping these guidelines, instead we want to
 have a discussion and draw conclusions based on them.
+
+\lm{I think there is a more general question to be answered here for future work (and it might have been largely solved by the IxOS team, I don't know): can this protocol/control plane infrastructure be provided as a drop-in component for any Linux-based system? regardless of the target architecture, supposing a C++ compiler exists for it; and regardless of the specifics of the target Linux environment, supposing it's standard Linux. If this is possible, then it's a big win for Ixia, since they can deploy the control plane tester anywhere (cloud, commodity boards, other systems that we haven't thought of yet). Not sure whether to mention this explicitly here, but it is certainly worth mentioning that we want the testing infrastructure to be portable to as many environments (OS, compiler, architecture) as possible.}

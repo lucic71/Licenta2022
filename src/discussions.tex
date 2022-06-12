@@ -1,5 +1,9 @@
 \chapter{Discussions on Porting Costs} \label{sec:discussion}
 
+\lm{You need to briefly summarize the chapter here, even if you don't say much.}
+
+\lm{This chapter is structured a bit weirdly: you have a chapter named ``Discussions on Porting Costs'', whose first section is ``Discussions'' (almost the same name as the chapter) and the second section is ``General difficulties''. I'm not saying this is necessarily wrong, it's just not very clear why it's structured this way.}
+
 % What I want to say in this section:
 %   - I want to reflect on imporving the porting process we did. Tanaka proposes
 %   the following seven ways of raising porting efficiency:
@@ -39,7 +43,7 @@ comparison between our results and the results of Tanaka et al.
 \subsection{Limitations of the porting model}
 
 Let us start by discussing the limitations of the porting model we proposed in
-section~\ref{sec:background}. The model assumes that the tasks are executed in
+section~\ref{sec:background}.~\lm{You can leave out this first sentence and just begin with: ``The model in sec:background assumes that [...]''.} The model assumes that the tasks are executed in
 sequential order, which is not true. The tasks are rather executed in a
 non-linear fashion. For example while building for the target environment,
 installing the binaries in this environment and testing the ported application,
@@ -98,6 +102,8 @@ with the provided tools and systems. Furthermore, to have a more accurate
 conversion there must be time considerents: how much time did we spent on this
 bullet? and how do we divide this time between porting tasks?
 
+\lm{If I understand correctly, the problem here is one of taxonomy: a given task could fall into more than one category, or rather, the time allocated to that task could be broken between multiple categories. I'm wondering, then: do the ``porting task categories'' themselves represent the porting process? Or is there some better way to break down porting processes (in general)?}
+
 \subsection{Dependencies between porting tasks}
 
 The next discussion point focuses on the porting tasks dependency graph. It
@@ -119,7 +125,7 @@ produce, progress tracking must reflect work executed in each subtask and
 discussions are by design focused on trying to understand each part of the
 porting process. That being said, it is hard to imagine how \textit{General
 duties} would not be a substantial part of the porting process. It would be
-interesting too see if a modification in the allocated time for a subtask such
+interesting to see if a modification in the allocated time for a subtask such
 as \textit{Discussions} would reduce or increase the needed time for other
 subtasks, otherwise if other tasks are not affected by this modification, there
 should be no interest in allocating more time for discussing.
@@ -129,9 +135,9 @@ should be no interest in allocating more time for discussing.
 At this moment we discussed the limitations and open problems that appear in the
 model of porting we used. Next, we make a comparison between our results for
 porting costs and the results that appeared in the first paper that presented a
-basis for our porting model~\cite{b1}. The results can be found in Table 6 of
+basis for our porting model~\cite{b1}~\lm{There is a missing reference here.}. The results can be found in Table 6 of
 the paper we referenced. We will compare the subtotals per tasks and discuss the
-reasons of the differences between the two . In terms of \textit{Advance
+reasons of the differences between the two. In terms of \textit{Advance
 preparations} we spend a total of 14.35\% of our total time while Tanaka et al.
 spend 33.4\%. There are two major reasons for reduced time in our case. First,
 we were interested in delivering builds for the target environment as fast as
@@ -162,7 +168,7 @@ a larger ecosystem into a target environment, their project was focused on
 porting a whole application from one environment to another.
 
 For \textit{Testing} we assume that they spent $\textit{Linked test on target} /
-2 + \textit{Workstation testing} = 10.5 + 11.4 = 21.9\%$. We dived the linked
+2 + \textit{Workstation testing} = 10.5 + 11.4 = 21.9\%$. We dived~\lm{divided?} the linked
 test on target because we assumed that half of this time was allocated to
 development and half of it was allocated to testing. Their time for
 \textit{General duties} is of 27.4\%. These two times are very similar with our
@@ -172,7 +178,7 @@ evaluating the costs in advance, special attention must be payed to these tasks.
 
 \section{General difficulties}
 
-After describing the impediments we faced during our porting we decided
+After describing the impediments we faced during our porting~\lm{Not sure this applies anymore. I think you should make this section self-contained, without references such as this.} we decided
 to understand them and create a list with general difficulties along with a
 short description of each difficulty. This list helps the reader understand what
 were the major technical impediments that affected the course of our porting.
@@ -189,16 +195,16 @@ This difficulty corresponds to the degree of which the application is
 portable~\cite{mooney2004developing}. If the degree of portability is too low
 (this depends entirely on the application) then the developer will be faced with
 many inconsistencies between the source and target environments that will be
-reflected in the cost of porting (i.e., man-hours).
+reflected in the cost of porting (i.e., man-hours).~\lm{Don't these inconsistencies also depend on the environments themselves, though?}
 
 \subsection{Use of tools}
 Using inadequate development and testing tools introduces additional
 overhead in the porting process. This happens when the used tools are either
-outdated or too hard to use for the purpose of the process.
+outdated or too hard to use~\lm{I'm still not bought on the ``outdated'' aspect; developers shouldn't suffer just because a maintainer decides to break compatibility with an older version of a tool.} for the purpose of the process.
 
 \subsection{Understanding the system}
 Software complexity is a multi-dimensional problem, it includes: structural,
-computational, logical, conceptual and textual complexity.  ~\cite{ejiogu} There
+computational, logical, conceptual and textual complexity~\cite{ejiogu}. There
 is no easy way to understand the system, so the developer will be faced with the
 task of understanding the architecture diagrams, huge code base, written
 documents and tutorials either when the porting starts or during the porting
@@ -210,4 +216,4 @@ that can not be estimated beforehand. They include unknown parts of the software
 that may cause problems when ported or assumptions about the environment made by
 the system that will not work in the target environment. The only time they
 are clearly reflected in the porting costs is at the end of the project where
-a retrospective is led.
+a retrospective is led.~\lm{I know I commented at least twice in the past on this paragraph and I'm still unconvinced about it. One needs to look deeper into what this ``unexpected'' means, or rather, what causes it. To my eye, something is always unexpected in the context of partial information, so ``Unexpected difficulties'' is not disjoint from ``Understanding the system''. You have to ask yourself: had you known more things beforehand (e.g. architectural details about IxOS, or RPi delivery date), would the unexpected difficulties still be unexpected? If not, then there's really nothing ``unexpected'' about them, they were just caused by lack of familiarity with the system.}
