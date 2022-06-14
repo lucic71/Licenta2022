@@ -351,3 +351,24 @@
   - June 27 -- final version of diploma text
   - June 30-July 1 -- presentation rehearsal(s)
   - July 1 -- demo ready
+
+# 2022 June 14, Diploma meeting #25
+
+- Status
+  - Paper ported to diploma template
+  - Went through rounds of reviews by both Lucians
+- Planning
+  - #1 Practical demo
+    - Bring setup up
+    - Evaluate what works, what doesn't
+    - Think of demo
+  - #2 Integrate remaining feedback, rediscuss, rework
+  - #3 Evaluation: analysis on program structure
+  - #4 Evaluation: performance evaluation (wishful thinking)
+- Milestones
+  - June 20 -- demo and feedback
+  - June 27 -- presentation rehearsal
+  - week of June 27 -- final version of diploma text
+  - week of June 27 -- rehearsals
+  - June 30-July 1 -- presentation rehearsal(s)
+  - July 1 -- demo ready
