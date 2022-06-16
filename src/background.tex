@@ -1,20 +1,20 @@
-\chapter{Background} \label{sec:background}
+\chapter{The anatomy of the porting process} \label{sec:background}
 
 The process of reusing code in a new environment has clear advantages over
 rewriting~\cite{frakes1995sixteen}. However this process does not come cheap, as
-the task of reusing code through porting is time consuming.
-
-\lm{You should also restate here what precisely the chapter is discussing/presenting.}
+the task of reusing code through porting is time consuming. In this chapter we
+present the theoretical background and the related work in the field of porting
+including the porting process with its tasks, porting costs and porting factors.
 
 \section{Porting and porting tasks}
 
 Porting is the act of producing an executable version of a software unit or
 system in a new environment based on an existing
-version~\cite{mooney1990strategies}. This is
-seldom an easy task because~\lm{I would add here: in general} it involves a good amount of code refactoring and
-rewriting. It can be avoided, however, if~\lm{in particular} the original design has portability
-incorporated by using constructs as multi-platform libraries, modular code or
-standard compiler behaviors.~\lm{I'm nitpicking here, but I think you're going over these constructs much too fast; are these just examples? is there an exhaustive list somewhere (in Mooney's paper, maybe)? portability design seems to be important, so it might be worth going into a bit more detail.}
+version~\cite{mooney1990strategies}. This is seldom an easy task because, in
+general, it involves a good amount of code refactoring and rewriting. It can be
+avoided, however, if, in particular, the original design has portability
+incorporated by using, for example, constructs as multi-platform libraries,
+modular code or standard compiler behaviors~\cite{tanenbaum1978guidelines}.
 
 The environment is defined as the set of software and hardware elements that
 interact with the system. This includes, but it is not restricted to: operating
@@ -27,7 +27,7 @@ executable files while Linux uses ELF, moreover even if they follow the POSIX
 standard, they may have implementation details that do not align with each
 other. On the other hand, processor architectures vary from one another in the
 way they understand machine language and even if they do not vary, custom
-hardware attached to these processors makes~\lm{may make?} porting difficult as the software
+hardware attached to these processors may make porting difficult as the software
 must be rewritten in order to accomodate the new peripherals.
 
 Mooney~\cite{mooney1990strategies} presents two components of the porting process:
@@ -107,17 +107,14 @@ on delivering documents that describe the process of porting or other
 information relevant to the project and focuses on planning and discussing
 aspects with regards to difficulties encountered during the process.
 
-\section{Porting costs}
+\section{Porting costs and factors}
 
-Now that we have defined what the porting process is and what are the relevant
-porting tasks, let us describe the porting costs associated with the process.~\lm{You can leave out this paragraph entirely.}
-
-Porting costs~\lm{and more generally, software development costs} are measured in man-hours~\cite{tanaka, hakuta}. While the costs are
-determined by program size and contents~\cite{hakuta}, other factors as portability
-impediments, human factors or environmental factors~\cite{hakuta} play a
-considerable role. To understand the factors that influence the porting costs,
-these factors are quantified in indices that describe how much of an influence
-they have.
+Porting costs, and more generally, software development costs, are measured in
+man-hours~\cite{tanaka, hakuta}. While the costs are determined by program size
+and contents~\cite{hakuta}, other factors as portability impediments, human
+factors or environmental factors~\cite{hakuta} play a considerable role. To
+understand the factors that influence the porting costs, these factors are
+quantified in indices that describe how much of an influence they have.
 
 In our work we will use three indices of this type as follows: portability
 impediments index, human factors index and environmental factors index.
@@ -130,7 +127,8 @@ following formula: \[ \alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i \]
 
 Here $\eta$ is a portability design index, $\omega_i$ is the weight assigned to
 each factor and $S_i$ is 1 when the impediment factor $i$ exists, otherwise is
-0.~\lm{Might be worth provide a particular example of an $S_i$.}
+0. The factors are placed in three categories: differences in processor
+architecture, OS disparity and differences in language processor.
 
 The second index, human factors, answers the following question: what role did
 the experience and knowledge of the developer play in the porting process? The
