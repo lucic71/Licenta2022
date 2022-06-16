@@ -12,7 +12,7 @@ environment.
 
 Software development costs and invested resources for understanding, maintaining
 and developing new features for a system are
-big~\cite{xia2017measuring,boehm2000software,morgan1994controlling}. We~\lm{you use ``we'', but then you suddenly switch to ``people''} would
+big~\cite{xia2017measuring,boehm2000software,morgan1994controlling}. People would
 like to preserve these investments when the need for a new environment arises.
 To achieve this goal people designed programming languages and compilers that
 increased portability, operating systems that could run on multiple hardware
@@ -30,8 +30,9 @@ used by Ixia for high performance network testing, on ARM off-the-shelf boards.
 We do this for two reasons. Firstly, we are interested in exploring Ixia testing
 infrastructure on newer environments with the hope that we will improve the
 performance and reduce the costs of delivering the system. Secondly, we are
-interested in evaluating porting costs related to the project for the reasons
-listed in the beginning of this paragraph.~\lm{This last sentence sounds a bit awkward; you can rephrase the paragraph by saying directly that you want to understand the costs involve in porting; and that as an experimental vehicle for this, you choose Ixia testing software, which is known to be industry-grade and versatile, and thus is sufficiently complex as a practical case study.}
+interested in evaluating porting costs related to the project using the Ixia
+software, which is known to be industry-grade and versatile, and thus being
+sufficiently complex as a practical case study.
 
 On one hand, we make the following contributions in this work: we review the
 porting models described in~\cite{tanaka,hakuta,kanai} and propose a more
@@ -39,22 +40,22 @@ general model that can be applied to modern software porting, we review the
 porting costs factors described in~\cite{hakuta} and analyze their relevance in
 our porting work, and we provide guidelines and discussions on the topic of
 improving software porting based on the experience of porting IxOS
-infrastructure. On the other hand, we ported~\lm{you suddenly switch to past tense here; since you're in the intro, I suggest leaving the present tense.} the testing infrastructure on ARM
-arhitecture. During this process we isolated the relevant parts of our porting
+infrastructure. On the other hand, we port the testing infrastructure on ARM
+arhitecture. During this process we isolate the relevant parts of our porting
 in a separate repository. As a result, the isolated components can now be used
 independently from IxOS by internal teams interested in further developing of
 testing tools and systems on ARM boards.
 
-This paper~\lm{thesis?} highlights the porting issues associated with porting the IxOS
-network testing infrastructure, both the hardware and software components, to
-ARM off-the-shelf boards, Raspberry Pi 4 in our case~\lm{It would be clearer if you started this paragraph off with something like: ``This thesis is structured as follows. In Chapter 1 etc.''}. In
-Chapter~\ref{sec:background} we present various terms associated with porting:
-what porting is, porting models, porting costs and factors. In
-Chapter~\ref{sec:portingIxos} we divide our work~\lm{try to say in two words what work exactly you're referring to, i.e. you're actually presenting the porting architecture and steps.} in multiple steps. For each
-step we present a description, the targets and milestones, and the final
-results. After the porting process is discussed, we highlight in
-Chapter~\ref{sec:eval} the porting costs associated with our work, including an
-analysis of the factors that influenced the presented costs. Finally, in
-Chapter~\ref{sec:discussion} we conduct a discussion about the porting process
-and the porting costs where we investigate porting difficulties, observations
-about the porting tasks and ways to improve the porting process.~\lm{It's also customary to say something about the concluding chapter, just so that the reader know it's there.}
+This thesis is structured as follows. In Chapter~\ref{sec:background} we present
+various terms associated with porting: what porting is, porting models, porting
+costs and factors. In Chapter~\ref{sec:portingIxos} we present the architecture
+of the system and divide the porting work in multiple steps. For each step we
+present a description, the targets and milestones, and the final results. After
+the porting process is discussed, we highlight in Chapter~\ref{sec:eval} the
+porting costs associated with our work, including an analysis of the factors
+that influenced the presented costs. In Chapter~\ref{sec:discussion} we
+conduct a discussion about the porting process and the porting costs where we
+investigate porting difficulties, observations about the porting tasks and ways
+to improve the porting process. Finally, in Chapter~\ref{sec:conclusions} we
+present the conclusions of the porting processs and its cost evaluation, and set
+the enhancements and objectives for further work.
