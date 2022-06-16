@@ -25,13 +25,23 @@ a Chassis is used. The most important application that runs on the Chassis is
 IxServer. It creates a communication channel between IxExplorer and the testing
 machines.
 
-\lm{This is not the only purpose of a chassis. Its main purpose is to integrate all the testing elements. In IxExplorer you can view, for example, multiple chassis whose ports are interconnected, in fact this is quite a common testing setup. The advantage of this (chassis, multiple-chassis, AKA ``chassis chain'') view is that it integrates the entire test setup in a single place. You can for example correlate traffic generated from Chasssis 1, Card 1, Port 1 to traffic received by Chassis 2, Card 1, Port 5 by viewing them in the same place. It also scales for big setups.}
+\lm{This is not the only purpose of a chassis. Its main purpose is to integrate
+all the testing elements. In IxExplorer you can view, for example, multiple
+chassis whose ports are interconnected, in fact this is quite a common testing
+setup. The advantage of this (chassis, multiple-chassis, AKA ``chassis chain'')
+view is that it integrates the entire test setup in a single place. You can for
+example correlate traffic generated from Chasssis 1, Card 1, Port 1 to traffic
+received by Chassis 2, Card 1, Port 5 by viewing them in the same place. It also
+scales for big setups. \\\\ LL: I think that my description is enough for the scope of the thesis.
+}
 
 Next, the cards are the most interesting part for our porting. They run on a
-custom Ixia solution, IxVM to achieve the best performance for network testing. On top
-of IxVM is placed~\lm{Rather, IxVM is based on it; but I should say, IxVM also comprises the chassis side.} IxOS Linux, a modified version of Linux with custom
-device drivers, kernel parameters and userspace applications. The two most
-interesting applications~\lm{I'd first say what their role is and then add that they're more interesting for us, since they're the main control plane traffic generation middleware.} for our porting are InterfaceManager (IM) and IxStack.
+custom Ixia solution, IxVM to achieve the best performance for network testing.
+On top of IxVM is placed IxOS Linux, a modified version of Linux with custom
+device drivers, kernel parameters and userspace applications. In terms of
+userspace applications, InterfaceManager and IxStack offer the control
+plane traffic generation mechanisms for network testing. They are the two most
+interesting applications for our porting are InterfaceManager and IxStack.
 Their role in the system is to manage the network interfaces, represented by
 Port01 and Port02 in Figure~\ref{fig:ixos_arch}, and to load the network
 protocols for the testing suites.
@@ -44,25 +54,24 @@ behavior of the DUT while receiving traffic.
     \centering
     \def\svgscale{0.95}
     \input{fig/ixos_arch.pdf_tex}
-    \caption{IxOS porting architecture}
+    \caption{IxOS porting architecture. The right part of the figure presents
+    the modification of the card environment. \small{IM=InterfaceManager}}
     \label{fig:ixos_arch}
     \medskip
     \small
-    The right part of the figure presents the modification of the card
-    environment.~\lm{Rather, explain this in the caption itself (I don't see any problem with this.}
 \end{figure}
 
 \section{New IxOS Architecture}
 
-In Figure~\ref{fig:ixos_arch} we highlighted~\lm{Use the present tense for architectural descriptions, past tense for implementation/evaluation.} the changes we made to the initial
+In Figure~\ref{fig:ixos_arch} we highlight the changes we made to the initial
 architecture. First, we changed the hardware a card runs on. From IxVM we moved
-to a Raspberry Pi 4. On top of the Raspberry Pi, we put~\lm{installed?} a Raspberry Pi OS Linux
+to a Raspberry Pi 4. On top of the Raspberry Pi, we installed a Raspberry Pi OS Linux
 instead of IxOS Linux.
 
 These changes required us to port InterfaceManager and IxStack to the new
 Raspberry Pi environment so that we could benefit from the same functionality as
 in the old Ixia custom hardware + IxOS Linux environment. To recreate the
-required environment for IM and IxServer, we had to install custom tools,
+required environment for InterfaceManager and IxServer, we had to install custom tools,
 various types of pipes, shared libraries and configuration scripts in the target
 environment.The process of porting the two applications is described in the next
 section.
@@ -92,14 +101,12 @@ correct binaries.
 
 \lm{Could also reiterate here why we chose an ARM board, just so that it sticks to the reader's mind.}
 
-\lm{Since the reader doesn't know what the previous build setup was, I would change ``Separate InterfaceManager from IxOS in a git repository'' to something else, such as ``Decouple InterfaceManager build from legacy IxOS''.}
-
 The porting process consisted in moving the IxOS testing infrastructure from its
 source environment to a new target environment consisting of an off-the-shelf
 ARM board, Raspberry Pi, running a stock Linux operating system. When we started
 the porting we set the following porting milestones:
 \begin{itemize}
-    \item Separate InterfaceManager from IxOS in a git repository
+    \item Decouple InterfaceManager build from legacy IxOS
     \item Run InterfaceManager in QEMU
     \item Run InterfaceManager on Raspberry Pi hardware
 \end{itemize}
@@ -107,38 +114,34 @@ We achieved all our proposed milestones during the twelve weeks of the project.
 At the end of the project we divided the work into three logical stages
 that cover the process of achieving the above milestones.
 
-\lm{Please link the main term (InterfaceManager) to the abbreviation (IM) somehow.}
-
-\lm{The list below is the first time you mention HostProxy. If you really want to talk about this, I think you could dedicate a paragraph to explain the following: although we decoupled IM build from IxOS (chassis + card) and we devised a custom deployment process on RPi, at this point we still wanted to maintain compatibility between IxOS chassis and card (we wanted our modified RPi environment to be viewable as an IxOS card). I think mentioning this is important, because it then allows the reader to understand more precisely where exactly some of our problems came from (the chassis needed to connect to the card, but some pieces were missing and we had to work our way around them).}
+\lm{The list below is the first time you mention HostProxy. If you really want to talk about this, I think you could dedicate a paragraph to explain the following: although we decoupled InterfaceManager build from IxOS (chassis + card) and we devised a custom deployment process on RPi, at this point we still wanted to maintain compatibility between IxOS chassis and card (we wanted our modified RPi environment to be viewable as an IxOS card). I think mentioning this is important, because it then allows the reader to understand more precisely where exactly some of our problems came from (the chassis needed to connect to the card, but some pieces were missing and we had to work our way around them).}
 
 The logical stages of our porting process are the following:
 \begin{itemize}
     \item Build binaries for ARM64
     \begin{itemize}
-        \item Separate IM + HostProxy from IxOS infrastructure
-        \item Integrate IxStack with IM
-        \item Build plugins for IM
+        \item Separate InterfaceManager + HostProxy from IxOS infrastructure
+        \item Integrate IxStack with InterfaceManager
+        \item Build plugins for InterfaceManager
         \item Test initial builds in QEMU
     \end{itemize}
     \item Create Card environment on RPi
     \begin{itemize}
         \item Run setup on RPi hardware
-        \item Modify IM to run in the new environment
-        \item Debug IM initialization issues
+        \item Modify InterfaceManager to run in the new environment
+        \item Debug InterfaceManager initialization issues
     \end{itemize}
     \item Bring up ports on Chassis
     \begin{itemize}
-        \item Find the cause of the IM initialization issues
+        \item Find the cause of the InterfaceManager initialization issues
         \item Solve the problems regarding the link state of the card
     \end{itemize}
 \end{itemize}
 These stages with their respective substages were not completed in chronological
 order. The process of completion was rather incremental, meaning that for
 example we had to test the initial builds in QEMU each time we made a
-modification in the \textit{Integrate IxStack in IM} stage, going back and forth
+modification in the \textit{Integrate IxStack in InterfaceManager} stage, going back and forth
 between the two substages.
-
-\todo{add code in appendix to make these paragraphs clearer?}\lm{I don't think we're allowed to do that, unfortunately.}
 
 In the first stage, we started the work of porting by trying to separate the
 relevant components from IxOS and build them for ARM64. We started with
@@ -155,7 +158,7 @@ environment and the target environment. For that we had to modify some parts of
 the program that were source environment dependent. However the porting did not
 run as smoothly as we expected. We had to investigate multiples paths to
 understand the problems we faced, namely the problems regarding the
-initialization of our Card.~\lm{This could be better focused, by first mentioning that we had problems with IM initialization, then saying that these required an iterative testing/searching/rebuilding/redeployment process.}
+initialization of our Card.~\lm{This could be better focused, by first mentioning that we had problems with InterfaceManager initialization, then saying that these required an iterative testing/searching/rebuilding/redeployment process.}
 
 In stage three we investigated the initialization problems from another
 perspective.~\lm{From what I remember, not all initialization issues were specific to the chassis. If I remember correctly, one minor setup issue was that we required ethtool, might be worth mentioning this in the previous paragraph.} This time we investigated what was the initialization sequence on
