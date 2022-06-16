@@ -1,8 +1,6 @@
 \newcommand\multirowline[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
 
-\chapter{Porting Costs Evaluation} \label{sec:eval}
-
-\lm{I would totally rename this to ``Evaluation of Porting Costs''. Dunno, it just sounds more natural to me.}
+\chapter{Evaluation of Porting Costs} \label{sec:eval}
 
 % What I want to say in this section:
 %   - I want to take the model of Tanaka and map my timeline on it (maybe merge
@@ -220,8 +218,6 @@ results for the week:
 
 After this algorithm is applied on each week we get the results in~Table~\ref{tab:manHoursEvaluation}.
 
-\lm{In my opinion this is perfect.}
-
 \section{Factors of porting costs}
 
 While the costs of porting, in our case man-hours, are determined directly by
@@ -299,15 +295,16 @@ This score is very close the worst possible score:
 Indeed, the human factor played a major role in our porting process, let
 us analyze each factor and see what went wrong.
 
-\lm{Not sure if it would look nicer if you used {\textbackslash}paragraph here instead of {\textbackslash}textit. Could give it a try.}
-
-\textit{Knowledge about the program to be ported functions and structures (H1)} 
+\paragraph{Knowledge about the program to be ported functions and structures (H1)} 
 As this was the first interaction with the program to be ported it was hard to
-familiarize with its functions and structures, therefore I~\lm{I think this is the first time you use singular first-person.} had no experience
+familiarize with its functions and structures, therefore I~\lm{I think this is
+the first time you use singular first-person.} \todo{yes I do, I couldn't use
+"we"
+because it was a personal matter} had no experience
 whatsoever with the use cases of the program. This resulted in the inability to
 easily solve the porting problems that appeared in our way.
 
-\textit{Knowledge about the hardware and OS of the target system (H2)}
+\paragraph{Knowledge about the hardware and OS of the target system (H2)}
 Hardware disparities were not a big concern in our porting as we used a portable
 operating system and programming language that abstracted out hardware problems.
 Therefore the focus was on the target operating system. Our porting moved the
@@ -317,13 +314,13 @@ could finish our porting. However there were some problems that we faced
 regarding the target operating system that we solved relatively straight
 forward.
 
-\textit{Knowledge and experience in the area of software porting (H3)}
+\paragraph{Knowledge and experience in the area of software porting (H3)}
 As the experience of software porting was lacking there were many situations
 and problems that could have been solved better, for example: doing better
 tracking of the porting process, putting more effort in technical discussions
 in order to better understand the problems, etc.
 
-\textit{Knowledge of and experience with the language and program to be ported
+\paragraph{Knowledge of and experience with the language and program to be ported
 in use(H4)}
 The experience with the programming language (C++) helped us to grow the
 productivity of the porting process as we did not have to care about low-level
@@ -332,7 +329,7 @@ the language specification between different compilation toolchains that costed
 us a whole week to solve. Furthermore, the experience with use cases of the program
 to be ported was lacking. 
 
-\textit{Knowledge about the functions and usage of tools used in the development
+\paragraph{Knowledge about the functions and usage of tools used in the development
 and testing environment (H5)}
 While working in the development and testing environments we used a considerable
 number of technologies, some of them being either new or not trivial to work
@@ -358,18 +355,23 @@ meaning that even if we had some difficulties setting and understanding the
 development and testing environment, we managed to work with them in order to
 achieve our goals. The score is also described below:
 
-\begin{tikzpicture}[
-    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
-    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
-        thick      
-]
-    \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
-    \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
-    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-    \node[dot,label={$\alpha_e$=-1}] at (2,0) {};
-\end{tikzpicture}
+\begin{figure}
+    \begin{tikzpicture}[
+        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+            thick      
+    ]
+        \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-6};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=6};
+        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+        \node[dot,label={$\alpha_e$=-1}] at (2,0) {};
+    \end{tikzpicture}
+    \caption{Environmental factor index}
+\end{figure}
 
 \lm{A note here: I think all the tikz blocks should be placed inside figure blocks and referred as such. The whole reason why explicit referencing is used is to avoid the situation where you say ``X is described below'' and then LaTeX typesets your figure on the top of the next page (which, read on printed paper, does not fall below). More generally, you don't want your references to depend on particular typesetting choices.}
+\todo{the issue with figures is that i cannot find a way to center the tikz
+block, does it look weird like this?, see Figure 2}
 
 \lm{Maybe an example of particular environmental issues would work here?}
 
