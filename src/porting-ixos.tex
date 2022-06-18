@@ -156,7 +156,11 @@ problems with the initialization of InterfaceManager on the Card. This required
 an interative process of testing, searching, rebuilding and redeployment to
 understand and solve the initialization problems. The major inconveniences with
 the initialization featured missing utilities as ethtool(8), missing
-configuration files and missing code for ARM architecture.
+configuration files and missing code for ARM architecture. Another problem was
+the inability to use the same tools on the target environment as on the source
+environment. On Raspberry Pi OS we were not able to use dmidecode(8) because the
+operating system did not allow us to access /dev/kmem even if we switched to
+user root.
 
 In stage three we investigated the initialization problems from another
 perspective. This time we investigated what was the initialization sequence on

@@ -30,11 +30,16 @@
 % [1] "A study of Software Portability Evaluation"
 
 In this section we present the costs associated with the porting process
-described in Section~\ref{sec:portingIxos}. First we divide our work in tasks
-that can be individually evaluated and later we discuss the factors that
-affected our cost evaluation.
+described in Section~\ref{sec:portingIxos}. We divide our work in tasks
+that can be individually evaluated based on the revised model discussed in
+Section~\todo{put the correct chapter} and describe the methodology of
+extracting the porting costs based on the progress tracking we have done during
+the project.
 
-\lm{Returning here after I've reviewed the entire chapter, I think there is a lot that you could say in this first introductory paragraph, you could even describe the chapter using multiple paragraphs. This is a long chapter, it says a lot of things, so don't be afraid of spelling all of them out in a summary here.}
+Later we discuss the factors that affected our cost evaluation. We focus on
+three aspects of these factors: portability impedimets, human experience and
+environmental factors. For each of them we analyze a score to understand their
+impact in the project and we analyze them with regards to our porting.
 
 \section{Costs of Porting IxOS on ARM Boards}
 
@@ -100,12 +105,26 @@ inconsistencies. This means that the errors were not difficult to solve, instead
 they were difficult to find.~\lm{Could this be one of the golden nuggets to be mentioned in the abstract? Not sure.} This situation is no surprise for us because we had
 no reference or documentation that would help us in investigating the errors and
 inconsistencies.~\lm{One question here that might help focus this: what exactly should the documentation have comprised that was missing? Was it a detailed architecture of IxOS? Implementation specifics (e.g. the ethtool thing on IxVM card)? Something else altogether? I'm also asking this because I'm actively seeking to improve the IxOS technical documentation, among others.}
+\lp{I think that a more comprehensive diagram of the architecture details
+specific to our porting whould have been very helpful, furthermore
+implementaiton details for chassis and card would have also helped. I think that
+any kind of documentation would have helped in this situation. \textit{However},
+looking back at the project and at this one year that passed and in which I
+gathered some experience with software engineering by working on other large
+systems, I can say that documentation is not the only factor that can make the
+project easier or harder. The time spent on the project is much more important
+than documentation. I think it's clear why: you take time to get familiar with
+the project and understand the components of the system by solving errors,
+getting to know implementation details that might not be present in documentaion
+and by communicating with other people that are involved in the project}
 
 There was no time allocated on making initial source code modifications because
 the system was unfamiliar and hard to understand from the start. Finally, we
 spent more time on \textit{General Duties} than on \textit{Testing}. This shows
 that there was a substantial effort put in trying to make use of discussions
-to clarify the system.~\lm{We tried, but did we succeed? If you say whether the discussions actually helped clarify e.g. misunderstandings about how the system works, then this might shed some more light on how some of the issues were resolved.}
+to clarify the system. In the end we suceeded in porting the system, meaning
+that the discussions we had helped us to clarify the various parts of the system
+that were not understood in the beginning.
 
 \section{Methodology of extracting costs of porting}
 
@@ -249,7 +268,7 @@ Ohminami's list~\cite{hakuta}, namely S12, which can be placed in the "OS dispar
 category. This impediment is reflected in the usage of dmidecode(8) on Raspberry
 Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
 /dev/kmem which was needed by dmidecode(8), which in turn was needed by
-InterfaceManager.~\lm{IMHO these issues should also be explicitly mentioned in the implementation section.}
+InterfaceManager.
 
 Given these impediments the portability impediment index has the following
 value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
@@ -343,11 +362,23 @@ after continuing with our goal.
 The tools used in the development environment and the testing mechanisms used in
 the testing environment also add their bit in the porting costs.
 
-In the development environment we used our personal experience to work with the
-build system and to explore the code. Because the documentation was missing we
-had to use trial and error strategies to make things work. In the testing
-environment, even if we had problems with setting up the testing infrastructure,
-we managed to focus on testing the system.
+In the development environment we had no documentation describing the compiling
+and linking procedures and no documentation regarding the environment dependent
+components that we need to modify in order to move the code to a new
+environment. We modified the code and the build system by trial and error. This
+reduces the score for E1 as this strategy might not always work or it could take
+an unsatisfactory amount of time for large and complicated systems. However
+we managed to understand the peculiarities of the development environment and
+get the first builds available for testing in two or three weeks, which is less
+than 25\% of our porting time.
+
+In the testing environment we had test programs and tools available such as
+emulators and debuggers, furthermore the file transfer and conversion tools
+were available from the start of the project. This facilitated the testing of
+our program to be ported by allowing us to focus on the porting inconsistencies
+rather than on testing infrastructure. Things were not perfect however, we did
+have problems with the testing infrastructure that we solved in a short period
+of time.
 
 The environmental factors index has the following value in our case: $\alpha_e =
 E1 + E2 + E3 = 0 + NA + -1 = -1$. We are in the satisfactory half of the index,
@@ -372,8 +403,6 @@ achieve our goals. The score is also described below:
 \lm{A note here: I think all the tikz blocks should be placed inside figure blocks and referred as such. The whole reason why explicit referencing is used is to avoid the situation where you say ``X is described below'' and then LaTeX typesets your figure on the top of the next page (which, read on printed paper, does not fall below). More generally, you don't want your references to depend on particular typesetting choices.}
 \todo{the issue with figures is that i cannot find a way to center the tikz
 block, does it look weird like this?, see Figure 2}
-
-\lm{Maybe an example of particular environmental issues would work here?}
 
 Now that we evaluated the costs and discovered their correlation with the porting
 factors we will conduct a discussion on the results of our evaluation.
