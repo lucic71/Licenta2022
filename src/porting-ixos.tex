@@ -25,16 +25,6 @@ a Chassis is used. The most important application that runs on the Chassis is
 IxServer. It creates a communication channel between IxExplorer and the testing
 machines.
 
-\lm{This is not the only purpose of a chassis. Its main purpose is to integrate
-all the testing elements. In IxExplorer you can view, for example, multiple
-chassis whose ports are interconnected, in fact this is quite a common testing
-setup. The advantage of this (chassis, multiple-chassis, AKA ``chassis chain'')
-view is that it integrates the entire test setup in a single place. You can for
-example correlate traffic generated from Chasssis 1, Card 1, Port 1 to traffic
-received by Chassis 2, Card 1, Port 5 by viewing them in the same place. It also
-scales for big setups. \\\\ LL: I think that my description is enough for the scope of the thesis.
-}
-
 Next, the cards are the most interesting part for our porting. They run on a
 custom Ixia solution, IxVM to achieve the best performance for network testing.
 On top of IxVM is placed IxOS Linux, a modified version of Linux with custom
@@ -99,12 +89,13 @@ correct binaries.
 
 \section{The Porting Process}
 
-\lm{Could also reiterate here why we chose an ARM board, just so that it sticks to the reader's mind.}
-
 The porting process consisted in moving the IxOS testing infrastructure from its
 source environment to a new target environment consisting of an off-the-shelf
-ARM board, Raspberry Pi, running a stock Linux operating system. When we started
-the porting we set the following porting milestones:
+ARM board, Raspberry Pi, running a stock Linux operating system. We chose an ARM
+board because we wanted to run the legacy infrastructure on in a new environment
+compatible with the old one.
+
+When we started the porting we set the following porting milestones:
 \begin{itemize}
     \item Decouple InterfaceManager build from legacy IxOS
     \item Run InterfaceManager in QEMU
@@ -114,7 +105,12 @@ We achieved all our proposed milestones during the twelve weeks of the project.
 At the end of the project we divided the work into three logical stages
 that cover the process of achieving the above milestones.
 
-\lm{The list below is the first time you mention HostProxy. If you really want to talk about this, I think you could dedicate a paragraph to explain the following: although we decoupled InterfaceManager build from IxOS (chassis + card) and we devised a custom deployment process on RPi, at this point we still wanted to maintain compatibility between IxOS chassis and card (we wanted our modified RPi environment to be viewable as an IxOS card). I think mentioning this is important, because it then allows the reader to understand more precisely where exactly some of our problems came from (the chassis needed to connect to the card, but some pieces were missing and we had to work our way around them).}
+The target of the porting process was to decouple InterfaceManager build from
+IxOS and run it on an ARM off-the-shelf board. By doing this we also wanted that
+the Raspberry Pi to be visible from IxExplorer as a card. Because of this we
+needed to maintain compatibility between the chassis and our Raspberry Pi card.
+We achieved this by porting another component from IxOS (i.e., HostProxy) which
+is responsible for communicating directly with the chassis.
 
 The logical stages of our porting process are the following:
 \begin{itemize}
@@ -155,13 +151,15 @@ This proved to be a great advantage for us because the testing environment
 worked better on hardware than in the emulator. After we built all our
 components, we started to focus on the inconsistencies between the source
 environment and the target environment. For that we had to modify some parts of
-the program that were source environment dependent. However the porting did not
-run as smoothly as we expected. We had to investigate multiples paths to
-understand the problems we faced, namely the problems regarding the
-initialization of our Card.~\lm{This could be better focused, by first mentioning that we had problems with InterfaceManager initialization, then saying that these required an iterative testing/searching/rebuilding/redeployment process.}
+the program that were source environment dependent. In this process we had
+problems with the initialization of InterfaceManager on the Card. This required
+an interative process of testing, searching, rebuilding and redeployment to
+understand and solve the initialization problems. The major inconveniences with
+the initialization featured missing utilities as ethtool(8), missing
+configuration files and missing code for ARM architecture.
 
 In stage three we investigated the initialization problems from another
-perspective.~\lm{From what I remember, not all initialization issues were specific to the chassis. If I remember correctly, one minor setup issue was that we required ethtool, might be worth mentioning this in the previous paragraph.} This time we investigated what was the initialization sequence on
+perspective. This time we investigated what was the initialization sequence on
 IxServer. Here we discovered that IxServer did not set the link state correctly
 when connecting to our Card. To solve that we tracked the variables and code
 zones that modify the link state in order to find out which code lines cause
