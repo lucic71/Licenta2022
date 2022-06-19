@@ -274,19 +274,26 @@ Given these impediments the portability impediment index has the following
 value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
 were no differences between processor architecture (S1$\sim$S5), little difference
 between source and target OSes (S6, S7, S12) and a major difference in language
-processor (S8$\sim$S11). The portability difficulty is thus reflected in the
-following figure:
+processor (S8$\sim$S11). The portability difficulty is thus reflected in
+Figure~\ref{fig:pii}.
 
-\begin{tikzpicture}[
-    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
-    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
-        thick      
-]
-    \draw (0,0.2) -- + (0,-0.4) node[below] {EASIEST=0};
-    \draw (6,0.2) -- + (0,-0.4) node[below] {HARDEST=36};
-    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-    \node[dot,label={$\alpha_p$=6}] at (1,0) {};
-\end{tikzpicture}
+\begin{figure}
+    \begin{center}
+    \begin{tikzpicture}[
+        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+            thick      
+    ]
+        \draw (0,0.2) -- + (0,-0.4) node[below] {EASIEST=0};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {HARDEST=36};
+        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+        \node[dot,label={$\alpha_p$=6}] at (1,0) {};
+    \end{tikzpicture}
+    \end{center}
+
+    \caption{Portability Impediment Index}
+    \label{fig:pii}
+\end{figure}
 
 
 \subsection{Human Factors Index}
@@ -298,18 +305,26 @@ human factors play in our porting so that we can assess the quality of the
 porting process. 
 
 In our case $\alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6$.
-This score is very close the worst possible score:
+This score is very close the worst possible score as seen in
+Figure~\ref{fig:hfi}.
 
-\begin{tikzpicture}[
-    dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
-    every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
-        thick      
-]
-    \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-10};
-    \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=10};
-    \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
-    \node[dot,label={$\alpha_h$=6}] at (4.8,0) {};
-\end{tikzpicture}
+\begin{figure}
+    \begin{center}
+    \begin{tikzpicture}[
+        dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
+        every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
+            thick      
+    ]
+        \draw (0,0.2) -- + (0,-0.4) node[below] {BEST=-10};
+        \draw (6,0.2) -- + (0,-0.4) node[below] {WORST=10};
+        \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
+        \node[dot,label={$\alpha_h$=6}] at (4.8,0) {};
+    \end{tikzpicture}
+    \end{center}
+
+    \caption{Human Factors Index}
+    \label{fig:hfi}
+\end{figure}
 
 Indeed, the human factor played a major role in our porting process, let
 us analyze each factor and see what went wrong.
@@ -384,10 +399,10 @@ The environmental factors index has the following value in our case: $\alpha_e =
 E1 + E2 + E3 = 0 + NA + -1 = -1$. We are in the satisfactory half of the index,
 meaning that even if we had some difficulties setting and understanding the
 development and testing environment, we managed to work with them in order to
-achieve our goals. The score is also described below:
+achieve our goals. The score is also described in Figure~\ref{fig:efi}.
 
 \begin{figure}
-\begin{center}
+    \begin{center}
     \begin{tikzpicture}[
         dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
         every label/.append style = {inner sep=0pt, rotate around={45:(-0.5,1.5)}},
@@ -398,13 +413,11 @@ achieve our goals. The score is also described below:
         \draw[thick] (0,0) -- node[below=2mm] {} + (6,0);
         \node[dot,label={$\alpha_e$=-1}] at (2,0) {};
     \end{tikzpicture}
-\end{center}
-    \caption{Environmental factor index}
-\end{figure}
+    \end{center}
 
-\lm{A note here: I think all the tikz blocks should be placed inside figure blocks and referred as such. The whole reason why explicit referencing is used is to avoid the situation where you say ``X is described below'' and then LaTeX typesets your figure on the top of the next page (which, read on printed paper, does not fall below). More generally, you don't want your references to depend on particular typesetting choices.}
-\todo{the issue with figures is that i cannot find a way to center the tikz
-block, does it look weird like this?, see Figure 2}
+    \caption{Environmental Factors Index}
+    \label{fig:efi}
+\end{figure}
 
 Now that we evaluated the costs and discovered their correlation with the porting
 factors we will conduct a discussion on the results of our evaluation.
