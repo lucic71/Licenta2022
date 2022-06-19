@@ -42,35 +42,33 @@ the new environment, solving possible inconsistencies and making sure that the
 software system behaves in a well defined manner when ran in the new
 environment.
 
-Mooney's model is very simplistic regarding the tasks that can occur during
-a porting process. From his model, and from the work of Hakuta and Ohminami~
-\cite{hakuta}, and Tanaka et al.~\cite{tanaka} a more accurate model can be created that
-reflects better the components involved in porting an application. We also added
-our input in this model based on the needs of our project.\todo{does this fit
-here?}\lm{I would suggest sticking to the original model here. What is the exact diff between the original and what you added? I think the new items should be added in another (separate?) chapter.} Finally, the improvised model of porting has the following structure:
+Mooney's model is very simplistic regarding the tasks that can occur during a
+porting process. Hakuta and Ohminami~ \cite{hakuta}, and Tanaka et
+al.~\cite{tanaka} created a more accurate model that reflects better components
+involved in porting an application. The tasks involved in their model are the
+following:
 \begin{itemize}
     \item Advance preparations
         \begin{itemize}
             \item Surveying development environment
-            \item Surveying target OS
+            \item Surveying OS
             \item Surveying program for porting
-            \item Surveying documentation
-            \item Adjusting development environment
+            \item Surveying workstation development environment
             \item Adjusting target environment
             \item Initial source code modifications
         \end{itemize}
-    \item Building for target environment
+    \item Workstation testing
         \begin{itemize}
-            \item Build system triggering and modification
-            \item Installation on remote environment
-            \item Reviewing inconsistencies between source and remote
-            environments
-            \item Solving problems with external dependencies
+            \item Standalone testing on workstation
+            \item Linked testing on workstation
         \end{itemize}
-    \item Testing
+    \item Target testing
         \begin{itemize}
-            \item Testing in simulated environment
-            \item Testing in target environment
+            \item File-making
+            \item File system creation
+            \item Installation on target
+            \item Test program creation
+            \item Linked test on target
         \end{itemize}
     \item General duties
         \begin{itemize}
@@ -80,32 +78,11 @@ here?}\lm{I would suggest sticking to the original model here. What is the exact
         \end{itemize}
 \end{itemize}
 
-In \textit{Advance preparations} the developer familiarizes with the tools,
-environments and the program to be ported, and also adjusts the development and
-target environments for creating and testing the program to be ported. Finally,
-if needed, the developer also makes \textit{Initial source code modifications}
-that reflect the modification of the source environment to the new target
-environment (e.g., modification in system call numbers and error
-numbers~\cite{callahanopenbsd}).
-
-In the second task of \textit{Building for target environment} the developer
-focuses on three issues: compiling the code to generate binaries for the
-target environment, installing the code in the target environment and solving
-the inconsistencies between the source and target environment.
-
-The previous task and \textit{Testing} are the core of the porting process, they
-deliver the ported application that operates in the target environment.
-Testing is of two types in this model. The application can either be tested in a
-simulated environment for convenience (e.g., hardware is not available at the
-moment of testing) or can be tested directly in the target environment.
-Furthermore this tasks includes implicitly the time allocated for setting up the
-testing environment.
-
-The last task, that is \textit{General duties}, encompasses subtask related to
-human interaction activities. In this part of the project the developer focuses
-on delivering documents that describe the process of porting or other
-information relevant to the project and focuses on planning and discussing
-aspects with regards to difficulties encountered during the process.
+They emphasize on spending additional time on getting familiar with the system
+and only then starting to port the application per se. Testing is conducted in a
+workstation environment (that is, testing the builds on the local machine or in
+a local simulator/emulator) and in the target environment. Finally they also
+include non-technical duties as documentation, tracking and discussions.
 
 \section{Porting costs and factors}
 

@@ -1,0 +1,73 @@
+\chapter{A revised porting model} \label{sec:revised-porting-model}
+
+Given that the model of porting presented in Chapter~\ref{sec:background} was
+crafted for the particular use case of one project~\cite{tanaka} and we wanted
+to use a more general porting model, we revised the old porting model and
+modified it so that it could match more porting projects.
+
+In the revised model, we keep the \textit{General duties} and \textit{Advance
+preparations} tasks and modify the \textit{Workstation testing} and
+\textit{Target testing}. We do these changes because we want to emhpasize the
+allocated time between testing and development with the \textit{Building for
+target environment} and \textit{Testing} tasks.
+
+Following is the revised model:
+\begin{itemize}
+    \item Advance preparations
+        \begin{itemize}
+            \item Surveying development environment
+            \item Surveying target OS
+            \item Surveying program for porting
+            \item Surveying documentation
+            \item Adjusting development environment
+            \item Adjusting target environment
+            \item Initial source code modifications
+        \end{itemize}
+    \item Building for target environment
+        \begin{itemize}
+            \item Build system triggering and modification
+            \item Installation on remote environment
+            \item Reviewing inconsistencies between source and remote
+            environments
+            \item Solving problems with external dependencies
+        \end{itemize}
+    \item Testing
+        \begin{itemize}
+            \item Testing in simulated environment
+            \item Testing in target environment
+        \end{itemize}
+    \item General duties
+        \begin{itemize}
+            \item Documentation
+            \item Progress tracking
+            \item Discussions
+        \end{itemize}
+\end{itemize}
+
+In \textit{Advance preparations} the developer familiarizes with the tools,
+environments and the program to be ported, and also adjusts the development and
+target environments for creating and testing the program to be ported. Finally,
+if needed, the developer also makes \textit{Initial source code modifications}
+that reflect the modification of the source environment to the new target
+environment (e.g., modification in system call numbers and error
+numbers~\cite{callahanopenbsd}).
+
+In the second task of \textit{Building for target environment} the developer
+focuses on three issues: compiling the code to generate binaries for the
+target environment, installing the code in the target environment and solving
+the inconsistencies between the source and target environment.
+
+The previous task and \textit{Testing} are the core of the porting process, they
+deliver the ported application that operates in the target environment.
+Testing is of two types in this model. The application can either be tested in a
+simulated environment for convenience (e.g., hardware is not available at the
+moment of testing) or can be tested directly in the target environment.
+Furthermore this tasks includes implicitly the time allocated for setting up the
+testing environment.
+
+The last task, that is \textit{General duties}, encompasses subtask related to
+human interaction activities. In this part of the project the developer focuses
+on delivering documents that describe the process of porting or other
+information relevant to the project and focuses on planning and discussing
+aspects with regards to difficulties encountered during the process.
+
