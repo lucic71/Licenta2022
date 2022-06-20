@@ -372,3 +372,22 @@
   - week of June 27 -- rehearsals
   - June 30-July 1 -- presentation rehearsal(s)
   - July 1 -- demo ready
+
+# 2022 June 20, Diploma meeting #26
+
+- Status
+  - Had meeting with RazvanD; discussed about key takeaways of paper
+  - Demo looks good so far
+- Planning
+  - #1 Practical demo
+    - Bring setup up
+    - Evaluate what works, what doesn't
+    - Think of demo
+  - #2 Integrate remaining feedback, rediscuss, rework
+  - #3 Prepare final presentation
+- Milestones
+  - June 27 -- final-ish presentation rehearsals
+  - week of June 27 -- submit thesis
+  - July 30 -- rehearsal with larger group
+  - July 1 -- demo ready
+  - July 3 -- final rehearsal
