@@ -37,7 +37,7 @@ extracting the porting costs based on the progress tracking we have done during
 the project.
 
 Later we discuss the factors that affected our cost evaluation. We focus on
-three aspects of these factors: portability impedimets, human experience and
+three aspects of these factors: portability impediments, human experience and
 environmental factors. For each of them we analyze a score to understand their
 impact in the project and we analyze them with regards to our porting.
 
@@ -95,7 +95,7 @@ Porting task & Subtasks & \multirowline{Man\\-hours} & \multirowline{Subtotals\\
 \end{table*}
 
 The most time consuming task is \textit{Build system triggering and
-modification}. This happened because we spent a lot of time on extracting and
+modification}. The reason behind this is spending a lot of time on extracting and
 integrating IxOS components as InterfaceManager, HostProxy and IxServer. There
 was also much repetitive time spent on triggering the compilation pipeline that
 was added in the total of 67 hours.
@@ -270,7 +270,7 @@ Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
 /dev/kmem which was needed by dmidecode(8), which in turn was needed by
 InterfaceManager.
 
-Given these impediments the portability impediment index has the following
+Given these impediments, the portability impediment index has the following
 value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
 were no differences between processor architecture (S1$\sim$S5), little difference
 between source and target OSes (S6, S7, S12) and a major difference in language
@@ -298,14 +298,14 @@ Figure~\ref{fig:pii}.
 
 \subsection{Human Factors Index}
 
-Software programs are byproducts of human activities than incorporate our
+Software programs are byproducts of human activities that incorporate our
 problem-solving capabilities, cognitive aspects and social
 interaction~\cite{capretz}, therefore it is vital to understand what role did the
 human factors play in our porting so that we can assess the quality of the
 porting process. 
 
 In our case $\alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6$.
-This score is very close the worst possible score as seen in
+This score is very close to the worst possible score as seen in
 Figure~\ref{fig:hfi}.
 
 \begin{figure}

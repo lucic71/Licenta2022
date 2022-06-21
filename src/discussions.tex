@@ -30,7 +30,7 @@
 %  any porting whatsoever (this discussion is in ../src -> background section if
 %  i remember correctly)
 
-In this chapter we discuss some conclusions of our porting work including the
+In this chapter we discuss conclusions of our porting work, including the
 limitations of the porting model we used and factors for these limitations,
 namely the dependency between porting tasks. We also compare our results with
 the results of the first paper that published a porting model to understand what
@@ -68,7 +68,7 @@ why? or what was the relation between development and testing? For this we
 allocated an hour each week for tracking the status of the project, the planned
 objectives for the future and the major difficulties we met in the respective
 week. It is unclear, however, if more time spent on progress tracking would
-improve the quality of other tasks. We can only guess, but more time spent on
+improve the quality of other tasks. Although we can only guess, more time spent on
 tracking the working hours would mean that the developer has a better sense of
 the time spent on each task, thus better managing multiple tasks at a time in
 the future.
@@ -110,16 +110,16 @@ bullet? and how do we divide this time between porting tasks?
 \subsection{Dependencies between porting tasks}
 
 The next discussion point focuses on the porting tasks dependency graph. It
-would be very difficult to sketch a complete graph between all tasks, instead we
+would be very difficult to sketch a complete graph between all tasks. Instead, we
 can focus on specific areas of the graph that are somehow easier to understand
 and sketch. The first area is the dependency between \textit{Testing} and all
 subtasks in \textit{Building for target environment}. There is a continous
-feedback between the testing phase and the development phase. While porting we
+feedback between the testing phase and the development phase. While porting, we
 built binaries, installed them on target environment, tested them and expected
 to see errors of linking, problems with the installation or actual
 inconsistencies and problems with dependencies that would be solved in a future
 iteration of this process. This iterative process with continous feedback
-between testing and development is a building block of the Agile methodology, if
+between testing and development is a building block of the Agile methodology. If
 we used other software methodology as Waterfall maybe the dependency would be
 completely different. The second area we focus on is the dependency between
 \textit{General duties} and all other subtasks. Documentation is linked to all
@@ -156,14 +156,14 @@ interested in subtasks from \textit{Building for target environment}, for
 example. Tanaka et al. seem to work with a Waterfall methodology. This might
 explain the increased time in this initial stage.
 
-Next we compare the \textit{Building for target environment} in our model with
-\textit{Target testing} from Tanaka et al. There are significant differences in
-the subtasks from the two models but we are interested in a comparison of
-development time (i.e., actual work focused on solving errors and
+Next, we compare the \textit{Building for target environment} in our model with
+\textit{Target testing} from Tanaka et al.  Although there are significant
+differences in the subtasks from the two models, we are interested in a
+comparison of development time (i.e., actual work focused on solving errors and
 inconsistencies, building binaries, etc.). It seems that Tanaka et al. put the
 time spent on solving errors and the time spent on testing in the same category.
 This makes the comparison difficult as we do not know how to divide this time.
-However our time spent in this stage is 32.71\% while Tanaka et al. spend
+However, our time spent in this stage is 32.71\% while Tanaka et al. spend
 27.8\%. The most time consuming task for us was to work with the build system,
 which is not the case for them. This shows the major difference between our
 project and theirs. While our porting was focused on extracting components from
@@ -181,8 +181,8 @@ evaluating the costs in advance, special attention must be payed to these tasks.
 
 \section{General difficulties}
 
-This section presentes the general impediments we faced during our porting. The
-difficulties were extracted from the parcitular technical difficulties we faced
+This section presents the general impediments we faced during our porting. The
+difficulties were extracted from the particular technical difficulties we faced
 during the porting process.
 
 \subsection{Lacking documentation}
@@ -195,7 +195,7 @@ slower than documentation through written text.
 \subsection{Inconsistencies between environments}
 This difficulty corresponds to the degree of which the application is
 portable~\cite{mooney2004developing} between two given environments. If the
-degree of portability is too low (this depends entirely on the application) then
+degree of portability is too low (this depends entirely on the application), then
 the developer will be faced with many inconsistencies between the source and
 target environments that will be reflected in the cost of porting (i.e.,
 man-hours).
