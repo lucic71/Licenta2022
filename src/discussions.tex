@@ -104,9 +104,6 @@ with the provided tools and systems. Furthermore, to have a more accurate
 conversion there must be time considerents: how much time did we spent on this
 bullet? and how do we divide this time between porting tasks?
 
-\lm{If I understand correctly, the problem here is one of taxonomy: a given task could fall into more than one category, or rather, the time allocated to that task could be broken between multiple categories. I'm wondering, then: do the ``porting task categories'' themselves represent the porting process? Or is there some better way to break down porting processes (in general)?}
-\lp{I don't know how to answer that question}
-
 \subsection{Dependencies between porting tasks}
 
 The next discussion point focuses on the porting tasks dependency graph. It
@@ -215,11 +212,3 @@ is no easy way to understand the system, so the developer will be faced with the
 task of understanding the architecture diagrams, huge code base, written
 documents and tutorials either when the porting starts or during the porting
 process.
-
-\subsection{Unexpected difficulties}
-As with every software process, there are difficulties
-that can not be estimated beforehand. They include unknown parts of the software
-that may cause problems when ported or assumptions about the environment made by
-the system that will not work in the target environment. The only time they
-are clearly reflected in the porting costs is at the end of the project where
-a retrospective is led.~\lm{I know I commented at least twice in the past on this paragraph and I'm still unconvinced about it. One needs to look deeper into what this ``unexpected'' means, or rather, what causes it. To my eye, something is always unexpected in the context of partial information, so ``Unexpected difficulties'' is not disjoint from ``Understanding the system''. You have to ask yourself: had you known more things beforehand (e.g. architectural details about IxOS, or RPi delivery date), would the unexpected difficulties still be unexpected? If not, then there's really nothing ``unexpected'' about them, they were just caused by lack of familiarity with the system.}
