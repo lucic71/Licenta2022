@@ -258,12 +258,17 @@ Pi Linux versus on x86 Linux. On Raspberry Pi we were not allowed to access
 /dev/kmem which was needed by dmidecode(8), which in turn was needed by
 InterfaceManager.
 
-Given these impediments, the portability impediment index has the following
-value: $\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6$.  There
-were no differences between processor architecture (S1$\sim$S5), little difference
-between source and target OSes (S6, S7, S12) and a major difference in language
-processor (S8$\sim$S11). The portability difficulty is thus reflected in
-Figure~\ref{fig:pii}.
+Given these impediments, the portability impediment index has the value
+calculated in Equation~\ref{eq:piival}.
+
+\begin{equation} \label{eq:piival}
+\alpha_p = 2 * (0.5 * S8 + 1 * S9 + 1 * S10 + 0.5 * S12) = 6
+\end{equation}
+
+There were no differences between processor architecture (S1$\sim$S5), little
+difference between source and target OSes (S6, S7, S12) and a major difference
+in language processor (S8$\sim$S11). The portability difficulty is thus
+reflected in Figure~\ref{fig:pii}.
 
 \begin{figure}
     \begin{center}
@@ -292,7 +297,13 @@ interaction~\cite{capretz}, therefore it is vital to understand what role did th
 human factors play in our porting so that we can assess the quality of the
 porting process. 
 
-In our case $\alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6$.
+The value of the human factor index in our case is computed in
+Eqution~\ref{hfival}.
+
+\begin{equation} \label{eq:hfival}
+\alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6
+\end{equation}
+
 This score is very close to the worst possible score as seen in
 Figure~\ref{fig:hfi}.
 
@@ -381,8 +392,13 @@ rather than on testing infrastructure. Things were not perfect however, we did
 have problems with the testing infrastructure that we solved in a short period
 of time.
 
-The environmental factors index has the following value in our case: $\alpha_e =
-E1 + E2 + E3 = 0 + NA + -1 = -1$. We are in the satisfactory half of the index,
+The environmental factors index is computed in Equation~\ref{eq:efival}.
+
+\begin{equation} \label{eq:efival}
+\alpha_e = E1 + E2 + E3 = 0 + N/A + -1 = -1
+\end{equation}
+
+e are in the satisfactory half of the index,
 meaning that even if we had some difficulties setting and understanding the
 development and testing environment, we managed to work with them in order to
 achieve our goals. The score is also described in Figure~\ref{fig:efi}.

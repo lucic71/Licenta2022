@@ -99,8 +99,13 @@ impediments index, human factors index and environmental factors index.
 The first index, portability impediments, answers the following question: how
 portable was the program to be ported and how many difficulties did the
 developer meet in the porting process? The factors that influence this index are
-described in (S1$\sim$S11~\cite{hakuta}) and the index is computed using the
-following formula: \[ \alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i \]
+described in (S1$\sim$S11~\cite{hakuta}) and the index is computed using
+Equation~\ref{eq:pii}.
+
+
+\begin{equation} \label{eq:pii}
+\alpha_p = \eta * \sum_{n=1}^{12} \omega_i S_i
+\end{equation}
 
 Here $\eta$ is a portability design index, $\omega_i$ is the weight assigned to
 each factor and $S_i$ is 1 when the impediment factor $i$ exists, otherwise is
@@ -110,7 +115,10 @@ architecture, OS disparity and differences in language processor.
 The second index, human factors, answers the following question: what role did
 the experience and knowledge of the developer play in the porting process? The
 factors that influence this index are described in (H1$\sim$H5~\cite{hakuta}) and
-the index is computed using the following formula: \[ \sum_{n=1}^{5} H_i \]
+the index is computed using Equation~\ref{eq:hfi}.
+\begin{equation} \label{eq:hfi}
+\sum_{n=1}^{5} H_i
+\end{equation}
 
 Here $H_i$ are the human factors presented in~\cite{hakuta}. Their values range
 from -2 which reflects the maximum productivity while 2 reflects the minimum
@@ -119,8 +127,12 @@ productivity.
 The third index, environmental factors, answers the following question: how did
 the development and testing environments, and the tools used during the porting
 process affect the porting costs? The factors that influence this index are
-described in (E1$\sim$E3~\cite{hakuta}) and the index is computed using the
-following formula: \[ \sum_{n=1}^{3} E_i \]
+described in (E1$\sim$E3~\cite{hakuta}) and the index is computed using
+Equation~\ref{eq:hfi}.
+
+\begin{equation} \label{eq:hfi}
+\sum_{n=1}^{3} E_i
+\end{equation}
 
 Here $E_i$ are the following environmental factors as presented in~\cite{hakuta}:
 \begin{itemize}
