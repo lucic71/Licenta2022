@@ -106,6 +106,8 @@ they were difficult to find. This situation is no surprise for us because we had
 no reference or documentation that would help us in investigating the errors and
 inconsistencies.
 
+\FloatBarrier
+
 There was no time allocated on making initial source code modifications because
 the system was unfamiliar and hard to understand from the start. Finally, we
 spent more time on \textit{General Duties} than on \textit{Testing}. This shows
@@ -298,7 +300,7 @@ human factors play in our porting so that we can assess the quality of the
 porting process. 
 
 The value of the human factor index in our case is computed in
-Eqution~\ref{hfival}.
+Eqution~\ref{eq:hfival}.
 
 \begin{equation} \label{eq:hfival}
 \alpha_h = H1 + H2 + H3 + H4 + H5 = 2 + (-1) + 2 + 1 + 2 = 6
@@ -307,7 +309,7 @@ Eqution~\ref{hfival}.
 This score is very close to the worst possible score as seen in
 Figure~\ref{fig:hfi}.
 
-\begin{figure}
+\begin{figure}[H]
     \begin{center}
     \begin{tikzpicture}[
         dot/.style = {circle, fill=black,inner sep=0pt, minimum size=4pt},
