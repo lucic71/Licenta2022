@@ -391,3 +391,17 @@
   - July 30 -- rehearsal with larger group
   - July 1 -- demo ready
   - July 3 -- final rehearsal
+
+# 2022 June 27, Diploma meeting #27
+
+- Status
+  - Submitted thesis
+  - Preparing demo; might be worth to use a recorded demo here
+  - Doing rehearsals for final presentation
+- Had rehearsal with some suggestions for focusing the story
+- Thursday will reiterate through rehearsal with Razvan and Adrian (and
+  maybe Cosmin)
+- Presentation date: July 4 or 5
+- Planning
+  - #1 Rehearse, rehearse, rehearse
+  - #2 Demo
