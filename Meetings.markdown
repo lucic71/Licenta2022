@@ -405,3 +405,8 @@
 - Planning
   - #1 Rehearse, rehearse, rehearse
   - #2 Demo
+
+# 2022 June 30, rehearsal
+
+- Participants: LucianP, LucianM, Adrian, Cosmin
+
