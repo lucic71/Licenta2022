@@ -410,3 +410,8 @@
 
 - Participants: LucianP, LucianM, Adrian, Cosmin
 
+# 2022 July 4, Diploma meeting #28
+
+- Demo ready, backup demo video also ready
+- Final presentation: tomorrow, early in the morning
+- Rehearsal for final presentation
